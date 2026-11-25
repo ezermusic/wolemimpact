@@ -1,0 +1,4868 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="theme-color" content="#341C4F" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>WOLEM Impact – Give money, goods or time to verified needs in Ghana</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=DM+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* ===== THEME TOKENS ===== */
+      :root {
+        --ink: #341c4f;
+        --ink2: #5b4a70;
+        --coral: #ff6b5e;
+        --coralD: #e4503f;
+        --bg: #eee7f5;
+        --card: #fff;
+        --line: #d9cce8;
+        --soft: #f7f3fb;
+        --ok: #2f7d5b;
+        --logo: block;
+        --logoD: none;
+        box-sizing: border-box;
+        padding-top: env(safe-area-inset-top, 0px);
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) {
+          --ink: #f1eaf9;
+          --ink2: #bbaacf;
+          --bg: #1d1030;
+          --card: #2a1842;
+          --line: #46305f;
+          --soft: #34214f;
+          --logo: none;
+          --logoD: block;
+        }
+      }
+      :root[data-theme="dark"] {
+        --ink: #f1eaf9;
+        --ink2: #bbaacf;
+        --bg: #1d1030;
+        --card: #2a1842;
+        --line: #46305f;
+        --soft: #34214f;
+        --logo: none;
+        --logoD: block;
+      }
+      html {
+        scroll-padding-top: env(safe-area-inset-top, 0px);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font:
+          16px/1.55 "DM Sans",
+          system-ui,
+          sans-serif;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: "Bricolage Grotesque", "DM Sans", system-ui, sans-serif;
+        line-height: 1.1;
+        margin: 0;
+        letter-spacing: -0.02em;
+      }
+      h1 {
+        font-size: clamp(2.3rem, 6vw, 4.2rem);
+        font-weight: 800;
+      }
+      h2 {
+        font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+        font-weight: 800;
+      }
+      h3 {
+        font-size: 1.15rem;
+        font-weight: 600;
+      }
+      a {
+        color: inherit;
+      }
+      button,
+      input,
+      select,
+      textarea {
+        font: inherit;
+        color: inherit;
+      }
+      :focus-visible {
+        outline: 3px solid var(--coral);
+        outline-offset: 2px;
+      }
+      .w {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 0 16px;
+      }
+
+      /* ===== HEADER & NAV ===== */
+      header {
+        position: sticky;
+        top: env(safe-area-inset-top, 0px);
+        z-index: 20;
+        background: var(--bg);
+        border-bottom: 1px solid var(--line);
+      }
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0 0 auto;
+        height: env(safe-area-inset-top, 0px);
+        background: var(--bg);
+        z-index: 30;
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        height: 60px;
+      }
+      .nav img {
+        height: 26px;
+        width: auto;
+      }
+      .nav nav {
+        display: none;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 4px;
+        padding: 12px 16px calc(16px + env(safe-area-inset-bottom, 0px));
+        background: var(--bg);
+        border-bottom: 1px solid var(--line);
+        box-shadow: 0 20px 30px rgba(0, 0, 0, 0.18);
+        max-height: calc(100vh - 60px);
+        max-height: calc(100dvh - 60px);
+        overflow: auto;
+      }
+      .nav nav a {
+        padding: 8px 14px;
+        border-radius: 12px;
+        text-decoration: none;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        min-height: 48px;
+      }
+      .nav nav a:hover {
+        background: var(--soft);
+      }
+      .logo {
+        display: var(--logo);
+      }
+      .logoD {
+        display: var(--logoD);
+      }
+
+      /* ===== BUTTONS ===== */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        border: 0;
+        border-radius: 99px;
+        padding: 12px 22px;
+        font-weight: 700;
+        cursor: pointer;
+        text-decoration: none;
+        background: var(--coral);
+        color: #2a0f1c;
+        transition:
+          transform 0.15s,
+          background 0.15s;
+        min-height: 48px;
+      }
+      .btn:hover {
+        background: var(--coralD);
+        color: #fff;
+        transform: translateY(-1px);
+      }
+      .btn.alt {
+        background: transparent;
+        border: 2px solid var(--ink);
+        color: var(--ink);
+      }
+      .btn.alt:hover {
+        background: var(--ink);
+        color: var(--bg);
+      }
+      .btn.lg {
+        padding: 15px 28px;
+        font-size: 1.05rem;
+        min-height: 52px;
+      }
+      .btn.block {
+        width: 100%;
+      }
+
+      /* ===== HOME PAGE ===== */
+      .hero {
+        padding: 28px 0 24px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 28px;
+        align-items: center;
+      }
+      .hero p.lead {
+        font-size: 1.05rem;
+        color: var(--ink2);
+        max-width: 34em;
+        margin: 16px 0 24px;
+      }
+      .row {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .pill {
+        display: inline-flex;
+        gap: 6px;
+        align-items: center;
+        background: var(--card);
+        border: 1px solid var(--line);
+        padding: 6px 14px;
+        border-radius: 99px;
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+
+      /* ===== CARDS & GRID ===== */
+      .card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        overflow: hidden;
+      }
+      .cover {
+        height: 150px;
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        padding: 12px;
+      }
+      .cover svg {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+      }
+      .tag {
+        position: relative;
+        background: rgba(255, 255, 255, 0.92);
+        color: #341c4f;
+        border-radius: 99px;
+        padding: 3px 10px;
+        font-size: 0.8rem;
+        font-weight: 700;
+      }
+      .ver {
+        color: var(--ok);
+        font-weight: 700;
+        font-size: 0.85rem;
+        display: inline-flex;
+        gap: 4px;
+        align-items: center;
+      }
+      .bar {
+        height: 10px;
+        border-radius: 99px;
+        background: var(--soft);
+        overflow: hidden;
+        border: 1px solid var(--line);
+      }
+      .bar i {
+        display: block;
+        height: 100%;
+        background: var(--coral);
+        border-radius: 99px;
+      }
+      .meta {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.88rem;
+        color: var(--ink2);
+        margin-top: 8px;
+      }
+      .meta b {
+        color: var(--ink);
+      }
+      .cb {
+        padding: 16px 18px 18px;
+        display: grid;
+        gap: 10px;
+      }
+      .cb h3 a {
+        text-decoration: none;
+      }
+      .cb h3 a:hover {
+        text-decoration: underline;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+        gap: 16px;
+      }
+      section {
+        padding: 40px 0;
+      }
+      .sec-h {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 16px;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+      }
+      .three {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+      .three .card {
+        padding: 20px;
+        display: grid;
+        gap: 10px;
+        align-content: start;
+      }
+      .ico {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: var(--coral);
+        display: grid;
+        place-items: center;
+        font-size: 1.4rem;
+      }
+      .band {
+        background: #341c4f;
+        color: #eee7f5;
+        border-radius: 22px;
+        padding: 24px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        align-items: center;
+      }
+      .band p {
+        color: #cdbbe0;
+      }
+      .band .btn.alt {
+        border-color: #eee7f5;
+        color: #eee7f5;
+      }
+      .band .btn.alt:hover {
+        background: #eee7f5;
+        color: #341c4f;
+      }
+      .steps {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 14px;
+        counter-reset: s;
+      }
+      .steps div {
+        counter-increment: s;
+        padding: 20px;
+        border-left: 3px solid var(--coral);
+        background: var(--card);
+        border-radius: 0 16px 16px 0;
+      }
+      .steps div::before {
+        content: counter(s);
+        font:
+          800 1.6rem "Bricolage Grotesque",
+          sans-serif;
+        color: var(--coral);
+        display: block;
+      }
+      footer {
+        background: #341c4f;
+        color: #cdbbe0;
+        padding: 32px 0;
+        margin-top: 32px;
+        font-size: 0.92rem;
+      }
+      footer img {
+        height: 30px;
+        margin-bottom: 12px;
+      }
+
+      /* ===== BROWSE & FORMS ===== */
+      .chips {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .chip {
+        border: 1.5px solid var(--line);
+        background: var(--card);
+        border-radius: 99px;
+        padding: 10px 16px;
+        cursor: pointer;
+        font-weight: 500;
+        min-height: 44px;
+      }
+      .chip[aria-pressed="true"] {
+        background: var(--ink);
+        color: var(--bg);
+        border-color: var(--ink);
+      }
+      .filters {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin: 16px 0 20px;
+      }
+      input,
+      select,
+      textarea {
+        background: var(--card);
+        border: 1.5px solid var(--line);
+        border-radius: 12px;
+        padding: 11px 14px;
+        width: 100%;
+      }
+      .filters input {
+        max-width: none;
+      }
+      .filters select {
+        max-width: none;
+      }
+      label {
+        display: grid;
+        gap: 6px;
+        font-weight: 500;
+        font-size: 0.92rem;
+      }
+      .form {
+        display: grid;
+        gap: 16px;
+      }
+
+      /* ===== CAMPAIGN PAGE ===== */
+      .cd {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        align-items: start;
+        padding: 16px 0 24px;
+      }
+      .cd .cover {
+        height: 200px;
+        border-radius: 16px;
+      }
+      .side {
+        position: static;
+        padding: 18px;
+        display: grid;
+        gap: 14px;
+      }
+      .tabs {
+        display: flex;
+        gap: 6px;
+        background: var(--soft);
+        padding: 5px;
+        border-radius: 99px;
+      }
+      .tabs button {
+        flex: 1;
+        border: 0;
+        background: none;
+        border-radius: 99px;
+        padding: 12px 4px;
+        font-weight: 700;
+        cursor: pointer;
+        font-size: 0.9rem;
+      }
+      .tabs button[aria-selected="true"] {
+        background: var(--ink);
+        color: var(--bg);
+      }
+      .list {
+        display: grid;
+        gap: 10px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .list li {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 12px 14px;
+      }
+      .av {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background: var(--ink);
+        color: var(--bg);
+        display: grid;
+        place-items: center;
+        font-weight: 700;
+        flex: none;
+      }
+      .amts {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+      }
+      .amts button {
+        border: 1.5px solid var(--line);
+        background: var(--card);
+        border-radius: 12px;
+        padding: 14px 0;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .amts button[aria-pressed="true"] {
+        border-color: var(--coral);
+        background: var(--coral);
+        color: #2a0f1c;
+      }
+
+      /* ===== DIALOGS ===== */
+      dialog {
+        border: 0;
+        border-radius: 24px 24px 0 0;
+        padding: 22px 18px calc(22px + env(safe-area-inset-bottom, 0px));
+        width: 100%;
+        max-width: 100%;
+        max-height: 92vh;
+        max-height: 92dvh;
+        margin: auto 0 0;
+        background: var(--card);
+        color: var(--ink);
+        animation: sheet 0.28s cubic-bezier(0.2, 0.7, 0.2, 1);
+      }
+      dialog::backdrop {
+        background: rgba(30, 10, 50, 0.6);
+      }
+      .opt {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        border: 1.5px solid var(--line);
+        border-radius: 12px;
+        padding: 12px 14px;
+        cursor: pointer;
+        min-height: 48px;
+      }
+      .opt input {
+        width: auto;
+      }
+      .opt:has(input:checked) {
+        border-color: var(--coral);
+        background: var(--soft);
+      }
+      .toast {
+        position: fixed;
+        left: 50%;
+        bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+        transform: translateX(-50%);
+        width: max-content;
+        max-width: calc(100% - 32px);
+        text-align: center;
+        background: #341c4f;
+        color: #fff;
+        padding: 12px 18px;
+        border-radius: 16px;
+        z-index: 50;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        border: 2px solid var(--coral);
+      }
+
+      /* ===== START WIZARD ===== */
+      .wiz {
+        max-width: 640px;
+        margin: 20px auto;
+      }
+      .dots {
+        display: flex;
+        gap: 6px;
+        margin-bottom: 20px;
+      }
+      .dots i {
+        flex: 1;
+        height: 6px;
+        border-radius: 9px;
+        background: var(--line);
+      }
+      .dots i.on {
+        background: var(--coral);
+      }
+      .err {
+        color: #c0392b;
+        font-size: 0.85rem;
+      }
+      .muted {
+        color: var(--ink2);
+      }
+      .hide {
+        display: none !important;
+      }
+
+      /* ===== ACCOUNTS & SOCIAL ===== */
+      #acct {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+      }
+      footer a {
+        color: #eee7f5;
+      }
+      dialog {
+        max-height: 92vh;
+      }
+      .grid .card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 14px 30px rgba(52, 28, 79, 0.15);
+      }
+      .soc {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 6px;
+      }
+      .soc a {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        border: 1.5px solid currentColor;
+        display: grid;
+        place-items: center;
+        color: inherit;
+        transition:
+          transform 0.25s,
+          background 0.25s,
+          color 0.25s,
+          border-color 0.25s;
+      }
+      .soc svg {
+        width: 20px;
+        height: 20px;
+      }
+      .soc a:hover {
+        background: var(--coral);
+        border-color: var(--coral);
+        color: #2a0f1c;
+        transform: translateY(-4px) rotate(-8deg);
+      }
+
+      /* ===== PAYMENTS ===== */
+      .pms {
+        display: grid;
+        gap: 8px;
+      }
+      .bx {
+        background: var(--soft);
+        border: 1px dashed var(--line);
+        border-radius: 12px;
+        padding: 10px 14px;
+        display: grid;
+        gap: 6px;
+      }
+      .kv {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        font-size: 0.9rem;
+      }
+
+      /* ===== ADMIN ===== */
+      @keyframes rv {
+        from {
+          opacity: 0;
+          transform: translateY(14px);
+        }
+      }
+      @keyframes fi {
+        from {
+          opacity: 0;
+        }
+      }
+      @keyframes dr {
+        from {
+          stroke-dashoffset: 1;
+        }
+      }
+      @keyframes gw {
+        from {
+          width: 0;
+        }
+      }
+      body.adm > header,
+      body.adm > footer {
+        display: none;
+      }
+      body.adm {
+        background: #150b25;
+        color: #eee7f5;
+      }
+      .rv {
+        animation: rv 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+        animation-delay: calc(var(--i, 0) * 70ms);
+      }
+      .alog {
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background: radial-gradient(60% 50% at 50% 0, #4a2a6e, transparent), #150b25;
+      }
+      .gl {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(14px);
+        border-radius: 24px;
+        padding: 32px;
+        width: min(400px, 92vw);
+        display: grid;
+        gap: 16px;
+      }
+      .gl input,
+      .ad input,
+      .ad select,
+      .ad textarea {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.18);
+        color: #eee7f5;
+      }
+      .ad {
+        display: grid;
+        grid-template-columns: 1fr;
+        min-height: 100vh;
+        background:
+          radial-gradient(50% 40% at 85% 0, rgba(255, 107, 94, 0.18), transparent),
+          radial-gradient(40% 40% at 0 100%, rgba(140, 107, 177, 0.25), transparent), #150b25;
+      }
+      .ad .muted {
+        color: #b9a6d1;
+      }
+      .ad h2,
+      .ad h3 {
+        color: #eee7f5;
+      }
+      .ad .chip {
+        background: transparent;
+        color: #eee7f5;
+        border-color: rgba(255, 255, 255, 0.2);
+      }
+      .ad .chip[aria-pressed="true"] {
+        background: var(--coral);
+        color: #2a0f1c;
+        border-color: var(--coral);
+      }
+      .as {
+        position: sticky;
+        top: env(safe-area-inset-top, 0px);
+        z-index: 15;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 10px;
+        overflow-x: auto;
+        scrollbar-width: none;
+        background: rgba(21, 11, 37, 0.94);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .as img {
+        height: 28px;
+        width: auto;
+        align-self: flex-start;
+        margin: 0;
+      }
+      .as nav {
+        display: flex;
+        gap: 4px;
+      }
+      .as button {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        border: 0;
+        background: none;
+        color: #cdbbe0;
+        padding: 10px 14px;
+        border-radius: 12px;
+        cursor: pointer;
+        font-weight: 500;
+        transition:
+          background 0.2s,
+          color 0.2s,
+          transform 0.2s;
+        text-align: left;
+        min-height: 44px;
+        flex: none;
+        white-space: nowrap;
+      }
+      .as button:hover {
+        background: rgba(255, 255, 255, 0.08);
+        color: #fff;
+        transform: translateX(4px);
+      }
+      .as button.on {
+        background: linear-gradient(90deg, rgba(255, 107, 94, 0.3), rgba(255, 107, 94, 0.05));
+        color: #fff;
+        box-shadow: inset 3px 0 #ff6b5e;
+      }
+      .as em {
+        margin-left: auto;
+        background: #ff6b5e;
+        color: #2a0f1c;
+        border-radius: 99px;
+        padding: 0 8px;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 0.8rem;
+      }
+      .as .ex {
+        margin: 0 0 0 auto;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        flex: none;
+      }
+      .am {
+        padding: 16px;
+        display: grid;
+        gap: 20px;
+        align-content: start;
+        min-width: 0;
+      }
+      .at {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .pn {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 16px;
+        transition:
+          transform 0.25s,
+          border-color 0.25s,
+          box-shadow 0.25s;
+        min-width: 0;
+      }
+      .pn:hover {
+        transform: translateY(-3px);
+        border-color: rgba(255, 107, 94, 0.5);
+        box-shadow: 0 14px 40px rgba(255, 107, 94, 0.14);
+      }
+      .pn h3 {
+        margin-bottom: 14px;
+      }
+      .kp {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
+        gap: 12px;
+      }
+      .k {
+        position: relative;
+        overflow: hidden;
+      }
+      .k::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #ff6b5e, #8c6bb1);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.4s;
+      }
+      .k:hover::after {
+        transform: scaleX(1);
+      }
+      .k b {
+        font:
+          800 1.5rem "Bricolage Grotesque",
+          sans-serif;
+        display: block;
+        margin-top: 4px;
+      }
+      .two {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .ch {
+        width: 100%;
+        height: auto;
+      }
+      .ln {
+        stroke-dasharray: 1;
+        animation: dr 1.6s ease-out 0.3s both;
+      }
+      .ar {
+        animation: fi 1.2s 0.9s both;
+      }
+      .pt {
+        fill: #150b25;
+        stroke: #ff6b5e;
+        stroke-width: 2;
+        opacity: 0;
+        transition:
+          opacity 0.2s,
+          r 0.2s;
+      }
+      .pt:hover {
+        opacity: 1;
+        r: 8;
+        fill: #ff6b5e;
+      }
+      .dn {
+        display: flex;
+        gap: 18px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .dn ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 8px;
+        font-size: 0.9rem;
+        flex: 1;
+      }
+      .dn li {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+      }
+      .dn li i {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+      }
+      .dn li b {
+        margin-left: auto;
+      }
+      .sg {
+        transition: stroke-width 0.2s;
+        animation: fi 0.8s calc(var(--i) * 120ms) both;
+      }
+      .sg:hover {
+        stroke-width: 28;
+      }
+      .rb {
+        display: grid;
+        grid-template-columns: 84px 1fr 72px;
+        gap: 8px;
+        align-items: center;
+        margin: 12px 0;
+        font-size: 0.82rem;
+      }
+      .rb div {
+        height: 10px;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 9px;
+        overflow: hidden;
+      }
+      .rb i {
+        display: block;
+        height: 100%;
+        width: var(--w);
+        background: linear-gradient(90deg, #ff6b5e, #8c6bb1);
+        border-radius: 9px;
+        animation: gw 1s calc(0.4s + var(--i) * 90ms) cubic-bezier(0.2, 0.7, 0.2, 1) both;
+      }
+      .rb:hover i {
+        filter: brightness(1.3);
+      }
+      .tw {
+        overflow-x: auto;
+      }
+      .tb {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.92rem;
+      }
+      .tb th {
+        text-align: left;
+        color: #b9a6d1;
+        font-weight: 500;
+        padding: 8px;
+      }
+      .tb td {
+        padding: 10px 8px;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .tb tr:hover td {
+        background: rgba(255, 255, 255, 0.05);
+      }
+      .ac {
+        white-space: nowrap;
+      }
+      .mini {
+        height: 6px;
+        width: 120px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 9px;
+        overflow: hidden;
+      }
+      .mini i {
+        display: block;
+        height: 100%;
+        background: #ff6b5e;
+      }
+      .mb {
+        border: 1px solid;
+        border-radius: 99px;
+        padding: 9px 14px;
+        background: none;
+        cursor: pointer;
+        font-weight: 700;
+        margin-right: 6px;
+        transition:
+          transform 0.15s,
+          background 0.2s;
+        min-height: 40px;
+      }
+      .mb:hover {
+        transform: scale(1.06);
+      }
+      .mb.ok {
+        color: #5fd6a4;
+        border-color: #5fd6a4;
+      }
+      .mb.ok:hover {
+        background: #5fd6a4;
+        color: #102a20;
+      }
+      .mb.no {
+        color: #ff6b5e;
+        border-color: #ff6b5e;
+      }
+      .mb.no:hover {
+        background: #ff6b5e;
+        color: #2a0f1c;
+      }
+      .bd {
+        background: rgba(95, 214, 164, 0.15);
+        color: #5fd6a4;
+        border-radius: 99px;
+        padding: 3px 10px;
+        font-size: 0.8rem;
+        font-weight: 700;
+      }
+      .bd.pe {
+        background: rgba(242, 184, 75, 0.15);
+        color: #f2b84b;
+      }
+      .ad textarea {
+        font:
+          0.8rem/1.5 ui-monospace,
+          monospace;
+        min-height: 220px;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          transition: none !important;
+          animation: none !important;
+        }
+      }
+      /* ===== COVER IMAGES ===== */
+      .cimg {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .shade {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(transparent 45%, rgba(52, 28, 79, 0.75));
+        pointer-events: none;
+      }
+      /* ===== ADMIN: INSIGHTS & REPORTS ===== */
+      .alogo {
+        display: block;
+        flex: none;
+        width: 45px;
+        overflow: hidden;
+      }
+      .ad {
+        --good: #5fd6a4;
+        --warn: #f2b84b;
+        --risk: #ff6b5e;
+        --info: #8fb0ff;
+      }
+      .ad .btn.alt {
+        color: #eee7f5;
+        border-color: rgba(238, 231, 245, 0.5);
+      }
+      .ad .btn.alt:hover {
+        background: #eee7f5;
+        color: #341c4f;
+      }
+      .ad .opt {
+        border-color: rgba(255, 255, 255, 0.18);
+      }
+      .ad .opt:has(input:checked) {
+        background: rgba(255, 107, 94, 0.15);
+      }
+      .bd.in {
+        background: rgba(143, 176, 255, 0.15);
+        color: #8fb0ff;
+      }
+      .bd.rk {
+        background: rgba(255, 107, 94, 0.18);
+        color: #ff6b5e;
+      }
+      .hl {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+        align-items: stretch;
+      }
+      .hl > .pn:first-child {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+      }
+      .ring {
+        animation: ringin 1.4s cubic-bezier(0.2, 0.7, 0.2, 1) 0.2s both;
+      }
+      @keyframes ringin {
+        from {
+          stroke-dasharray: 0 var(--c);
+        }
+      }
+      .ig {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+        gap: 16px;
+      }
+      .ic {
+        border-left: 4px solid var(--tc);
+      }
+      .ic h3 {
+        font-size: 1.02rem;
+        margin: 8px 0 6px;
+      }
+      .ic p {
+        margin: 0;
+        font-size: 0.9rem;
+      }
+      .ico2 {
+        font-size: 1.4rem;
+      }
+      .na {
+        display: inline-block;
+        margin-top: 12px;
+        background: rgba(255, 255, 255, 0.08);
+        padding: 4px 12px;
+        border-radius: 99px;
+        font-size: 0.82rem;
+      }
+      .rg {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 12px;
+        align-items: start;
+      }
+      .rf {
+        display: grid;
+        gap: 14px;
+        position: static;
+        top: 16px;
+      }
+      .exp {
+        display: grid;
+        gap: 8px;
+        grid-template-columns: 1fr 1fr;
+      }
+      .paperwrap {
+        min-width: 0;
+        overflow-x: auto;
+      }
+      .paper {
+        background: #fff;
+        color: #341c4f;
+        border-radius: 6px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+        max-width: 820px;
+        margin: 0 auto;
+        overflow: hidden;
+        font-size: 0.92rem;
+        padding-bottom: 8px;
+      }
+      .ph {
+        background: #341c4f;
+        color: #fff;
+        padding: 18px 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 16px;
+        border-bottom: 5px solid #ff6b5e;
+        flex-wrap: wrap;
+        flex-direction: column;
+      }
+      .ph img {
+        height: 30px;
+        width: auto;
+      }
+      .ph h2 {
+        color: #fff !important;
+        font-size: 1.25rem;
+        text-align: left;
+      }
+      .ph p {
+        margin: 4px 0 0;
+        color: #d9cce8;
+        font-size: 0.82rem;
+        text-align: left;
+      }
+      .paper > *:not(.ph) {
+        margin-left: 16px;
+        margin-right: 16px;
+      }
+      .pk {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        margin-top: 18px;
+      }
+      .pk div {
+        background: #eee7f5;
+        border-radius: 10px;
+        padding: 10px 12px;
+        border-left: 3px solid #ff6b5e;
+      }
+      .pk small {
+        display: block;
+        color: #5b4a70;
+        font-size: 0.72rem;
+      }
+      .pk b {
+        font:
+          800 1.05rem "Bricolage Grotesque",
+          sans-serif;
+      }
+      .paper h4 {
+        margin-top: 26px;
+        margin-bottom: 10px;
+        font:
+          800 1.05rem "Bricolage Grotesque",
+          sans-serif;
+        color: #341c4f;
+        border-bottom: 2px solid #eee7f5;
+        padding-bottom: 6px;
+      }
+      .pi {
+        list-style: none;
+        padding: 0;
+        display: grid;
+        gap: 8px;
+      }
+      .pi li {
+        border-left: 4px solid;
+        padding: 7px 12px;
+        display: grid;
+        gap: 2px;
+        background: #faf8fd;
+      }
+      .pi li.good {
+        border-color: #2f7d5b;
+      }
+      .pi li.warn {
+        border-color: #d9961e;
+      }
+      .pi li.risk {
+        border-color: #c83c32;
+      }
+      .pi li.info {
+        border-color: #5b8def;
+      }
+      .pi li span {
+        color: #4a3a60;
+        font-size: 0.85rem;
+      }
+      .pi li em {
+        color: #d4483a;
+        font-size: 0.8rem;
+      }
+      .prb > div {
+        display: grid;
+        grid-template-columns: 110px 1fr 90px;
+        gap: 10px;
+        align-items: center;
+        margin: 7px 0;
+        font-size: 0.82rem;
+      }
+      .prb i {
+        height: 10px;
+        background: #eee7f5;
+        border-radius: 9px;
+        overflow: hidden;
+        display: block;
+      }
+      .prb u {
+        display: block;
+        height: 100%;
+        background: #ff6b5e;
+        border-radius: 9px;
+      }
+      .pt2 {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.8rem;
+      }
+      .pt2 th {
+        background: #341c4f;
+        color: #fff;
+        text-align: left;
+        padding: 8px;
+      }
+      .pt2 td {
+        padding: 7px 8px;
+        border-bottom: 1px solid #e6dcf0;
+      }
+      .pt2 tr:nth-child(even) td {
+        background: #f7f3fb;
+      }
+      .pf {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        margin-top: 24px;
+        padding: 14px 0 6px;
+        border-top: 1px solid #e6dcf0;
+        font-size: 0.75rem;
+        color: #7a6a90;
+        flex-wrap: wrap;
+      }
+
+      @media print {
+        body.adm {
+          background: #fff !important;
+        }
+        .as,
+        .at,
+        .rf,
+        .toast {
+          display: none !important;
+        }
+        .ad {
+          display: block;
+          background: none !important;
+        }
+        .am {
+          padding: 0 !important;
+        }
+        .rg {
+          display: block;
+        }
+        .paperwrap {
+          overflow: visible;
+        }
+        .paper {
+          box-shadow: none;
+          max-width: none;
+          border-radius: 0;
+        }
+        .ph,
+        .pk div,
+        .pt2 th,
+        .pt2 tr:nth-child(even) td,
+        .pi li,
+        .prb i,
+        .prb u {
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+        @page {
+          margin: 10mm;
+        }
+      }
+      /* ===== REPORT FILTERS ===== */
+      [hidden] {
+        display: none !important;
+      }
+      .fl {
+        display: block;
+        font-size: 0.92rem;
+        font-weight: 500;
+        margin-bottom: 6px;
+      }
+      .ad select,
+      .ad input[type="date"],
+      .ms summary {
+        background-color: #2a1842;
+        color: #fff;
+        border: 1.5px solid rgba(255, 107, 94, 0.55);
+        border-radius: 12px;
+        font-weight: 500;
+        color-scheme: dark;
+      }
+      .ad select {
+        appearance: none;
+        -webkit-appearance: none;
+        padding-right: 40px;
+        cursor: pointer;
+        background-repeat: no-repeat;
+        background-position: right 12px center;
+        background-size: 16px;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FF6B5E' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><path d='M6 9l6 6 6-6'/></svg>");
+      }
+      .ad select:hover,
+      .ad select:focus,
+      .ad input[type="date"]:focus,
+      .ms summary:hover,
+      .ms[open] summary {
+        border-color: #ff6b5e;
+        box-shadow: 0 0 0 3px rgba(255, 107, 94, 0.2);
+      }
+      .ad select option {
+        background: #2a1842;
+        color: #fff;
+      }
+      .ad select optgroup {
+        background: #1d1030;
+        color: #ff6b5e;
+        font-style: normal;
+        font-weight: 700;
+      }
+      .ms {
+        position: relative;
+      }
+      .ms summary {
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        padding: 11px 14px;
+        cursor: pointer;
+        user-select: none;
+      }
+      .ms summary::-webkit-details-marker {
+        display: none;
+      }
+      .ms summary::after {
+        content: "";
+        width: 16px;
+        height: 16px;
+        flex: none;
+        background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FF6B5E' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><path d='M6 9l6 6 6-6'/></svg>")
+          center/contain no-repeat;
+        transition: transform 0.2s;
+      }
+      .ms[open] summary::after {
+        transform: rotate(180deg);
+      }
+      .msp {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: calc(100% + 6px);
+        z-index: 40;
+        background: #2a1842;
+        border: 1.5px solid #ff6b5e;
+        border-radius: 14px;
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
+        max-height: 270px;
+        overflow: auto;
+        padding: 8px;
+        animation: fi 0.15s both;
+      }
+      .msa {
+        display: flex;
+        gap: 8px;
+        position: sticky;
+        top: -8px;
+        background: #2a1842;
+        padding: 6px 2px 8px;
+        margin-top: -4px;
+      }
+      .msa button {
+        flex: 1;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        background: none;
+        color: #eee7f5;
+        border-radius: 99px;
+        padding: 5px;
+        cursor: pointer;
+        font-weight: 700;
+      }
+      .msa button:hover {
+        background: #ff6b5e;
+        color: #2a0f1c;
+        border-color: #ff6b5e;
+      }
+      .mso {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        padding: 11px 10px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 500;
+      }
+      .mso:hover {
+        background: rgba(255, 107, 94, 0.18);
+      }
+      .mso input {
+        width: auto;
+        accent-color: #ff6b5e;
+      }
+      .dr {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+      .prl {
+        margin: -6px 0 0;
+        font-size: 0.85rem;
+        color: #ffb3ab;
+        font-weight: 500;
+      }
+      .pk em {
+        display: block;
+        font-style: normal;
+        font-size: 0.68rem;
+        font-weight: 700;
+        margin-top: 2px;
+      }
+      .pk em.up {
+        color: #2f7d5b;
+      }
+      .pk em.dn {
+        color: #c83c32;
+      }
+      .cmp {
+        font-size: 0.78rem;
+        color: #5b4a70;
+        margin-top: 10px;
+        margin-bottom: 0;
+      }
+      .empty {
+        color: #7a6a90;
+        font-style: italic;
+        padding: 14px 0;
+      }
+      /* ===== ADMIN LAYOUT: COLLAPSIBLE SIDEBAR, SCROLLING REPORT PANES, PRINT ===== */
+      .ad {
+        transition: grid-template-columns 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
+      }
+
+      .as button {
+        position: relative;
+      }
+      .as .ic {
+        width: 1.3em;
+        text-align: center;
+        flex: none;
+      }
+      .sbt {
+        border: 1px solid rgba(255, 255, 255, 0.15) !important;
+        margin-bottom: 8px;
+      }
+      .sbt .ic {
+        transition: transform 0.3s;
+        font-size: 1.1rem;
+      }
+
+      /* reports: settings and report scroll independently */
+
+      .rg {
+        height: auto;
+        min-height: 0;
+        align-items: stretch;
+        transition: grid-template-columns 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
+      }
+
+      .rf {
+        position: static;
+        height: auto;
+        overflow-y: visible;
+        overflow-x: visible;
+        align-content: start;
+        grid-template-columns: minmax(0, 1fr);
+        scrollbar-width: thin;
+        scrollbar-color: #ff6b5e transparent;
+      }
+      .rf > * {
+        min-width: 0;
+      }
+      .paperwrap {
+        height: auto;
+        overflow: auto;
+        scrollbar-width: thin;
+        scrollbar-color: #ff6b5e transparent;
+      }
+      .rfh {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+      }
+      .rfh h3 {
+        margin: 0;
+      }
+      .rfb {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+      }
+      .rfb label,
+      .rfb .fld {
+        min-width: 0;
+      }
+      .tg {
+        width: 36px;
+        height: 36px;
+        flex: none;
+        border-radius: 50%;
+        border: 1.5px solid rgba(255, 107, 94, 0.6);
+        background: none;
+        color: #eee7f5;
+        cursor: pointer;
+        font-size: 1.15rem;
+        line-height: 1;
+        transition:
+          background 0.2s,
+          transform 0.2s;
+      }
+      .tg:hover {
+        background: #ff6b5e;
+        color: #2a0f1c;
+        transform: scale(1.08);
+      }
+
+      /* the From and To fields stack, so they line up with every other field */
+      .dr {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+      }
+      .dr label {
+        min-width: 0;
+      }
+      .ad input[type="date"] {
+        width: 100%;
+        min-width: 0;
+        min-height: 46px;
+        padding: 10px 14px;
+        box-sizing: border-box;
+      }
+      .prl {
+        margin: -6px 0 0;
+      }
+      .chks {
+        display: grid;
+        gap: 8px;
+      }
+      .note {
+        font-size: 0.8rem;
+        margin: 0;
+      }
+      .exp {
+        position: static;
+        bottom: 0;
+        margin: 0;
+        padding: 0;
+        background: none;
+      }
+      .msp {
+        max-height: 220px;
+      }
+
+      @media print {
+        html,
+        body {
+          height: auto !important;
+          overflow: visible !important;
+          background: #fff !important;
+        }
+        .ad,
+        .ad.rep {
+          display: block !important;
+          height: auto !important;
+          overflow: visible !important;
+          background: none !important;
+          min-height: 0;
+        }
+        .ad .am {
+          display: block !important;
+          padding: 0 !important;
+          overflow: visible !important;
+        }
+        .as,
+        .at,
+        .rf,
+        .tg,
+        .toast {
+          display: none !important;
+        }
+        .rg,
+        .rg.col {
+          display: block !important;
+          height: auto !important;
+        }
+        .paperwrap {
+          height: auto !important;
+          overflow: visible !important;
+        }
+        .paper {
+          box-shadow: none !important;
+          border-radius: 0;
+          max-width: none;
+          margin: 0;
+          animation: none !important;
+        }
+        .paper,
+        .paper * {
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+        .ph {
+          break-inside: avoid;
+        }
+        .paper h4 {
+          break-after: avoid;
+        }
+        .pk div,
+        .pi li,
+        .prb > div,
+        .pt2 tr,
+        .pf {
+          break-inside: avoid;
+        }
+        .pt2 thead {
+          display: table-header-group;
+        }
+        .tw {
+          overflow: visible;
+        }
+      }
+
+      /* ===== MOBILE-FIRST BASE: new phone components ===== */
+      html,
+      body {
+        -webkit-text-size-adjust: 100%;
+      }
+      body {
+        overflow-x: clip;
+      }
+      button,
+      a,
+      .chip,
+      .opt,
+      select,
+      summary {
+        touch-action: manipulation;
+      }
+      select,
+      input:not([type="checkbox"]):not([type="radio"]):not([type="range"]) {
+        min-height: 46px;
+      }
+      .brand {
+        display: block;
+        flex: none;
+      }
+      .cta {
+        margin-left: auto;
+        padding: 10px 16px;
+        min-height: 44px;
+        font-size: 0.95rem;
+      }
+      .xs {
+        display: none;
+      }
+      .mt {
+        display: grid;
+        align-content: center;
+        justify-items: center;
+        gap: 4px;
+        width: 44px;
+        height: 44px;
+        flex: none;
+        border: 1.5px solid var(--line);
+        border-radius: 12px;
+        background: var(--card);
+        cursor: pointer;
+        padding: 0;
+      }
+      .mt span {
+        display: block;
+        width: 20px;
+        height: 2px;
+        border-radius: 2px;
+        background: var(--ink);
+        transition:
+          transform 0.25s,
+          opacity 0.2s;
+      }
+      .mt[aria-expanded="true"] span:nth-child(1) {
+        transform: translateY(6px) rotate(45deg);
+      }
+      .mt[aria-expanded="true"] span:nth-child(2) {
+        opacity: 0;
+      }
+      .mt[aria-expanded="true"] span:nth-child(3) {
+        transform: translateY(-6px) rotate(-45deg);
+      }
+      .nav nav.open {
+        display: flex;
+        animation: fi 0.18s both;
+      }
+      #acct {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        flex-wrap: wrap;
+        padding-top: 6px;
+      }
+      #acct .chip,
+      #acct .pill {
+        flex: 1;
+        justify-content: center;
+        text-align: center;
+        min-height: 48px;
+        display: inline-flex;
+        align-items: center;
+      }
+      #chips {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        margin: 0 -16px 20px;
+        padding: 2px 16px 8px;
+        scrollbar-width: none;
+        scroll-snap-type: x proximity;
+      }
+      #chips .chip {
+        flex: none;
+        scroll-snap-align: start;
+      }
+      .dbar {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 25;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px));
+        background: var(--card);
+        border-top: 1px solid var(--line);
+        box-shadow: 0 -10px 28px rgba(0, 0, 0, 0.14);
+      }
+      .dbar .dm {
+        flex: 1;
+        min-width: 0;
+        display: grid;
+        gap: 2px;
+      }
+      .dbar .dm b {
+        font:
+          800 1.1rem "Bricolage Grotesque",
+          sans-serif;
+      }
+      .dbar .dm span {
+        font-size: 0.78rem;
+        color: var(--ink2);
+      }
+      .dbar .bar {
+        height: 6px;
+        margin-top: 4px;
+      }
+      .dbar .btn {
+        flex: none;
+      }
+      body.hasbar footer {
+        padding-bottom: calc(96px + env(safe-area-inset-bottom, 0px));
+      }
+      body.hasbar .toast {
+        bottom: calc(88px + env(safe-area-inset-bottom, 0px));
+      }
+      .rg .t1 {
+        display: inline-block;
+        transform: rotate(90deg);
+      }
+      .rg.col .t1 {
+        transform: rotate(-90deg);
+      }
+      .rg .t2 {
+        display: none;
+      }
+      .rg.col .rfb {
+        display: none;
+      }
+      .as .sbt {
+        display: none;
+      }
+      .as .ex .lb {
+        display: none;
+      }
+      @keyframes sheet {
+        from {
+          transform: translateY(40px);
+          opacity: 0;
+        }
+      }
+      @media (hover: none) {
+        .btn:hover,
+        .grid .card:hover,
+        .pn:hover,
+        .as button:hover,
+        .mb:hover,
+        .tg:hover {
+          transform: none;
+          box-shadow: none;
+        }
+      }
+      .brand {
+        padding: 9px 0;
+      }
+      footer a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+      }
+      .cb h3 a {
+        display: inline-block;
+        padding: 6px 0;
+      }
+      .hero .row > .btn {
+        flex: 1 1 100%;
+      }
+      #df > .row:last-child {
+        position: sticky;
+        bottom: 0;
+        margin: 0 -18px calc(-22px - env(safe-area-inset-bottom, 0px));
+        padding: 12px 18px calc(22px + env(safe-area-inset-bottom, 0px));
+        background: var(--card);
+        border-top: 1px solid var(--line);
+      }
+
+      /* ===== TABLET (640px and up) ===== */
+      @media (min-width: 640px) {
+        .w {
+          padding: 0 24px;
+        }
+        .nav img {
+          height: 30px;
+        }
+        .xs {
+          display: inline;
+        }
+        section {
+          padding: 48px 0;
+        }
+        .sec-h {
+          margin-bottom: 28px;
+        }
+        .hero p.lead {
+          font-size: 1.2rem;
+        }
+        .steps {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .band {
+          padding: 36px;
+        }
+        .grid {
+          gap: 22px;
+        }
+        .filters {
+          display: flex;
+          flex-wrap: wrap;
+        }
+        .filters input {
+          max-width: 320px;
+        }
+        .filters select {
+          max-width: 220px;
+        }
+        #chips {
+          flex-wrap: wrap;
+          overflow: visible;
+          margin: 0 0 24px;
+          padding: 0;
+        }
+        .cd .cover {
+          height: 260px;
+        }
+        dialog {
+          width: min(460px, 94vw);
+          max-width: none;
+          margin: auto;
+          border-radius: 24px;
+          padding: 26px;
+          animation: none;
+        }
+        .toast {
+          border-radius: 99px;
+        }
+        .wiz {
+          margin: 32px auto;
+        }
+        footer {
+          padding: 40px 0;
+          margin-top: 40px;
+        }
+        .am {
+          padding: 24px;
+        }
+        .pn {
+          padding: 22px;
+        }
+        .kp {
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          gap: 16px;
+        }
+        .k b {
+          font-size: 2rem;
+        }
+        .rb {
+          grid-template-columns: 110px 1fr 90px;
+          gap: 12px;
+          font-size: 0.9rem;
+        }
+        .tb th {
+          padding: 8px 12px;
+        }
+        .tb td {
+          padding: 12px;
+        }
+        .paper > *:not(.ph) {
+          margin-left: 32px;
+          margin-right: 32px;
+        }
+        .ph {
+          padding: 28px 32px;
+          flex-direction: row;
+          align-items: center;
+        }
+        .ph h2 {
+          font-size: 1.5rem;
+          text-align: right;
+        }
+        .ph p {
+          text-align: right;
+        }
+        .pk {
+          grid-template-columns: repeat(4, 1fr);
+          gap: 10px;
+          margin-top: 24px;
+        }
+        .hero .row > .btn {
+          flex: none;
+        }
+        #df > .row:last-child {
+          margin: 0 -26px -26px;
+          padding: 12px 26px 26px;
+        }
+      }
+
+      /* ===== DESKTOP (900px and up) ===== */
+      @media (min-width: 900px) {
+        .nav {
+          gap: 20px;
+          height: 68px;
+        }
+        .mt {
+          display: none;
+        }
+        .nav nav {
+          display: flex;
+          position: static;
+          flex-direction: row;
+          align-items: center;
+          gap: 6px;
+          padding: 0;
+          background: none;
+          border: 0;
+          box-shadow: none;
+          max-height: none;
+          overflow: visible;
+          margin-left: auto;
+          animation: none;
+        }
+        .nav nav a {
+          min-height: 0;
+          display: inline-flex;
+          padding: 8px 12px;
+          border-radius: 99px;
+        }
+        .nav nav a:hover {
+          background: var(--soft);
+        }
+        #acct {
+          padding-top: 0;
+          flex-wrap: nowrap;
+        }
+        #acct .chip,
+        #acct .pill {
+          flex: none;
+          min-height: 0;
+          padding: 7px 15px;
+        }
+        .cta {
+          margin-left: 0;
+          min-height: 0;
+          padding: 12px 22px;
+          font-size: 1rem;
+        }
+        .hero {
+          padding: 56px 0 40px;
+          grid-template-columns: 1.15fr 0.85fr;
+          gap: 40px;
+        }
+        section {
+          padding: 56px 0;
+        }
+        .three {
+          grid-template-columns: repeat(3, 1fr);
+          gap: 18px;
+        }
+        .three .card {
+          padding: 24px;
+        }
+        .steps {
+          grid-template-columns: repeat(4, 1fr);
+          gap: 18px;
+        }
+        .band {
+          padding: 44px;
+          grid-template-columns: 1.2fr 1fr;
+          gap: 32px;
+          border-radius: 28px;
+        }
+        .cd {
+          grid-template-columns: 1.5fr 1fr;
+          gap: 32px;
+          padding: 32px 0;
+        }
+        .cd .cover {
+          height: 300px;
+          border-radius: 20px;
+        }
+        .side {
+          position: sticky;
+          top: 90px;
+          padding: 22px;
+        }
+        .dbar {
+          display: none;
+        }
+        body.hasbar footer {
+          padding-bottom: 40px;
+        }
+        body.hasbar .toast {
+          bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+        }
+        /* admin: sidebar layout */
+        .ad {
+          grid-template-columns: 240px 1fr;
+        }
+        .as {
+          position: sticky;
+          top: 0;
+          height: 100vh;
+          height: 100dvh;
+          flex-direction: column;
+          align-items: stretch;
+          gap: 8px;
+          padding: 24px 16px;
+          overflow: visible;
+          background: none;
+          backdrop-filter: none;
+          border-bottom: 0;
+          border-right: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .as nav {
+          display: grid;
+        }
+        .as button {
+          min-height: 0;
+          padding: 11px 14px;
+        }
+        .alogo {
+          align-self: flex-start;
+          width: auto;
+          overflow: visible;
+        }
+        .as img {
+          margin: 0 8px 22px;
+        }
+        .as .ex {
+          margin: auto 0 0;
+        }
+        .as .ex .lb {
+          display: inline;
+        }
+        .as .sbt {
+          display: flex;
+        }
+        .am {
+          padding: 32px;
+        }
+        .kp {
+          gap: 16px;
+        }
+        .two {
+          grid-template-columns: 1.6fr 1fr;
+        }
+        .hl {
+          grid-template-columns: minmax(280px, 1fr) 2fr;
+        }
+        .ig {
+          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        }
+        /* admin reports: settings and report scroll independently */
+        .ad.rep {
+          height: 100vh;
+          height: 100dvh;
+          overflow: hidden;
+        }
+        .ad.rep .am {
+          overflow: hidden;
+          grid-template-rows: auto minmax(0, 1fr);
+        }
+        .rg {
+          grid-template-columns: 290px 1fr;
+          height: 100%;
+          min-height: 0;
+          gap: 16px;
+          align-items: stretch;
+        }
+        .rf {
+          height: 100%;
+          overflow-y: auto;
+          overflow-x: hidden;
+        }
+        .paperwrap {
+          height: 100%;
+          overflow: auto;
+        }
+        .exp {
+          position: sticky;
+          bottom: 0;
+          margin: 0 -22px -22px;
+          padding: 14px 22px 22px;
+          background: linear-gradient(rgba(27, 14, 43, 0), #1b0e2b 22%);
+        }
+        .exp .btn {
+          padding: 10px 8px;
+          font-size: 0.9rem;
+        }
+        .rg .t1,
+        .rg.col .t1 {
+          transform: none;
+        }
+        .rg.col {
+          grid-template-columns: 64px 1fr;
+        }
+        .rg.col .rf {
+          padding: 14px 12px;
+          overflow: hidden;
+        }
+        .rg.col .rfh {
+          justify-content: center;
+        }
+        .rg.col .rfh h3 {
+          display: none;
+        }
+        .rg.col .t1 {
+          display: none;
+        }
+        .rg.col .t2 {
+          display: inline;
+        }
+
+        .ad.sbc {
+          grid-template-columns: 76px 1fr;
+        }
+        .ad.sbc .sbt .ic {
+          transform: rotate(180deg);
+        }
+        .ad.sbc .lb {
+          display: none;
+        }
+        .ad.sbc .as {
+          padding: 24px 10px;
+          align-items: center;
+        }
+        .ad.sbc .as nav {
+          width: 100%;
+        }
+        .ad.sbc .as button {
+          justify-content: center;
+          padding: 11px 0;
+          width: 100%;
+        }
+        .ad.sbc .as button:hover {
+          transform: none;
+        }
+        .ad.sbc .alogo {
+          width: 45px;
+          overflow: hidden;
+          margin-left: 0;
+        }
+        .ad.sbc .as img {
+          margin: 0 0 22px;
+        }
+        .ad.sbc .as em {
+          position: absolute;
+          top: 2px;
+          right: 4px;
+          padding: 0 6px;
+          font-size: 0.68rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header>
+      <div class="w nav">
+        <a class="brand" href="#home" aria-label="WOLEM Impact home"
+          ><img class="logo" src="data:image/png;base64,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" alt="WOLEM impact" /><img
+            class="logoD"
+            src="data:image/png;base64,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"
+            alt="WOLEM impact"
+        /></a>
+        <nav id="menu" aria-label="Main">
+          <a href="#browse">Browse</a>
+          <a href="#home" data-s="how">How it works</a>
+          <a href="#home" data-s="orgs">For organisations</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+          <span id="acct"></span>
+        </nav>
+        <a class="btn cta" href="#start">Start<span class="xs"> a campaign</span></a>
+        <button class="mt" id="mt" aria-expanded="false" aria-controls="menu" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+    <!-- APP (pages render here) -->
+    <main id="app"></main>
+    <!-- FOOTER -->
+    <footer>
+      <div class="w row" style="justify-content: space-between; gap: 30px">
+        <div>
+          <img src="data:image/png;base64,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" alt="WOLEM impact" />
+          <p style="max-width: 32em">
+            The trusted marketplace for doing good in Ghana. Every need is verified before it goes live.
+          </p>
+        </div>
+        <div>
+          <p>
+            Pay with MoMo, card, PayPal, bank transfer or international wire.<br />Serving all 16 regions of
+            Ghana.
+          </p>
+          <p>
+            <a href="https://www.wolemimpact.org" target="_blank" rel="noopener">www.wolemimpact.org</a>
+            · <a href="#about">About</a> · <a href="#contact">Contact</a>
+          </p>
+          <div data-soc></div>
+          <p>© 2026 WOLEM Impact</p>
+        </div>
+      </div>
+    </footer>
+    <!-- DIALOG & TOAST -->
+    <dialog id="dlg"></dialog>
+    <div id="toast" class="toast hide" role="status"></div>
+    <script>
+      /* ===== HELPERS ===== */
+      const $ = (s) => document.querySelector(s),
+        esc = (s) =>
+          String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+      const fm = (n) => "GH₵" + Math.round(n).toLocaleString("en-US");
+
+      /* ===== DATA ===== */
+      const CAT = {
+        Health: ["#FF6B5E", "#341C4F"],
+        Education: ["#5B3A7E", "#341C4F"],
+        "Water & sanitation": ["#8C6BB1", "#341C4F"],
+        Faith: ["#E4503F", "#5B3A7E"],
+        Emergency: ["#FF6B5E", "#5B3A7E"],
+        Community: ["#341C4F", "#8C6BB1"],
+      };
+      const REG = [
+        "Greater Accra",
+        "Ashanti",
+        "Western",
+        "Western North",
+        "Central",
+        "Eastern",
+        "Volta",
+        "Oti",
+        "Northern",
+        "Savannah",
+        "North East",
+        "Upper East",
+        "Upper West",
+        "Bono",
+        "Bono East",
+        "Ahafo",
+      ];
+      const C = [
+        {
+          id: 1,
+          t: "Safe water for Kpandai’s 1,200 residents",
+          o: "Kpandai Water Committee",
+          r: "Northern",
+          c: "Water & sanitation",
+          g: 60000,
+          s: 41250,
+          d: 386,
+          days: 21,
+          m: "mgv",
+          story:
+            "Families in Kpandai walk over 3 km to a seasonal stream. A borehole with a solar pump will serve the town’s clinic, school and market. Funds cover drilling, pump, tank and 5 years of maintenance training for local technicians.",
+          goods: ["PVC pipes (50 mm)", "Cement bags", "Water storage buckets"],
+          roles: ["Site helper – Sat 12 Dec", "Hygiene educator – Sun 13 Dec"],
+        },
+        {
+          id: 2,
+          t: "Surgery fund for 9-year-old Esi’s heart condition",
+          o: "Korle Bu Teaching Hospital Outreach",
+          r: "Greater Accra",
+          c: "Health",
+          g: 85000,
+          s: 72400,
+          d: 912,
+          days: 9,
+          m: "m",
+          story:
+            "Esi needs a corrective heart procedure that her family cannot afford. Hospital invoices are attached and verified. Every cedi goes directly to the hospital billing account.",
+          goods: [],
+          roles: [],
+        },
+        {
+          id: 3,
+          t: "Books and desks for Asante Akim primary school",
+          o: "Hope Learners Foundation",
+          r: "Ashanti",
+          c: "Education",
+          g: 25000,
+          s: 9800,
+          d: 141,
+          days: 34,
+          m: "mgv",
+          story:
+            "120 pupils share 40 broken desks and have no library. We are raising money for furniture and collecting books, uniforms and stationery. Volunteers will repaint classrooms during the Christmas break.",
+          goods: ["Exercise books", "Story books", "School uniforms", "Chalk and markers"],
+          roles: ["Painter – 19 Dec", "Reading buddy – weekdays"],
+        },
+        {
+          id: 4,
+          t: "Flood relief for families in Ho",
+          o: "Volta Disaster Response Team",
+          r: "Volta",
+          c: "Emergency",
+          g: 45000,
+          s: 38900,
+          d: 604,
+          days: 5,
+          m: "mgv",
+          story:
+            "Heavy rains displaced 230 families. We need mattresses, blankets, food and clean water, plus volunteers to help sort and distribute items at the Ho relief hub.",
+          goods: ["Mattresses", "Blankets", "Bottled water", "Dry food packs"],
+          roles: ["Sorting volunteer – daily", "Driver – weekends"],
+        },
+        {
+          id: 5,
+          t: "Roof repair for Grace Chapel orphanage ministry",
+          o: "Grace Chapel Cape Coast",
+          r: "Central",
+          c: "Faith",
+          g: 30000,
+          s: 12100,
+          d: 98,
+          days: 40,
+          m: "mg",
+          story:
+            "The roof over our children’s home leaks through every rainy season. Your gift replaces the roofing sheets and rafters so 32 children sleep dry.",
+          goods: ["Roofing sheets", "Nails and timber"],
+          roles: [],
+        },
+        {
+          id: 6,
+          t: "Community clinic solar power for Wa district",
+          o: "Upper West Health Access",
+          r: "Upper West",
+          c: "Health",
+          g: 52000,
+          s: 20800,
+          d: 215,
+          days: 28,
+          m: "mv",
+          story:
+            "The clinic loses power daily, spoiling vaccines. A solar and battery system will keep the cold chain running and light up night deliveries.",
+          goods: [],
+          roles: ["Electrician (certified) – Jan"],
+        },
+        {
+          id: 7,
+          t: "Girls’ coding club laptops in Tamale",
+          o: "TechGirls Tamale",
+          r: "Northern",
+          c: "Education",
+          g: 18000,
+          s: 15300,
+          d: 277,
+          days: 12,
+          m: "mgv",
+          story:
+            "40 girls are learning to code on 5 shared laptops. Ten new laptops will let every girl practise daily.",
+          goods: ["Used laptops (working)", "Laptop bags"],
+          roles: ["Coding mentor – Saturdays"],
+        },
+        {
+          id: 8,
+          t: "Market women’s fire safety kits in Kumasi",
+          o: "Kejetia Traders Union",
+          r: "Ashanti",
+          c: "Community",
+          g: 15000,
+          s: 5200,
+          d: 77,
+          days: 45,
+          m: "mg",
+          story:
+            "After last year’s fire, traders want extinguishers, sand buckets and training so one spark never wipes out a livelihood.",
+          goods: ["Fire extinguishers", "Sand buckets"],
+          roles: [],
+        },
+        {
+          id: 9,
+          t: "Borehole and toilets for Bawku basic school",
+          o: "Upper East Schools Aid",
+          r: "Upper East",
+          c: "Water & sanitation",
+          g: 38000,
+          s: 27600,
+          d: 329,
+          days: 17,
+          m: "mv",
+          story:
+            "No toilets and no water means girls miss school. We are building 6 toilets and a handwashing station.",
+          goods: [],
+          roles: ["Mason’s helper – Jan"],
+        },
+      ];
+      /* dates: all report periods are measured from TODAY */
+      const TODAY = (() => {
+        const d = new Date();
+        d.setHours(0, 0, 0, 0);
+        return d;
+      })();
+      const iso = (d) =>
+        d.getFullYear() +
+        "-" +
+        String(d.getMonth() + 1).padStart(2, "0") +
+        "-" +
+        String(d.getDate()).padStart(2, "0");
+      const addD = (d, n) => {
+        const x = new Date(d);
+        x.setDate(x.getDate() + n);
+        return x;
+      };
+      const MON = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+      const fd = (s) => s.slice(8, 10) + " " + MON[+s.slice(5, 7) - 1] + " " + s.slice(0, 4);
+      /* every campaign gets a cover image reference, a start date and an age in days */
+      C.forEach((c) => {
+        c.img = c.img || "campaign-" + c.id;
+        c.age = 20 + ((c.id * 47) % 150);
+        c.start = iso(addD(TODAY, -c.age));
+      });
+      const N = [
+          "Kwame A.",
+          "Ama O.",
+          "Yaw B.",
+          "Efua M.",
+          "Anonymous",
+          "Kojo T.",
+          "Abena S.",
+          "Nana K.",
+          "Anonymous",
+          "Esther D.",
+        ],
+        AM = [50, 100, 200, 20, 500, 150, 30, 250, 1000, 75];
+
+      /* ===== COMPONENTS ===== */
+      const pct = (c) => Math.min(100, Math.round((c.s / c.g) * 100));
+      /* Cover images live in IMG_DIR. By default each campaign uses images/campaign-<id>.jpg
+         (then .jpeg, .png, .webp). To use a different file, set img on the campaign to a file
+         name ("kpandai.jpg"), a name without extension ("kpandai") or a full https:// URL. */
+      const IMG_DIR = "images/",
+        IMG_EXT = ["jpg", "jpeg", "png", "webp"];
+      const imgList = (c) => {
+        const b = c.img || "campaign-" + c.id;
+        if (/^(https?:)?\/\//.test(b) || b[0] == "/") return [b];
+        return /\.\w{3,4}$/.test(b) ? [IMG_DIR + b] : IMG_EXT.map((x) => IMG_DIR + b + "." + x);
+      };
+      function imgNext(el) {
+        const c = C.find((x) => x.id == el.dataset.id),
+          L = imgList(c),
+          i = +el.dataset.i + 1;
+        if (i < L.length) {
+          el.dataset.i = i;
+          el.src = L[i];
+        } else {
+          el.nextElementSibling && el.nextElementSibling.remove();
+          el.remove();
+        }
+      }
+      const cover = (c) => {
+        const [a, b] = CAT[c.c];
+        return `<div class="cover" style="background:linear-gradient(135deg,${a},${b})"><svg viewBox="0 0 300 150" preserveAspectRatio="xMidYMid slice" aria-hidden="true" fill="none" stroke="#EEE7F5" stroke-opacity=".35" stroke-width="2"><circle cx="${60 + c.id * 17}" cy="60" r="50"/><circle cx="${130 + c.id * 11}" cy="70" r="50"/><circle cx="${200 + c.id * 5}" cy="55" r="50"/></svg><img class="cimg" data-id="${c.id}" data-i="0" src="${imgList(c)[0]}" alt="" loading="lazy" decoding="async"><span class="shade"></span><span class="tag">${c.c}</span></div>`;
+      };
+      const verified = `<span class="ver">✔ Verified</span>`;
+      const card = (c) => `<article class="card">${cover(c)}<div class="cb">${verified}<h3>
+<a href="#c${c.id}">${c.t}</a>
+</h3>
+<p class="muted" style="margin:0;font-size:.9rem">${c.o} · ${c.r}</p>
+<div>
+<div class="bar" role="progressbar" aria-valuenow="${pct(c)}" aria-valuemin="0" aria-valuemax="100">
+<i style="width:${pct(c)}%">
+</i>
+</div>
+<div class="meta">
+<span>
+<b>${fm(c.s)}</b> of ${fm(c.g)}</span>
+<span>${c.d} donors</span>
+</div>
+</div>
+</article>`;
+      function toast(m) {
+        const t = $("#toast");
+        t.textContent = m;
+        t.classList.remove("hide");
+        clearTimeout(toast.h);
+        toast.h = setTimeout(() => t.classList.add("hide"), 3500);
+      }
+
+      /* ===== PUBLIC PAGES ===== */
+      const V = {};
+      V.home = () => `<div class="w">
+<div class="hero">
+<div>
+<h1>Give money, goods or your time to needs you can trust.</h1>
+<p class="lead">WOLEM Impact lists only verified causes across all 16 regions of Ghana. Pay with Mobile Money, track every cedi, and see what your gift changed.</p>
+<div class="row">
+<a class="btn lg" href="#browse">Find a cause</a>
+<a class="btn alt lg" href="#start">Start a campaign</a>
+</div>
+<div class="row" style="margin-top:24px">
+<span class="pill">💰 Money</span>
+<span class="pill">📦 Goods</span>
+<span class="pill">🤝 Volunteer time</span>
+</div>
+</div>
+<div>${card(C[3]).replace('class="card"', 'class="card" style="box-shadow:0 18px 40px rgba(52,28,79,.18);transform:rotate(1.5deg)"')}</div>
+</div>
+</div>
+<section>
+<div class="w">
+<div class="sec-h">
+<h2>Three ways to make a difference</h2>
+</div>
+<div class="three">
+<div class="card">
+<div class="ico">💰</div>
+<h3>Give money</h3>
+<p class="muted">Pay from GH₵10 with MoMo or card. Funds go to the verified beneficiary account.</p>
+</div>
+<div class="card">
+<div class="ico">📦</div>
+<h3>Donate goods</h3>
+<p class="muted">Pledge books, blankets, laptops or building materials and drop them at a listed point.</p>
+</div>
+<div class="card">
+<div class="ico">🤝</div>
+<h3>Volunteer</h3>
+<p class="muted">Sign up for a role near you, from painting classrooms to mentoring students.</p>
+</div>
+</div>
+</div>
+</section>
+<section style="padding-top:0">
+<div class="w">
+<div class="sec-h">
+<h2>Needs that are close to their goal</h2>
+<a class="btn alt" href="#browse">See all campaigns</a>
+</div>
+<div class="grid">${C.slice(0, 6).map(card).join("")}</div>
+</div>
+</section>
+<section id="how">
+<div class="w">
+<div class="sec-h">
+<h2>How we verify every campaign</h2>
+</div>
+<div class="steps">
+<div>
+<h3>Identity check</h3>
+<p class="muted">Organisers submit a Ghana Card or registration certificate.</p>
+</div>
+<div>
+<h3>Need confirmed</h3>
+<p class="muted">Our team contacts a local leader, school, clinic or church to confirm the need.</p>
+</div>
+<div>
+<h3>Payout account matched</h3>
+<p class="muted">Funds can only go to an account in the verified beneficiary’s name.</p>
+</div>
+<div>
+<h3>Updates required</h3>
+<p class="muted">Organisers post photos and receipts before the next withdrawal.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="orgs" style="padding-top:0">
+<div class="w">
+<div class="band">
+<div>
+<h2>Corporate giving, without the paperwork</h2>
+<p>Fund a verified project, match your staff’s donations and get impact reports for your CSR programme. NGOs, schools and congregations can list needs for free.</p>
+</div>
+<div class="row">
+<a class="btn lg" href="#start">List a need</a>
+<a class="btn alt lg" href="mailto:partners@wolemimpact.org">Talk to partnerships</a>
+</div>
+</div>
+</div>
+</section>`;
+      V.browse = () => `<div class="w" style="padding-top:36px">
+<h2>Browse campaigns</h2>
+<div class="filters">
+<input id="q" type="search" placeholder="Search by name or place" aria-label="Search campaigns">
+<select id="rg" aria-label="Region">
+<option value="">All regions</option>${REG.map((r) => `<option>${r}</option>`).join("")}</select>
+<select id="mt" aria-label="Way to give">
+<option value="">Any way to give</option>
+<option value="m">Money</option>
+<option value="g">Goods</option>
+<option value="v">Volunteer</option>
+</select>
+</div>
+<div class="chips" id="chips" style="margin-bottom:24px">${["All", ...Object.keys(CAT)].map((k, i) => `<button class="chip" aria-pressed="${!i}" data-k="${k}">${k}</button>`).join("")}</div>
+<div class="grid" id="res">
+</div>
+</div>`;
+
+      /* ===== BROWSE FILTERS & CAMPAIGN PAGE ===== */
+      function filt() {
+        const q = $("#q").value.toLowerCase(),
+          r = $("#rg").value,
+          m = $("#mt").value,
+          k = (document.querySelector(".chip[aria-pressed=true]") || {}).dataset.k;
+        const L = C.filter(
+          (c) =>
+            (!q || (c.t + c.o + c.r).toLowerCase().includes(q)) &&
+            (!r || c.r == r) &&
+            (!m || c.m.includes(m)) &&
+            (k == "All" || c.c == k),
+        );
+        $("#res").innerHTML = L.length
+          ? L.map(card).join("")
+          : '<p class="muted">No campaigns match. Clear a filter or <a href="#start">start one</a>.</p>';
+      }
+      function campaign(id) {
+        const c = C.find((x) => x.id == id);
+        if (!c) return V.browse();
+        const don = Array.from(
+          { length: 6 },
+          (_, i) => `<li>
+<span class="av">${N[(i + id) % 10][0]}</span>
+<div>
+<b>${N[(i + id) % 10]}</b> gave ${fm(AM[(i * 3 + id) % 10])}<div class="muted" style="font-size:.82rem">${i + 1} ${i ? "days" : "day"} ago</div>
+</div>
+</li>`,
+        ).join("");
+        return `<div class="w">
+<div class="cd">
+<div>
+<a href="#browse" class="muted">‹ All campaigns</a>${cover(c).replace("height:150px", "")}<div class="row" style="margin:18px 0 8px;align-items:center">${verified}<span class="muted">${c.o} · ${c.r}</span>
+</div>
+<h1 style="font-size:clamp(1.8rem,4vw,2.8rem)">${c.t}</h1>
+<h3 style="margin-top:28px">The story</h3>
+<p>${c.story}</p>
+<h3 style="margin-top:28px">Why you can trust this campaign</h3>
+<ul class="list" style="margin-top:12px">
+<li>✔ Organiser identity confirmed</li>
+<li>✔ Need confirmed by a local contact in ${c.r}</li>
+<li>✔ Payout account matches beneficiary name</li>
+</ul>
+<h3 style="margin-top:28px">Recent supporters</h3>
+<ul class="list" style="margin-top:12px">${don}</ul>
+</div>
+<aside class="card side">
+<div>
+<div style="font:800 2rem 'Bricolage Grotesque'">${fm(c.s)}</div>
+<div class="muted">raised of ${fm(c.g)} · ${c.d} donors · ${c.days} days left</div>
+</div>
+<div class="bar" role="progressbar" aria-valuenow="${pct(c)}" aria-valuemin="0" aria-valuemax="100">
+<i style="width:${pct(c)}%">
+</i>
+</div>
+<div class="tabs" role="tablist">${[
+          ["m", "Money"],
+          ["g", "Goods"],
+          ["v", "Volunteer"],
+        ]
+          .map(
+            ([k, l], i) =>
+              `<button role="tab" data-t="${k}" aria-selected="${i == 0}" ${c.m.includes(k) ? "" : 'disabled style="opacity:.4"'}>${l}</button>`,
+          )
+          .join("")}</div>
+<div id="pane">
+</div>
+<button class="btn alt block" id="sh">Share this campaign</button>
+</aside>
+</div>
+</div>`;
+      }
+      function pane(c, t) {
+        const p = $("#pane");
+        if (t == "m")
+          p.innerHTML = `<button class="btn block lg" id="don">Donate now</button>
+<p class="muted" style="font-size:.85rem;margin:8px 0 0">MoMo and card accepted. Secure payment.</p>`;
+        if (t == "g")
+          p.innerHTML = `<form class="form" id="gf">
+<p class="muted" style="margin:0">Choose what you can bring:</p>${c.goods
+            .map(
+              (g) => `<label class="opt">
+<input type="checkbox" name="g" value="${esc(g)}">${g}</label>`,
+            )
+            .join("")}<label>Your phone<input name="ph" type="tel" required placeholder="024 000 0000">
+</label>
+<button class="btn block">Pledge items</button>
+</form>`;
+        if (t == "v")
+          p.innerHTML = `<form class="form" id="vf">
+<p class="muted" style="margin:0">Pick a role:</p>${c.roles
+            .map(
+              (g, i) => `<label class="opt">
+<input type="radio" name="r" value="${esc(g)}" ${i ? "" : "checked"}>${g}</label>`,
+            )
+            .join("")}<label>Your name<input name="n" required>
+</label>
+<label>Your phone<input name="ph" type="tel" required placeholder="024 000 0000">
+</label>
+<button class="btn block">Sign up</button>
+</form>`;
+        $("#don") && ($("#don").onclick = () => donate(c));
+        $("#gf") &&
+          ($("#gf").onsubmit = (e) => {
+            e.preventDefault();
+            if (!e.target.querySelector("[name=g]:checked")) return toast("Select at least one item.");
+            toast("Pledge received. The organiser will confirm a drop-off time by SMS.");
+            e.target.reset();
+          });
+        $("#vf") &&
+          ($("#vf").onsubmit = (e) => {
+            e.preventDefault();
+            toast("You’re signed up. The organiser will contact you shortly.");
+            e.target.reset();
+          });
+      }
+
+      /* ===== ROUTER ===== */
+      function route() {
+        const h = location.hash.slice(1) || "home",
+          a = $("#app");
+        acct();
+        document.body.classList.toggle("adm", h == "mgmt");
+        document.body.classList.toggle("hasbar", /^c\d+$/.test(h));
+        if (h == "mgmt") return admin();
+        if (/^c\d+$/.test(h)) {
+          a.innerHTML = campaign(h.slice(1));
+          const c = C.find((x) => x.id == h.slice(1));
+          if (!c) return bind("browse");
+          const f = [...document.querySelectorAll(".tabs button")].find((b) => !b.disabled);
+          pane(c, f.dataset.t);
+          dbar(c);
+          f.setAttribute("aria-selected", true);
+          document.querySelectorAll(".tabs button").forEach(
+            (b) =>
+              (b.onclick = () => {
+                document
+                  .querySelectorAll(".tabs button")
+                  .forEach((x) => x.setAttribute("aria-selected", x == b));
+                pane(c, b.dataset.t);
+              }),
+          );
+          $("#sh").onclick = () => {
+            try {
+              navigator.clipboard.writeText(location.href);
+            } catch (e) {}
+            toast("Link copied. Share it on WhatsApp.");
+          };
+          return;
+        }
+        if (h == "start") {
+          if (!U) {
+            bind("home");
+            authDlg("in");
+            return;
+          }
+          start(1);
+          return;
+        }
+        bind(V[h] ? h : "home");
+      }
+      function bind(h) {
+        $("#app").innerHTML = V[h]();
+        if (h == "browse") {
+          filt();
+          ["q", "rg", "mt"].forEach((i) => ($("#" + i).oninput = filt));
+          $("#chips").onclick = (e) => {
+            if (!e.target.dataset.k) return;
+            document.querySelectorAll(".chip").forEach((x) => x.setAttribute("aria-pressed", x == e.target));
+            filt();
+          };
+        }
+      }
+
+      /* ===== START-A-CAMPAIGN WIZARD ===== */
+      const F = {};
+      function start(n) {
+        const T = ["Who is this for?", "Goal and ways to give", "Tell the story", "Verification"];
+        const B = [
+          `<label>Campaign title<input name="t" required placeholder="e.g. Books for Asante Akim school" value="${esc(F.t || "")}">
+</label>
+<label>Organiser or organisation<input name="o" required value="${esc(F.o || "")}">
+</label>
+<label>Region<select name="r">${REG.map((r) => `<option ${F.r == r ? "selected" : ""}>${r}</option>`).join("")}</select>
+</label>
+<label>Category<select name="c">${Object.keys(CAT)
+            .map((r) => `<option ${F.c == r ? "selected" : ""}>${r}</option>`)
+            .join("")}</select>
+</label>`,
+          `<label>Fundraising goal (GH₵)<input name="g" type="number" min="500" required value="${esc(F.g || "")}">
+</label>
+<p class="muted" style="margin:0">Ways supporters can help:</p>
+<label class="opt">
+<input type="checkbox" checked disabled>Money (MoMo and card)</label>
+<label class="opt">
+<input type="checkbox" name="goods" ${F.goods ? "checked" : ""}>Goods (you list items and a drop-off point)</label>
+<label class="opt">
+<input type="checkbox" name="vol" ${F.vol ? "checked" : ""}>Volunteer time (you list roles and dates)</label>`,
+          `<label>Your story<textarea name="s" rows="7" required minlength="40" placeholder="Who needs help, why, and how will the money be used?">${esc(F.s || "")}</textarea>
+</label>`,
+          `<p class="muted" style="margin:0">We review every campaign within 2 working days. You can’t publish until it’s verified.</p>
+<label>Ghana Card or registration number<input name="id" required>
+</label>
+<label>Local contact who can confirm the need (name and phone)<input name="lc" required>
+</label>
+<label>Mobile Money or bank account name for payouts<input name="pa" required>
+</label>`,
+        ];
+        $("#app").innerHTML = `<div class="w">
+<div class="wiz">
+<div class="dots">${T.map(
+          (_, i) => `<i class="${i < n ? "on" : ""}">
+</i>`,
+        ).join("")}</div>
+<h2>${T[n - 1]}</h2>
+<form class="form" id="sf" style="margin-top:22px">${B[n - 1]}<div class="row">${n > 1 ? '<button class="btn alt" type="button" id="bk">Back</button>' : ""}<button class="btn" style="flex:1">${n < 4 ? "Continue" : "Submit for review"}</button>
+</div>
+</form>
+</div>
+</div>`;
+        $("#bk") && ($("#bk").onclick = () => start(n - 1));
+        $("#sf").onsubmit = (e) => {
+          e.preventDefault();
+          new FormData(e.target).forEach((v, k) => (F[k] = v));
+          if (n == 2) {
+            F.goods = e.target.goods.checked;
+            F.vol = e.target.vol.checked;
+          }
+          if (n < 4) return start(n + 1);
+          PEND.unshift({
+            t: F.t,
+            o: F.o,
+            r: F.r,
+            c: F.c,
+            g: +F.g,
+            s: F.s,
+            by: U ? U.name : "Guest",
+            goods: F.goods,
+            vol: F.vol,
+          });
+          $("#app").innerHTML = `<div class="w">
+<div class="wiz card" style="padding:32px">
+<div class="ico">✔</div>
+<h2 style="margin:14px 0">We’re reviewing “${esc(F.t)}”</h2>
+<p>We’ll call your local contact and check your details. You’ll get an SMS within 2 working days with the next step.</p>
+<div class="card" style="padding:14px;background:var(--soft)">
+<b>${esc(F.t)}</b>
+<div class="muted">${esc(F.o)} · ${esc(F.r)} · Goal ${fm(F.g)}</div>
+</div>
+<a class="btn" style="margin-top:18px" href="#browse">Browse campaigns</a>
+</div>
+</div>`;
+          scrollTo(0, 0);
+        };
+        scrollTo(0, 0);
+      }
+      /* ===== ACCOUNTS ===== */
+      const LS = (k, v) => {
+        try {
+          if (v === undefined) return JSON.parse(localStorage.getItem(k));
+          localStorage.setItem(k, JSON.stringify(v));
+        } catch (e) {
+          return null;
+        }
+      };
+      let USERS = LS("wi_users") || [],
+        U = LS("wi_sess") || null;
+      const sha = async (s) =>
+        [...new Uint8Array(await crypto.subtle.digest("SHA-256", new TextEncoder().encode(s)))]
+          .map((b) => b.toString(16).padStart(2, "0"))
+          .join("");
+      function acct() {
+        const e = $("#acct");
+        if (!e) return;
+        e.innerHTML = U
+          ? `<span class="pill">👤 ${esc(U.name.split(" ")[0])}</span>
+<button class="chip" id="so">Sign out</button>`
+          : `<button class="chip" id="si">Sign in</button>`;
+        $("#si") && ($("#si").onclick = () => authDlg("in"));
+        $("#so") &&
+          ($("#so").onclick = () => {
+            U = null;
+            LS("wi_sess", null);
+            toast("You’re signed out.");
+            route();
+          });
+      }
+      function authDlg(m) {
+        const d = $("#dlg"),
+          up = m == "up";
+        d.innerHTML = `<form class="form" id="auf">
+<div class="tabs" role="tablist">
+<button type="button" role="tab" data-m="in" aria-selected="${!up}">Sign in</button>
+<button type="button" role="tab" data-m="up" aria-selected="${up}">Create account</button>
+</div>
+<h2 style="font-size:1.5rem">${up ? "Join WOLEM Impact" : "Welcome back"}</h2>${up ? '<label>Full name<input id="un" required autocomplete="name"></label>' : ""}<label>Email<input id="ue" type="email" required autocomplete="email">
+</label>
+<label>Password<input id="up" type="password" required minlength="8" autocomplete="${up ? "new-password" : "current-password"}" placeholder="At least 8 characters">
+</label>${up ? '<label>I am a<select id="ur"><option>Donor</option><option>Organiser or NGO</option><option>Corporate partner</option></select></label>' : ""}<p class="err" id="ae2">
+</p>
+<button class="btn block lg">${up ? "Create account" : "Sign in"}</button>
+<button type="button" class="chip" id="ux">Cancel</button>
+<p class="muted" style="font-size:.8rem;margin:0">Demo: accounts are stored only in this browser.</p>
+</form>`;
+        if (!d.open) d.showModal();
+        $("#ux").onclick = () => d.close();
+        d.querySelectorAll(".tabs button").forEach((b) => (b.onclick = () => authDlg(b.dataset.m)));
+        $("#auf").onsubmit = async (e) => {
+          e.preventDefault();
+          const em = $("#ue").value.trim().toLowerCase(),
+            h = await sha($("#up").value),
+            er = $("#ae2");
+          let u;
+          if (up) {
+            if (USERS.some((x) => x.email == em))
+              return (er.textContent = "An account with this email already exists. Sign in instead.");
+            u = { name: $("#un").value.trim(), email: em, role: $("#ur").value, h, t: Date.now() };
+            USERS.push(u);
+            LS("wi_users", USERS);
+          } else {
+            u = USERS.find((x) => x.email == em && x.h == h);
+            if (!u) return (er.textContent = "Email or password is incorrect.");
+          }
+          U = { name: u.name, email: u.email, role: u.role };
+          LS("wi_sess", U);
+          d.close();
+          toast("Welcome, " + U.name.split(" ")[0] + "!");
+          route();
+        };
+      }
+      /* ===== PAYMENTS ===== */
+      const MN = ["MoMo", "Card", "PayPal", "Bank", "Wire"],
+        MK = ["momo", "card", "paypal", "bank", "wire"];
+      /* sample ledger: 24 dated gifts per campaign that add up exactly to its total, plus a few pending transfers */
+      const rnd = (n) => {
+        const x = Math.sin(n * 12.9898) * 43758.5453;
+        return x - Math.floor(x);
+      };
+      const MIXP = ["momo", "momo", "card", "momo", "paypal", "bank", "card", "momo", "wire", "paypal"];
+      const TX = [];
+      C.forEach((c) => {
+        const n = 24,
+          w = Array.from({ length: n }, (_, i) => 0.4 + rnd(c.id * 100 + i)),
+          tw = w.reduce((a, b) => a + b, 0);
+        let acc = 0;
+        w.forEach((x, i) => {
+          const a = i == n - 1 ? c.s - acc : Math.round((c.s * x) / tw / 5) * 5;
+          acc += a;
+          const off = Math.floor(c.age * Math.pow(rnd(c.id * 7 + i * 3 + 1), 1.6));
+          TX.push({
+            n: N[(i + c.id) % 10],
+            a,
+            m: MIXP[(i + c.id) % 10],
+            c: c.id,
+            s: "Confirmed",
+            dt: iso(addD(TODAY, -off)),
+            w: "",
+          });
+        });
+      });
+      [0, 1, 1, 2, 3].forEach((off, i) =>
+        TX.push({
+          n: N[i],
+          a: AM[i] * 5,
+          m: i % 2 ? "wire" : "bank",
+          c: C[i % 9].id,
+          s: "Pending",
+          dt: iso(addD(TODAY, -off)),
+          w: "",
+        }),
+      );
+      TX.sort((a, b) => b.dt.localeCompare(a.dt));
+      TX.forEach((t) => (t.w = fd(t.dt)));
+      function donate(c) {
+        const d = $("#dlg");
+        let amt = 100,
+          pm = "momo";
+        const ref = "WI-" + c.id + "-" + Math.random().toString(36).slice(2, 7).toUpperCase();
+        const PM = [
+          ["momo", "📱", "Mobile Money", "MTN, Telecel, AirtelTigo"],
+          ["card", "💳", "Card", "Visa or Mastercard"],
+          ["paypal", "🌐", "PayPal", "For donors abroad"],
+          ["bank", "🏦", "Ghana bank transfer", "GCB, Ecobank, Stanbic and more"],
+          ["wire", "✈️", "International wire", "SWIFT from any bank"],
+        ];
+        const kv = (k, v) => `<div class="kv">
+<span>${k}</span>
+<b>${v}</b>
+</div>`,
+          sm = (t) => `<p class="muted" style="margin:0;font-size:.85rem">${t}</p>`;
+        const PP = {
+          momo: () => `<label>Network<select>
+<option>MTN MoMo</option>
+<option>Telecel Cash</option>
+<option>AirtelTigo Money</option>
+</select>
+</label>
+<label>Mobile number<input required placeholder="024 000 0000" inputmode="tel">
+</label>`,
+          card: () => `<label>Card number<input required placeholder="0000 0000 0000 0000" inputmode="numeric">
+</label>
+<div class="row">
+<input placeholder="MM/YY" aria-label="Expiry" style="flex:1" required>
+<input placeholder="CVC" aria-label="CVC" style="flex:1" required>
+</div>`,
+          paypal: () => `<label>PayPal email<input type="email" required placeholder="you@example.com">
+</label>${sm("You’ll approve the payment in PayPal. USD, EUR and GBP gifts are converted to cedis.")}`,
+          bank: () =>
+            `<div class="bx">${kv("Bank", "GCB Bank PLC")}${kv("Account name", "WOLEM Impact Ltd")}${kv("Account number", "0000 0000 0000")}${kv("Branch", "Accra Main")}${kv("Reference", ref)}</div>${sm("Add the reference so we can match your gift. We confirm within 1 business day.")}`,
+          wire: () =>
+            `<div class="bx">${kv("Beneficiary", "WOLEM Impact Ltd")}${kv("Bank", "Ecobank Ghana PLC")}${kv("Account / IBAN", "GH00 0000 0000 0000")}${kv("SWIFT / BIC", "XXXXGHAC")}${kv("Reference", ref)}</div>${sm("Your bank may charge transfer fees. We confirm within 3 business days.")}`,
+        };
+        d.innerHTML = `<form class="form" id="df">
+<h2 style="font-size:1.5rem">Donate to ${esc(c.o)}</h2>
+<div class="amts">${[20, 50, 100, 200].map((a) => `<button type="button" aria-pressed="${a == 100}" data-a="${a}">${fm(a)}</button>`).join("")}</div>
+<label>Other amount (GH₵)<input id="oa" type="number" min="10" placeholder="Min. 10">
+</label>
+<div class="pms">${PM.map(
+          ([k, i, n, s]) => `<label class="opt">
+<input type="radio" name="p" value="${k}" ${k == pm ? "checked" : ""}>
+<span>${i}</span>
+<span>
+<b>${n}</b>
+<br>
+<small class="muted">${s}</small>
+</span>
+</label>`,
+        ).join("")}</div>
+<div class="form" id="pp">
+</div>
+<label>Your name<input id="nm" value="${U ? esc(U.name) : ""}" placeholder="Optional">
+</label>
+<label class="opt">
+<input type="checkbox" id="an">Give anonymously</label>
+<p class="err" id="er">
+</p>
+<div class="row">
+<button class="btn lg" style="flex:1" id="go">
+</button>
+<button class="btn alt" type="button" id="x">Cancel</button>
+</div>
+</form>`;
+        d.showModal();
+        const off = () => pm == "bank" || pm == "wire",
+          lab = () => ($("#go").textContent = off() ? "I’ve sent " + fm(amt) : "Pay " + fm(amt)),
+          pnl = () => {
+            $("#pp").innerHTML = PP[pm]();
+            lab();
+          };
+        pnl();
+        d.querySelectorAll(".amts button").forEach(
+          (b) =>
+            (b.onclick = () => {
+              amt = +b.dataset.a;
+              $("#oa").value = "";
+              d.querySelectorAll(".amts button").forEach((x) => x.setAttribute("aria-pressed", x == b));
+              lab();
+            }),
+        );
+        $("#oa").oninput = (e) => {
+          amt = +e.target.value || 0;
+          d.querySelectorAll(".amts button").forEach((x) => x.setAttribute("aria-pressed", false));
+          lab();
+        };
+        d.querySelectorAll("[name=p]").forEach(
+          (r) =>
+            (r.onchange = () => {
+              pm = r.value;
+              pnl();
+            }),
+        );
+        $("#x").onclick = () => d.close();
+        $("#df").onsubmit = (e) => {
+          e.preventDefault();
+          if (!(amt >= 10)) {
+            $("#er").textContent = "Enter at least GH₵10.";
+            return;
+          }
+          TX.unshift({
+            n: $("#an").checked ? "Anonymous" : $("#nm").value.trim() || "Guest",
+            a: amt,
+            m: pm,
+            c: c.id,
+            s: off() ? "Pending" : "Confirmed",
+            w: fd(iso(TODAY)),
+            dt: iso(TODAY),
+          });
+          $("#go").disabled = true;
+          $("#go").textContent = off() ? "Recording…" : "Waiting for approval…";
+          setTimeout(() => {
+            const o = off();
+            if (!o) {
+              c.s += amt;
+              c.d++;
+            }
+            d.close();
+            toast(
+              o
+                ? "Thanks! We’ll confirm your transfer and credit the campaign. Ref " + ref
+                : "Thank you! " + fm(amt) + " received. A receipt is on its way.",
+            );
+            route();
+          }, 1100);
+        };
+      }
+      /* ===== ABOUT, CONTACT & SOCIAL ===== */
+      const SO = [
+        [
+          "YouTube",
+          "https://www.youtube.com/@wolemimpact",
+          '<rect x="2.5" y="5" width="19" height="14" rx="4"/><path d="M10 9.5v5l4.5-2.5z" fill="currentColor"/>',
+        ],
+        [
+          "Instagram",
+          "https://www.instagram.com/wolemimpact",
+          '<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".8" fill="currentColor"/>',
+        ],
+        [
+          "TikTok",
+          "https://www.tiktok.com/@wolemimpact",
+          '<path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5M14 3c.4 2.6 2.1 4.2 4.5 4.4"/>',
+        ],
+        ["X", "https://x.com/wolemimpact", '<path d="M4 4l16 16M20 4L4 20"/>'],
+        [
+          "Facebook",
+          "https://www.facebook.com/wolemimpact",
+          '<path d="M14 21v-8h3l.5-3.5H14V7.7c0-1 .4-1.7 1.8-1.7h1.8V3.1C17.2 3 16.2 3 15 3c-2.6 0-4.2 1.5-4.2 4.3v2.2H8V13h2.8v8"/>',
+        ],
+        [
+          "LinkedIn",
+          "https://www.linkedin.com/company/wolemimpact",
+          '<rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10.5V16M8 7.6v.1M12 16v-5.5M12 13c0-1.5 1-2.5 2.3-2.5S16.5 11.500 16.500 13V16"/>',
+        ],
+        [
+          "WhatsApp",
+          "https://wa.me/233000000000",
+          '<path d="M4 20l1.2-4.100A8 8 0 1 1 8.300 19z"/><path d="M9 8.500c0 3 2.500 5.500 5.500 5.500"/>',
+        ],
+      ];
+      const soc = () =>
+        `<div class="soc">${SO.map(
+          ([
+            n,
+            u,
+            p,
+          ]) => `<a href="${u}" target="_blank" rel="noopener" aria-label="WOLEM Impact on ${n}" title="${n}">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${p}</svg>
+</a>`,
+        ).join("")}</div>`;
+      document.querySelectorAll("[data-soc]").forEach((e) => (e.innerHTML = soc()));
+      V.about = () => `<div class="w" style="padding-top:48px">
+<h1 style="font-size:clamp(2rem,5vw,3.4rem);max-width:16em">The most trusted marketplace for doing good in Ghana.</h1>
+<p class="muted" style="font-size:1.15rem;max-width:40em;margin:20px 0 0">WOLEM Impact is a social impact technology platform that connects verified community needs with individuals, corporates, NGOs and volunteers. People can give money, goods or time to credible causes in all 16 regions of Ghana, and we plan to grow across Africa.</p>
+</div>
+<section>
+<div class="w">
+<div class="three">
+<div class="card">
+<h3>Our mission</h3>
+<p class="muted">To empower communities across Ghana through a secure digital marketplace that connects verified needs with people and organisations willing to help.</p>
+</div>
+<div class="card">
+<h3>What makes us different</h3>
+<p class="muted">Three ways to give, rigorous verification, Mobile Money and international payments, and one place for donors, communities, NGOs and corporates.</p>
+</div>
+<div class="card">
+<h3>Who we serve</h3>
+<p class="muted">Young professionals, the Ghanaian diaspora, faith communities, corporates with CSR mandates, and the NGOs, schools and clinics that need support.</p>
+</div>
+</div>
+</div>
+</section>
+<section style="padding-top:0">
+<div class="w">
+<h2 style="margin-bottom:20px">What we stand for</h2>
+<div class="chips">${["Trust and transparency", "Community and compassion", "Accountability", "Innovation for good", "Inclusivity"].map((v) => `<span class="pill" style="font-size:1rem;padding:10px 18px">${v}</span>`).join("")}</div>
+<div class="row" style="margin-top:28px">
+<a class="btn lg" href="#browse">Find a cause</a>
+<a class="btn alt lg" href="#contact">Contact us</a>
+</div>
+</div>
+</section>`;
+      V.contact = () => `<div class="w" style="padding-top:44px">
+<h1 style="font-size:clamp(2rem,5vw,3.2rem)">Talk to us</h1>
+<div class="cd" style="grid-template-columns:1fr 1fr">
+<div class="card" style="padding:26px;display:grid;gap:14px">
+<div>
+<b>Website</b>
+<br>
+<a href="https://www.wolemimpact.org" target="_blank" rel="noopener">www.wolemimpact.org</a>
+</div>
+<div>
+<b>General</b>
+<br>
+<a href="mailto:hello@wolemimpact.org">hello@wolemimpact.org</a>
+</div>
+<div>
+<b>Partnerships and CSR</b>
+<br>
+<a href="mailto:partners@wolemimpact.org">partners@wolemimpact.org</a>
+</div>
+<div>
+<b>Phone and WhatsApp</b>
+<br>+233 00 000 0000</div>
+<div>
+<b>Office</b>
+<br>Accra, Ghana<br>
+<span class="muted">Mon to Fri, 8am to 5pm GMT</span>
+</div>
+<div>
+<b>Follow WOLEM Impact</b>${soc()}</div>
+</div>
+<form class="form card" style="padding:26px" onsubmit="event.preventDefault();toast('Message sent. We reply within 2 working days.');this.reset()">
+<label>Your name<input required>
+</label>
+<label>Email<input type="email" required>
+</label>
+<label>Topic<select>
+<option>Donating</option>
+<option>Starting a campaign</option>
+<option>Corporate partnership</option>
+<option>Press and media</option>
+<option>Something else</option>
+</select>
+</label>
+<label>Message<textarea rows="5" required>
+</textarea>
+</label>
+<button class="btn">Send message</button>
+</form>
+</div>
+</div>`;
+      /* ===== ADMIN (hidden route #mgmt, not linked anywhere) ===== */
+      let ADM = false,
+        AT = "Overview",
+        RP = "Donations";
+      const PEND = [
+        {
+          t: "Mobile library for Bolgatanga",
+          o: "Reading Roots GH",
+          r: "Upper East",
+          c: "Education",
+          g: 20000,
+          by: "Adwoa P.",
+          goods: true,
+          vol: true,
+          s: "A van of books visits 12 villages every week so children can borrow and read.",
+        },
+        {
+          t: "Cataract surgeries for elders in Sunyani",
+          o: "Bono Eye Care",
+          r: "Bono",
+          c: "Health",
+          g: 48000,
+          by: "Dr. K. Mensah",
+          goods: false,
+          vol: false,
+          s: "Sixty elders are waiting for sight-restoring cataract surgery at the regional hospital.",
+        },
+        {
+          t: "Church hall rebuild after storm, Takoradi",
+          o: "Living Faith Chapel",
+          r: "Western",
+          c: "Faith",
+          g: 35000,
+          by: "Pastor Eli A.",
+          goods: true,
+          vol: false,
+          s: "A storm destroyed our hall, which also serves as a weekday school and food bank.",
+        },
+      ];
+      const USR = [
+        ["Kwame Asante", "Donor", "Accra", "12 Nov"],
+        ["Hope Learners Foundation", "Organiser", "Kumasi", "03 Nov"],
+        ["Zenith Bank CSR", "Corporate", "Accra", "29 Oct"],
+        ["Ama Owusu", "Donor", "London, UK", "21 Oct"],
+        ["Volta Disaster Response", "Organiser", "Ho", "14 Oct"],
+      ];
+      const allU = () => [
+        ...USR,
+        ...USERS.map((u) => [
+          u.name,
+          u.role,
+          "Ghana",
+          new Date(u.t).toLocaleDateString("en-GB", { day: "2-digit", month: "short" }),
+        ]),
+      ];
+      const sumS = () => C.reduce((a, c) => a + c.s, 0),
+        cn = (id) => (C.find((c) => c.id == id) || {}).t || "",
+        q = (s) => `"${String(s).replace(/"/g, '""')}"`;
+      const AV = {
+        Overview() {
+          const D = Array.from({ length: 30 }, (_, i) => 2800 + ((i * 7919) % 4100) + i * 90),
+            mx = Math.max(...D),
+            P = D.map((v, i) => [+(20 + i * 19.3).toFixed(1), +(195 - (v / mx) * 165).toFixed(1)]),
+            ln = P.map((p, i) => (i ? "L" : "M") + p[0] + " " + p[1]).join("");
+          const tot = TX.reduce((s, t) => s + t.a, 0),
+            mix = MK.map((k) => TX.filter((t) => t.m == k).reduce((s, t) => s + t.a, 0)),
+            col = ["#FF6B5E", "#8C6BB1", "#EEE7F5", "#5B8DEF", "#F2B84B"];
+          let off = 0;
+          const seg = mix
+            .map((v, i) => {
+              const l = (v / tot) * 377,
+                s = `<circle cx="80" cy="80" r="60" fill="none" stroke="${col[i]}" stroke-width="22" stroke-dasharray="${Math.max(l - 2, 1)} 400" stroke-dashoffset="${-off}" transform="rotate(-90 80 80)" class="sg" style="--i:${i}">
+<title>${MN[i]}: ${fm(v)}</title>
+</circle>`;
+              off += l;
+              return s;
+            })
+            .join("");
+          const rg = {};
+          C.forEach((c) => (rg[c.r] = (rg[c.r] || 0) + c.s));
+          const R = Object.entries(rg).sort((a, b) => b[1] - a[1]),
+            rm = R[0][1];
+          const K = [
+            ["Total raised", sumS(), "GH₵"],
+            ["Donations", C.reduce((s, c) => s + c.d, 0), ""],
+            ["Live campaigns", C.length, ""],
+            ["Awaiting review", PEND.length, ""],
+          ];
+          return `<div class="kp">${K.map(
+            ([l, n, p], i) => `<div class="pn k rv" style="--i:${i}">
+<span class="muted">${l}</span>
+<b data-n="${n}" data-p="${p}">0</b>
+</div>`,
+          ).join("")}</div>
+<div class="two">
+<div class="pn rv" style="--i:4">
+<h3>Daily giving, last 30 days</h3>
+<svg viewBox="0 0 600 220" class="ch" role="img" aria-label="Daily giving line chart">
+<defs>
+<linearGradient id="ag" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#FF6B5E" stop-opacity=".5"/>
+<stop offset="1" stop-color="#FF6B5E" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<path d="${ln}L${P[29][0]} 200L20 200Z" fill="url(#ag)" class="ar"/>
+<path d="${ln}" class="ln" pathLength="1" fill="none" stroke="#FF6B5E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>${P.map(
+            (p, i) => `<circle cx="${p[0]}" cy="${p[1]}" r="5" class="pt">
+<title>Day ${i + 1}: ${fm(D[i])}</title>
+</circle>`,
+          ).join("")}</svg>
+</div>
+<div class="pn rv" style="--i:5">
+<h3>Payment mix</h3>
+<div class="dn">
+<svg viewBox="0 0 160 160" width="160" role="img" aria-label="Payment method mix">${seg}</svg>
+<ul>${MN.map(
+            (m, i) => `<li>
+<i style="background:${col[i]}">
+</i>${m}<b>${Math.round((mix[i] / tot) * 100)}%</b>
+</li>`,
+          ).join("")}</ul>
+</div>
+</div>
+</div>
+<div class="pn rv" style="--i:6">
+<h3>Raised by region</h3>${R.map(
+            ([r, v], i) => `<div class="rb">
+<span>${r}</span>
+<div>
+<i style="--w:${(v / rm) * 100}%;--i:${i}">
+</i>
+</div>
+<b>${fm(v)}</b>
+</div>`,
+          ).join("")}</div>`;
+        },
+        Campaigns() {
+          return `<div class="pn rv">
+<h3>Verification queue (${PEND.length})</h3>${
+            PEND.length
+              ? `<div class="tw">
+<table class="tb">
+<tr>
+<th>Campaign</th>
+<th>Organiser</th>
+<th>Region</th>
+<th>Goal</th>
+<th>
+</th>
+</tr>${PEND.map(
+                  (p, i) => `<tr>
+<td>
+<b>${esc(p.t)}</b>
+<br>
+<span class="muted">${esc(p.c)}, submitted by ${esc(p.by)}</span>
+</td>
+<td>${esc(p.o)}</td>
+<td>${esc(p.r)}</td>
+<td>${fm(p.g)}</td>
+<td class="ac">
+<button class="mb ok" data-ap="${i}">Approve</button>
+<button class="mb no" data-rj="${i}">Reject</button>
+</td>
+</tr>`,
+                ).join("")}</table>
+</div>`
+              : '<p class="muted">All caught up. No campaigns are waiting for review.</p>'
+          }</div>
+<div class="pn rv" style="--i:1">
+<h3>Live campaigns (${C.length})</h3>
+<div class="tw">
+<table class="tb">
+<tr>
+<th>Campaign</th>
+<th>Region</th>
+<th>Progress</th>
+<th>Raised</th>
+</tr>${C.map(
+            (c) => `<tr>
+<td>${esc(c.t)}</td>
+<td>${c.r}</td>
+<td>
+<div class="mini">
+<i style="width:${pct(c)}%">
+</i>
+</div>
+</td>
+<td>${fm(c.s)}</td>
+</tr>`,
+          ).join("")}</table>
+</div>
+</div>`;
+        },
+        Donations() {
+          return `<div class="pn rv">
+<h3>All donations</h3>
+<div class="tw">
+<table class="tb">
+<tr>
+<th>Donor</th>
+<th>Amount</th>
+<th>Method</th>
+<th>Campaign</th>
+<th>Status</th>
+<th>
+</th>
+</tr>${TX.map(
+            (t, i) => `<tr>
+<td>${esc(t.n)}</td>
+<td>${fm(t.a)}</td>
+<td>${MN[MK.indexOf(t.m)]}</td>
+<td>${esc(cn(t.c))}</td>
+<td>
+<span class="bd ${t.s == "Pending" ? "pe" : ""}">${t.s}</span>
+</td>
+<td class="ac">${t.s == "Pending" ? `<button class="mb ok" data-cf="${i}">Confirm receipt</button>` : t.w}</td>
+</tr>`,
+          ).join("")}</table>
+</div>
+</div>`;
+        },
+        Users() {
+          return `<div class="pn rv">
+<h3>Registered users (${allU().length})</h3>
+<div class="tw">
+<table class="tb">
+<tr>
+<th>Name</th>
+<th>Role</th>
+<th>Location</th>
+<th>Joined</th>
+</tr>${allU()
+            .map((u) => `<tr>${u.map((x) => `<td>${esc(x)}</td>`).join("")}</tr>`)
+            .join("")}</table>
+</div>
+</div>`;
+        },
+        Insights() {
+          return insightsHTML();
+        },
+        Reports() {
+          return reportsHTML();
+        },
+      };
+
+      /* ===== INSIGHTS & REPORTS ===== */
+      const ALLREG = REG,
+        CATS = Object.keys(CAT),
+        RTYPES = ["Executive summary", "Campaign performance", "Donations ledger", "User register"],
+        RF = {
+          type: RTYPES[0],
+          period: "last30",
+          from: iso(addD(TODAY, -29)),
+          to: iso(TODAY),
+          regions: [],
+          cats: [],
+          by: "Management team",
+          ins: true,
+          charts: true,
+          conf: true,
+        },
+        JSPDF = "https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js",
+        ATBL = "https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js",
+        EXJS = "https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.4.0/exceljs.min.js";
+      let SBC = !!LS("wi_sbc"), // sidebar collapsed?
+        RC = matchMedia("(max-width: 899px)").matches; // report settings start collapsed on phones
+      const sum = (a, f) => a.reduce((s, x) => s + f(x), 0);
+      /* schedule health: compares % funded with how far through a 60-day campaign we are */
+      const health = (c) => {
+        const d = c.s / c.g - (1 - c.days / 60);
+        return d >= 0.05 ? "Ahead" : d <= -0.1 ? "At risk" : "On track";
+      };
+      const hcls = (h) => (h == "At risk" ? "rk" : h == "Ahead" ? "" : "in");
+
+      /* --- periods, ordered from shortest and most recent to longest --- */
+      const PERIODS = [
+        [
+          "Recent",
+          [
+            ["today", "Today"],
+            ["yesterday", "Yesterday"],
+            ["last7", "Last 7 days"],
+            ["last14", "Last 2 weeks"],
+            ["last30", "Last 30 days"],
+          ],
+        ],
+        [
+          "Calendar",
+          [
+            ["thismonth", "This month"],
+            ["lastmonth", "Last month"],
+            ["thisquarter", "This quarter"],
+            ["lastquarter", "Last quarter"],
+          ],
+        ],
+        [
+          "Longer",
+          [
+            ["last6m", "Last 6 months"],
+            ["ytd", "Year to date"],
+            ["all", "All time"],
+          ],
+        ],
+        ["Custom", [["custom", "Custom range…"]]],
+      ];
+      const PNAME = Object.fromEntries(PERIODS.flatMap(([, a]) => a));
+      const dt0 = (s) => new Date(s + "T00:00:00");
+      function fRange(a, b) {
+        if (a == b) return fd(a);
+        return dt0(a).getFullYear() == dt0(b).getFullYear()
+          ? fd(a).slice(0, 6) + " – " + fd(b)
+          : fd(a) + " – " + fd(b);
+      }
+      /* turns the chosen period (or custom dates) into { from, to, name, label, days, prev } */
+      function prange(f) {
+        const T = TODAY,
+          y = T.getFullYear(),
+          m = T.getMonth(),
+          q = Math.floor(m / 3) * 3;
+        const D = (a, b) => ({ from: iso(a), to: iso(b) });
+        let r;
+        switch (f.period) {
+          case "today":
+            r = D(T, T);
+            break;
+          case "yesterday":
+            r = D(addD(T, -1), addD(T, -1));
+            break;
+          case "last7":
+            r = D(addD(T, -6), T);
+            break;
+          case "last14":
+            r = D(addD(T, -13), T);
+            break;
+          case "last30":
+            r = D(addD(T, -29), T);
+            break;
+          case "thismonth":
+            r = D(new Date(y, m, 1), T);
+            break;
+          case "lastmonth":
+            r = D(new Date(y, m - 1, 1), new Date(y, m, 0));
+            break;
+          case "thisquarter":
+            r = D(new Date(y, q, 1), T);
+            break;
+          case "lastquarter":
+            r = D(new Date(y, q - 3, 1), new Date(y, q, 0));
+            break;
+          case "last6m":
+            r = D(addD(new Date(y, m - 6, T.getDate()), 1), T);
+            break;
+          case "ytd":
+            r = D(new Date(y, 0, 1), T);
+            break;
+          case "all":
+            r = { from: TX.reduce((a, t) => (t.dt < a ? t.dt : a), iso(T)), to: iso(T) };
+            break;
+          default: {
+            let a = f.from || iso(T),
+              b = f.to || iso(T),
+              sw = false;
+            if (a > b) {
+              [a, b] = [b, a];
+              sw = true;
+            }
+            r = { from: a, to: b, swapped: sw };
+          }
+        }
+        r.name = f.period == "custom" ? "Custom range" : PNAME[f.period];
+        r.label = r.name + " (" + fRange(r.from, r.to) + ")";
+        r.days = Math.round((dt0(r.to) - dt0(r.from)) / 864e5) + 1;
+        if (f.period != "all") {
+          const pe = addD(dt0(r.from), -1);
+          r.prev = { from: iso(addD(pe, -(r.days - 1))), to: iso(pe) };
+        }
+        return r;
+      }
+      const scopeText = (sel, n, noun) => (!sel.length || sel.length == n ? "All " + noun : sel.join(", "));
+      const nowText = () => {
+        const n = new Date();
+        return (
+          fd(iso(n)) +
+          ", " +
+          String(n.getHours()).padStart(2, "0") +
+          ":" +
+          String(n.getMinutes()).padStart(2, "0")
+        );
+      };
+
+      function INS(camps, tx, allTx = tx) {
+        const L = [],
+          conf = tx.filter((t) => t.s == "Confirmed"),
+          tot = sum(conf, (t) => t.a) || 1;
+        const wk = (a, b) =>
+            sum(
+              allTx.filter(
+                (t) => t.s == "Confirmed" && t.dt >= iso(addD(TODAY, a)) && t.dt <= iso(addD(TODAY, b)),
+              ),
+              (t) => t.a,
+            ),
+          w1 = wk(-6, 0),
+          w0 = wk(-13, -7);
+        if (w0 > 0) {
+          const ch = (w1 / w0 - 1) * 100;
+          L.push({
+            k: ch >= 0 ? "good" : "warn",
+            i: "📈",
+            h: `Giving is ${ch >= 0 ? "up" : "down"} ${Math.abs(ch).toFixed(0)}% on the previous 7 days`,
+            p: `Last 7 days: ${fm(w1)} against ${fm(w0)} the week before. At this pace the platform will raise about ${fm((w1 / 7) * 30)} over the next 30 days.`,
+            a: "Send a donor update before the weekend peak.",
+          });
+        }
+        const risk = camps.filter((c) => health(c) == "At risk");
+        if (risk.length)
+          L.push({
+            k: "risk",
+            i: "⚠️",
+            h: `${risk.length} campaign${risk.length > 1 ? "s are" : " is"} behind schedule`,
+            p: `${risk.map((c) => c.t).join("; ")}. Combined gap: ${fm(sum(risk, (c) => c.g - c.s))}.`,
+            a: "Feature on the homepage and ask past donors to share.",
+          });
+        const near = camps.filter((c) => c.s / c.g >= 0.85 && c.s < c.g);
+        if (near.length)
+          L.push({
+            k: "good",
+            i: "🏁",
+            h: `${near.length} campaign${near.length > 1 ? "s are" : " is"} close to goal`,
+            p: `Only ${fm(sum(near, (c) => c.g - c.s))} is needed to complete ${near.length > 1 ? "them" : "it"}.`,
+            a: "Send a final-stretch push to supporters.",
+          });
+        const intl =
+          (sum(
+            conf.filter((t) => t.m == "paypal" || t.m == "wire"),
+            (t) => t.a,
+          ) /
+            tot) *
+          100;
+        L.push({
+          k: "info",
+          i: "🌍",
+          h: `${intl.toFixed(0)}% of giving arrives from abroad`,
+          p: "PayPal and international wire gifts show how much the diaspora contributes.",
+          a:
+            intl < 30
+              ? "Promote campaigns to diaspora groups on social media."
+              : "Show USD, GBP and EUR amounts to make giving easier.",
+        });
+        const pd = tx.filter((t) => t.s == "Pending");
+        if (pd.length)
+          L.push({
+            k: "warn",
+            i: "⏳",
+            h: `${fm(sum(pd, (t) => t.a))} in transfers awaiting confirmation`,
+            p: `${pd.length} bank or wire gift${pd.length > 1 ? "s are" : " is"} pending and not yet credited to campaigns.`,
+            a: "Confirm receipts within one business day.",
+          });
+        if (PEND.length)
+          L.push({
+            k: "warn",
+            i: "🔍",
+            h: `${PEND.length} campaign${PEND.length > 1 ? "s are" : " is"} awaiting verification`,
+            p: "Slow reviews reduce trust for organisers and delay new giving.",
+            a: "Aim to review within 2 working days.",
+          });
+        const served = new Set(camps.map((c) => c.r)),
+          miss = ALLREG.filter((r) => !served.has(r));
+        L.push({
+          k: "info",
+          i: "🗺️",
+          h: `Campaigns cover ${served.size} of 16 regions`,
+          p: miss.length
+            ? `No live campaigns yet in ${miss.slice(0, 4).join(", ")}${miss.length > 4 ? " and " + (miss.length - 4) + " more" : ""}.`
+            : "Every region has a live campaign.",
+          a: "Recruit local partners where coverage is empty.",
+        });
+        const cats = {};
+        camps.forEach((c) => (cats[c.c] = cats[c.c] || []).push(c.s / c.g));
+        const cr = Object.entries(cats)
+          .map(([k, v]) => [k, sum(v, (x) => x) / v.length])
+          .sort((a, b) => b[1] - a[1]);
+        if (cr.length > 1)
+          L.push({
+            k: "info",
+            i: "📊",
+            h: `${cr[0][0]} leads on funding progress`,
+            p: `${cr[0][0]} averages ${Math.round(cr[0][1] * 100)}% funded, while ${cr.at(-1)[0]} averages ${Math.round(cr.at(-1)[1] * 100)}%.`,
+            a: `Give ${cr.at(-1)[0]} campaigns more homepage space.`,
+          });
+        const rg = {};
+        camps.forEach((c) => (rg[c.r] = (rg[c.r] || 0) + c.s));
+        const tr = Object.entries(rg).sort((a, b) => b[1] - a[1])[0],
+          all = sum(camps, (c) => c.s) || 1;
+        if (tr && tr[1] / all > 0.3)
+          L.push({
+            k: "warn",
+            i: "⚖️",
+            h: `${tr[0]} supplies ${Math.round((tr[1] / all) * 100)}% of funds raised`,
+            p: "Heavy reliance on one region makes totals sensitive to a single campaign.",
+            a: "Grow campaigns in other regions to spread the risk.",
+          });
+        return L;
+      }
+
+      /* --- Insights tab --- */
+      function insightsHTML() {
+        const R = rdata({ regions: [], cats: [], period: "all" }),
+          cs = R.camps,
+          avg = sum(cs, (c) => Math.min(1, c.s / c.g)) / cs.length,
+          ok = cs.filter((c) => health(c) != "At risk").length / cs.length,
+          pd =
+            sum(
+              R.tx.filter((t) => t.s == "Pending"),
+              (t) => t.a,
+            ) / (sum(R.tx, (t) => t.a) || 1),
+          cov = new Set(cs.map((c) => c.r)).size / 16,
+          score = Math.round(40 * avg + 30 * ok + 15 * (1 - pd) + 15 * cov),
+          lab = score >= 70 ? "Healthy" : score >= 50 ? "Needs attention" : "At risk",
+          circ = 2 * Math.PI * 54;
+        return `<div class="hl"><div class="pn rv"><svg viewBox="0 0 130 130" width="140" role="img" aria-label="Health score ${score} out of 100"><circle cx="65" cy="65" r="54" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="12"/><circle class="ring" cx="65" cy="65" r="54" fill="none" stroke="#FF6B5E" stroke-width="12" stroke-linecap="round" stroke-dasharray="${(circ * score) / 100} ${circ}" transform="rotate(-90 65 65)" style="--c:${circ}"/><text x="65" y="74" text-anchor="middle" fill="#EEE7F5" font-size="30" font-weight="800">${score}</text></svg><div><h3>Platform health score</h3><p class="muted" style="margin:0"><b style="color:#FF6B5E">${lab}.</b> Combines funding progress, schedule risk, pending transfers and regional coverage.</p></div></div><div class="kp">${R.K.map(([l, v], i) => `<div class="pn k rv" style="--i:${i + 1}"><span class="muted">${l}</span><b style="font-size:1.35rem">${v}</b></div>`).join("")}</div></div>
+<div class="ig">${R.ins.map((i, n) => `<div class="pn ic rv" style="--i:${n};--tc:var(--${i.k})"><span class="ico2">${i.i}</span><h3>${esc(i.h)}</h3><p class="muted">${esc(i.p)}</p><span class="na">Next step: ${esc(i.a)}</span></div>`).join("")}</div>
+<div class="pn rv"><h3>Campaign health and funding pace</h3><div class="tw"><table class="tb"><tr><th>Campaign</th><th>Region</th><th>Funded</th><th>Days left</th><th>Needed per day</th><th>Health</th></tr>${cs.map((c) => `<tr><td>${esc(c.t)}</td><td>${c.r}</td><td><div class="mini"><i style="width:${pct(c)}%"></i></div> ${pct(c)}%</td><td>${c.days}</td><td>${fm((c.g - c.s) / c.days)}</td><td><span class="bd ${hcls(health(c))}">${health(c)}</span></td></tr>`).join("")}</table></div></div>`;
+      }
+
+      const usersAll = () => [
+        ...[
+          ["Kwame Asante", "Donor", "Accra", 3],
+          ["Hope Learners Foundation", "Organiser", "Kumasi", 16],
+          ["Zenith Bank CSR", "Corporate", "Accra", 27],
+          ["Ama Owusu", "Donor", "London, UK", 34],
+          ["Volta Disaster Response", "Organiser", "Ho", 41],
+          ["Esi Mensah", "Donor", "Kumasi", 75],
+          ["TechGirls Tamale", "Organiser", "Tamale", 120],
+        ].map(([n, r, l, o]) => [n, r, l, iso(addD(TODAY, -o))]),
+        ...USERS.map((u) => [u.name, u.role, "Ghana", iso(new Date(u.t))]),
+      ];
+
+      /* builds everything a report needs for the chosen period, regions and categories */
+      function rdata(f = RF) {
+        const P = prange(f),
+          inR = (t, a, b) => t.dt >= a && t.dt <= b,
+          camps = C.filter(
+            (c) => (!f.regions.length || f.regions.includes(c.r)) && (!f.cats.length || f.cats.includes(c.c)),
+          ),
+          ids = camps.map((c) => c.id),
+          all = TX.filter((t) => ids.includes(t.c)),
+          tx = all.filter((t) => inR(t, P.from, P.to)),
+          conf = tx.filter((t) => t.s == "Confirmed"),
+          pd = tx.filter((t) => t.s == "Pending"),
+          raised = sum(conf, (t) => t.a),
+          intl =
+            (sum(
+              conf.filter((t) => t.m == "paypal" || t.m == "wire"),
+              (t) => t.a,
+            ) /
+              (raised || 1)) *
+            100,
+          per = {};
+        conf.forEach((t) => (per[t.c] = (per[t.c] || 0) + t.a));
+        let sub = "";
+        if (P.prev) {
+          const pr = sum(
+            all.filter((t) => t.s == "Confirmed" && inR(t, P.prev.from, P.prev.to)),
+            (t) => t.a,
+          );
+          sub = pr
+            ? `${raised >= pr ? "+" : ""}${Math.round((raised / pr - 1) * 100)}% vs previous period`
+            : "No gifts in previous period";
+        }
+        return {
+          period: P,
+          per,
+          camps,
+          tx,
+          ins: INS(camps, tx, all),
+          users: usersAll().filter((u) => u[3] >= P.from && u[3] <= P.to),
+          scopeR: scopeText(f.regions, ALLREG.length, "regions"),
+          scopeC: scopeText(f.cats, CATS.length, "categories"),
+          cmp: P.prev
+            ? `Compared with the previous ${P.days}-day period (${fRange(P.prev.from, P.prev.to)}).`
+            : "",
+          K: [
+            [f.period == "all" ? "Total raised" : "Raised in period", fm(raised), sub],
+            ["Donations", conf.length.toLocaleString("en-US")],
+            ["Average gift", fm(raised / (conf.length || 1))],
+            ["Largest gift", fm(conf.reduce((m, t) => Math.max(m, t.a), 0))],
+            ["Giving from abroad", Math.round(intl) + "%"],
+            ["Pending transfers", fm(sum(pd, (t) => t.a))],
+            ["New campaigns", camps.filter((c) => c.start >= P.from && c.start <= P.to).length],
+            ["Funding gap (to date)", fm(sum(camps, (c) => c.g - c.s))],
+          ],
+        };
+      }
+
+      const pc = (c) => Math.round((c.s / c.g) * 100) + "%";
+      const TBL = {
+        "Executive summary": (R) => ({
+          title: "Top campaigns in this period",
+          head: ["Campaign", "Region", "Raised in period", "Raised to date", "Goal", "Funded"],
+          rows: [...R.camps]
+            .sort((a, b) => (R.per[b.id] || 0) - (R.per[a.id] || 0))
+            .slice(0, 6)
+            .map((c) => [c.t, c.r, fm(R.per[c.id] || 0), fm(c.s), fm(c.g), pc(c)]),
+        }),
+        "Campaign performance": (R) => ({
+          title: "Campaign performance",
+          head: [
+            "Campaign",
+            "Region",
+            "Category",
+            "Started",
+            "In period",
+            "To date",
+            "Goal",
+            "Funded",
+            "Days left",
+            "Health",
+          ],
+          rows: R.camps.map((c) => [
+            c.t,
+            c.r,
+            c.c,
+            fd(c.start),
+            fm(R.per[c.id] || 0),
+            fm(c.s),
+            fm(c.g),
+            pc(c),
+            c.days,
+            health(c),
+          ]),
+        }),
+        "Donations ledger": (R) => ({
+          title: "Donations ledger",
+          head: ["Date", "Donor", "Amount", "Method", "Campaign", "Status"],
+          rows: R.tx.map((t) => [fd(t.dt), t.n, fm(t.a), MN[MK.indexOf(t.m)], cn(t.c), t.s]),
+        }),
+        "User register": (R) => ({
+          title: "Users who joined in this period",
+          head: ["Name", "Role", "Location", "Joined"],
+          rows: R.users.map((u) => [u[0], u[1], u[2], fd(u[3])]),
+        }),
+      };
+      function regionTotals(R) {
+        const rg = {};
+        R.camps.forEach((c) => (rg[c.r] = (rg[c.r] || 0) + (R.per[c.id] || 0)));
+        return Object.entries(rg)
+          .filter((e) => e[1] > 0)
+          .sort((a, b) => b[1] - a[1]);
+      }
+
+      /* --- Reports tab: form + printable paper preview --- */
+      const msText = (sel, n, noun) =>
+        !sel.length || sel.length == n
+          ? "All " + noun
+          : sel.length <= 2
+            ? sel.join(", ")
+            : sel.length + " " + noun + " selected";
+      const rangeNote = (P) =>
+        `${fRange(P.from, P.to)} · ${P.days} day${P.days > 1 ? "s" : ""}${P.swapped ? " · dates reversed and corrected" : ""}`;
+      function msel(f, label, items, noun) {
+        const sel = RF[f];
+        return `<div class="fld"><span class="fl">${label}</span><details class="ms" data-f="${f}"><summary>${msText(sel, items.length, noun)}</summary><div class="msp"><div class="msa"><button type="button" data-ms="${f}" data-act="all">Select all</button><button type="button" data-ms="${f}" data-act="none">Clear</button></div>${items.map((i) => `<label class="mso"><input type="checkbox" class="rfi" data-f="${f}" data-m="1" value="${esc(i)}" ${sel.includes(i) ? "checked" : ""}>${esc(i)}</label>`).join("")}</div></details></div>`;
+      }
+      const psel = () =>
+        PERIODS.map(
+          ([g, a]) =>
+            `<optgroup label="${g}">${a.map(([k, n]) => `<option value="${k}" ${k == RF.period ? "selected" : ""}>${n}</option>`).join("")}</optgroup>`,
+        ).join("");
+      function reportsHTML() {
+        const R = rdata(),
+          chk = (f, l) =>
+            `<label class="opt"><input type="checkbox" class="rfi" data-f="${f}" ${RF[f] ? "checked" : ""}>${l}</label>`;
+        return `<div class="rg${RC ? " col" : ""}" id="rg"><aside class="pn rf rv" aria-label="Report settings">
+<div class="rfh"><h3>Report settings</h3><button class="tg" data-tg="rf" aria-expanded="${!RC}" aria-controls="rfb" title="${RC ? "Show" : "Hide"} report settings"><span class="t1">‹</span><span class="t2">⚙</span></button></div>
+<div class="rfb" id="rfb">
+<label>Report type<select class="rfi" data-f="type">${RTYPES.map((o) => `<option ${o == RF.type ? "selected" : ""}>${o}</option>`).join("")}</select></label>
+<label>Period<select class="rfi" data-f="period">${psel()}</select></label>
+<div class="dr" ${RF.period == "custom" ? "" : "hidden"}><label>From<input type="date" class="rfi" data-f="from" value="${RF.from}" max="${iso(TODAY)}"></label><label>To<input type="date" class="rfi" data-f="to" value="${RF.to}" max="${iso(TODAY)}"></label></div>
+<p class="prl" id="prl">${rangeNote(R.period)}</p>
+${msel("regions", "Regions", ALLREG, "regions")}${msel("cats", "Categories", CATS, "categories")}
+<label>Prepared by<input class="rfi" data-f="by" value="${esc(RF.by)}"></label>
+<div class="chks">${chk("ins", "Include insights")}${chk("charts", "Include region chart")}${chk("conf", "Mark as confidential")}</div>
+<p class="muted note">Sample ledger: gifts reconcile to each campaign’s total and are dated across the last 6 months.</p>
+<div class="exp"><button class="btn" data-x="pdf">Download PDF</button><button class="btn" data-x="xlsx">Download Excel</button><button class="btn alt" data-x="print">Print report</button><button class="btn alt" data-x="csv">Copy CSV</button></div>
+</div></aside>
+<div class="paperwrap rv" style="--i:2">${paper(R)}</div></div>`;
+      }
+      function paper(R) {
+        const T = TBL[RF.type](R),
+          E = regionTotals(R),
+          mx = E[0] ? E[0][1] || 1 : 1,
+          P = R.period;
+        return `<article class="paper"><header class="ph"><img src="${$("footer img").src}" alt="WOLEM impact"><div><h2>${RF.type}</h2><p><b>Period:</b> ${esc(P.label)}</p><p>Regions: ${esc(R.scopeR)} · Categories: ${esc(R.scopeC)}</p></div></header>
+<div class="pk">${R.K.map(([l, v, s]) => `<div><small>${l}</small><b>${esc(v)}</b>${s ? `<em class="${s[0] == "-" || s[0] == "N" ? "dn" : "up"}">${esc(s)}</em>` : ""}</div>`).join("")}</div>
+${R.cmp ? `<p class="cmp">${esc(R.cmp)}</p>` : ""}
+${RF.ins ? `<h4>Key insights</h4><ul class="pi">${R.ins.map((i) => `<li class="${i.k}"><b>${esc(i.h)}</b><span>${esc(i.p)}</span><em>Next step: ${esc(i.a)}</em></li>`).join("")}</ul>` : ""}
+${RF.charts && E.length ? `<h4>Raised by region in this period</h4><div class="prb">${E.map(([r, v]) => `<div><span>${r}</span><i><u style="width:${(v / mx) * 100}%"></u></i><b>${fm(v)}</b></div>`).join("")}</div>` : ""}
+<h4>${T.title}</h4>${T.rows.length ? `<div class="tw"><table class="pt2"><thead><tr>${T.head.map((h) => `<th>${h}</th>`).join("")}</tr></thead><tbody>${T.rows.map((r) => `<tr>${r.map((c) => `<td>${esc(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>` : `<p class="empty">No records match these filters for ${esc(P.label)}. Try a wider period or fewer filters.</p>`}
+<footer class="pf"><span>Prepared by ${esc(RF.by)} · Generated ${nowText()}</span><span>${RF.conf ? "Confidential · " : ""}www.wolemimpact.org</span></footer></article>`;
+      }
+      /* refresh the preview, period note, date inputs and dropdown summaries after any change */
+      function repaint() {
+        const R = rdata(),
+          p = $(".paperwrap");
+        if (p) p.innerHTML = paper(R);
+        const l = $("#prl");
+        if (l) l.textContent = rangeNote(R.period);
+        const dr = $(".dr");
+        if (dr) dr.hidden = RF.period != "custom";
+        document.querySelectorAll("details.ms").forEach((d) => {
+          const r = d.dataset.f == "regions";
+          d.querySelector("summary").textContent = msText(
+            RF[d.dataset.f],
+            (r ? ALLREG : CATS).length,
+            r ? "regions" : "categories",
+          );
+        });
+      }
+
+      /* --- exports --- */
+      const ps = (s) =>
+        String(s)
+          .replace(/[’‘]/g, "'")
+          .replace(/[“”]/g, '"')
+          .replace(/[–—]/g, "-")
+          .replace(/₵/g, "GHS ")
+          .replace(/[^\x00-\xFF]/g, "");
+      const lib = (u) =>
+        new Promise((ok, no) => {
+          if (document.querySelector(`script[src="${u}"]`)) return ok();
+          const s = document.createElement("script");
+          s.src = u;
+          s.onload = ok;
+          s.onerror = () => no(new Error("load " + u));
+          document.head.appendChild(s);
+        });
+      async function save(name, data) {
+        let dl = null;
+        try {
+          dl = window.claude && (await window.claude.use("downloads"));
+        } catch (e) {}
+        if (dl)
+          return dl.save({ filename: name, data }).catch((e) => {
+            if (e.code != "declined") toast("Could not save the file: " + (e.message || e.code));
+          });
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(
+          new Blob([data], {
+            type: name.endsWith("pdf")
+              ? "application/pdf"
+              : "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+          }),
+        );
+        a.download = name;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+      }
+      /* file names carry the report type and the exact dates, e.g. WOLEM-Impact_Executive-summary_2026-11-19_to_2026-11-25.pdf */
+      const fname = (R, ext) =>
+        `WOLEM-Impact_${RF.type.replace(/\s+/g, "-")}_${R.period.from}_to_${R.period.to}.${ext}`;
+      const clip = (s, n) => (s.length > n ? s.slice(0, n - 3) + "..." : s);
+
+      async function pdf() {
+        const R = rdata(),
+          T = TBL[RF.type](R),
+          P = R.period;
+        toast("Preparing your PDF…");
+        await lib(JSPDF);
+        await lib(ATBL);
+        const d = new window.jspdf.jsPDF({ unit: "pt", format: "a4" }),
+          W = 595,
+          H = 842,
+          M = 40,
+          N = [52, 28, 79],
+          O = [255, 107, 94],
+          L = [238, 231, 245];
+        let y = 140;
+        const need = (h) => {
+          if (y + h > H - 50) {
+            d.addPage();
+            y = 50;
+          }
+        };
+        const hd = (s) => {
+          need(40);
+          d.setTextColor(...N);
+          d.setFont("helvetica", "bold");
+          d.setFontSize(13);
+          d.text(ps(s), M, y);
+          d.setDrawColor(...O);
+          d.setLineWidth(1.5);
+          d.line(M, y + 5, M + 34, y + 5);
+          y += 24;
+          d.setFont("helvetica", "normal");
+        };
+        d.setFillColor(...N);
+        d.rect(0, 0, W, 110, "F");
+        d.setFillColor(...O);
+        d.rect(0, 110, W, 5, "F");
+        d.addImage($("footer img").src, "PNG", M, 28, 150, 26);
+        d.setTextColor(255, 255, 255);
+        d.setFont("helvetica", "bold");
+        d.setFontSize(21);
+        d.text(ps(RF.type), M, 84);
+        d.setFontSize(9.5);
+        d.text(ps("Period: " + P.name), W - M, 36, { align: "right" });
+        d.setFont("helvetica", "normal");
+        d.text(ps(fRange(P.from, P.to) + "  (" + P.days + (P.days > 1 ? " days)" : " day)")), W - M, 50, {
+          align: "right",
+        });
+        d.setFontSize(8.5);
+        d.text(ps("Regions: " + clip(R.scopeR, 48)), W - M, 66, { align: "right" });
+        d.text(ps("Categories: " + clip(R.scopeC, 48)), W - M, 78, { align: "right" });
+        d.text(ps("Prepared by " + RF.by + "  |  Generated " + nowText()), W - M, 94, { align: "right" });
+        R.K.forEach(([l, v, s], i) => {
+          const x = M + (i % 4) * 130,
+            yy = y + Math.floor(i / 4) * 66;
+          d.setFillColor(...L);
+          d.roundedRect(x, yy, 122, 58, 6, 6, "F");
+          d.setFillColor(...O);
+          d.rect(x, yy + 10, 3, 36, "F");
+          d.setTextColor(91, 74, 112);
+          d.setFontSize(8);
+          d.text(ps(l), x + 12, yy + 19);
+          d.setTextColor(...N);
+          d.setFont("helvetica", "bold");
+          d.setFontSize(14);
+          d.text(ps(v), x + 12, yy + 38);
+          d.setFont("helvetica", "normal");
+          if (s) {
+            d.setFontSize(6.5);
+            d.setTextColor(...(s[0] == "-" || s[0] == "N" ? [200, 60, 50] : [47, 125, 91]));
+            d.text(ps(s), x + 12, yy + 50);
+          }
+        });
+        y += 142;
+        d.setFontSize(8);
+        d.setTextColor(110, 95, 130);
+        const note = d.splitTextToSize(ps(`Scope: ${R.scopeR}; ${R.scopeC}. ${R.cmp}`), W - 2 * M);
+        d.text(note, M, y);
+        y += note.length * 10 + 14;
+        if (RF.ins) {
+          hd("Key insights");
+          const col = {
+            good: [47, 125, 91],
+            warn: [217, 150, 30],
+            risk: [200, 60, 50],
+            info: [91, 141, 239],
+          };
+          R.ins.forEach((i) => {
+            d.setFont("helvetica", "normal");
+            d.setFontSize(9);
+            const t = d.splitTextToSize(ps(i.p), W - 2 * M - 18),
+              h = 36 + t.length * 11;
+            need(h + 8);
+            d.setFillColor(...col[i.k]);
+            d.rect(M, y, 3, h - 4, "F");
+            d.setTextColor(...N);
+            d.setFont("helvetica", "bold");
+            d.setFontSize(10);
+            d.text(ps(i.h), M + 12, y + 10);
+            d.setFont("helvetica", "normal");
+            d.setFontSize(9);
+            d.setTextColor(60, 50, 75);
+            d.text(t, M + 12, y + 23);
+            d.setTextColor(...O);
+            d.setFont("helvetica", "italic");
+            d.text(ps("Next step: " + i.a), M + 12, y + 25 + t.length * 11);
+            d.setFont("helvetica", "normal");
+            y += h + 6;
+          });
+          y += 6;
+        }
+        const E = regionTotals(R),
+          mx = E[0] ? E[0][1] || 1 : 1;
+        if (RF.charts && E.length) {
+          hd("Raised by region in this period");
+          need(E.length * 18 + 10);
+          E.forEach(([r, v]) => {
+            d.setFontSize(9);
+            d.setTextColor(...N);
+            d.text(ps(r), M, y + 9);
+            d.setFillColor(...L);
+            d.roundedRect(M + 100, y, 300, 10, 5, 5, "F");
+            d.setFillColor(...O);
+            d.roundedRect(M + 100, y, Math.max(6, (300 * v) / mx), 10, 5, 5, "F");
+            d.setTextColor(...N);
+            d.text(ps(fm(v)), M + 410, y + 9);
+            y += 18;
+          });
+          y += 10;
+        }
+        hd(T.title);
+        if (T.rows.length)
+          d.autoTable({
+            startY: y,
+            head: [T.head.map(ps)],
+            body: T.rows.map((r) => r.map(ps)),
+            styles: { fontSize: 8, cellPadding: 5, textColor: N },
+            headStyles: { fillColor: N, textColor: 255, fontStyle: "bold" },
+            alternateRowStyles: { fillColor: [247, 243, 251] },
+            margin: { left: M, right: M, bottom: 50 },
+          });
+        else {
+          d.setFontSize(9);
+          d.setTextColor(110, 95, 130);
+          d.text(ps("No records match these filters for " + P.label + "."), M, y);
+        }
+        const n = d.getNumberOfPages();
+        for (let i = 1; i <= n; i++) {
+          d.setPage(i);
+          d.setDrawColor(...L);
+          d.line(M, H - 36, W - M, H - 36);
+          d.setFontSize(8);
+          d.setTextColor(120, 105, 140);
+          d.text(
+            ps(
+              `WOLEM Impact  |  www.wolemimpact.org  |  ${P.name}: ${fRange(P.from, P.to)}` +
+                (RF.conf ? "  |  Confidential" : ""),
+            ),
+            M,
+            H - 22,
+          );
+          d.text(`Page ${i} of ${n}`, W - M, H - 22, { align: "right" });
+        }
+        save(fname(R, "pdf"), d.output("blob"));
+      }
+
+      async function xlsx() {
+        const R = rdata(),
+          P = R.period;
+        toast("Building your Excel workbook…");
+        await lib(EXJS);
+        const wb = new ExcelJS.Workbook();
+        wb.creator = "WOLEM Impact";
+        wb.created = new Date();
+        const N = "FF341C4F",
+          O = "FFFF6B5E",
+          L = "FFEEE7F5",
+          Z = "FFF7F3FB",
+          GH = '"GH₵"#,##0',
+          DF = "dd mmm yyyy",
+          fill = (a) => ({ type: "pattern", pattern: "solid", fgColor: { argb: a } }),
+          col = (n) => String.fromCharCode(64 + n),
+          xd = (s) => new Date(s + "T00:00:00Z"),
+          meta = `Period: ${P.label} | Regions: ${R.scopeR} | Categories: ${R.scopeC} | Prepared by ${RF.by} | Generated ${nowText()}`;
+        const banner = (ws, title, n) => {
+          ws.mergeCells(1, 1, 1, n);
+          ws.mergeCells(2, 1, 2, n);
+          const a = ws.getCell("A1"),
+            b = ws.getCell("A2");
+          a.value = title;
+          a.font = { size: 18, bold: true, color: { argb: "FFFFFFFF" } };
+          a.fill = fill(N);
+          a.alignment = { vertical: "middle", indent: 1 };
+          b.value = meta;
+          b.font = { size: 9, italic: true, color: { argb: "FF5B4A70" } };
+          b.fill = fill(L);
+          b.alignment = { indent: 1, vertical: "middle", wrapText: true };
+          ws.getRow(1).height = 38;
+          ws.getRow(2).height = 30;
+        };
+        const sheet = (name, title, head, rows, fmts, widths, tint, totals) => {
+          const ws = wb.addWorksheet(name, { properties: { tabColor: { argb: O } } }),
+            n = head.length;
+          banner(ws, title, n);
+          const h = ws.getRow(4);
+          h.height = 26;
+          head.forEach((s, i) => {
+            const c = h.getCell(i + 1);
+            c.value = s;
+            c.font = { bold: true, color: { argb: "FFFFFFFF" } };
+            c.fill = fill(N);
+            c.alignment = {
+              vertical: "middle",
+              horizontal: fmts[i] && fmts[i] != DF ? "right" : "left",
+              indent: 1,
+            };
+            c.border = { bottom: { style: "medium", color: { argb: O } } };
+          });
+          rows.forEach((r, ri) => {
+            const row = ws.getRow(5 + ri);
+            r.forEach((v, i) => {
+              const c = row.getCell(i + 1);
+              c.value = v;
+              if (fmts[i]) c.numFmt = fmts[i];
+              if (ri % 2) c.fill = fill(Z);
+              c.alignment = {
+                vertical: "middle",
+                indent: 1,
+                horizontal: fmts[i] && fmts[i] != DF ? "right" : "left",
+              };
+              c.border = { bottom: { style: "hair", color: { argb: "FFD9CCE8" } } };
+              if (tint) tint(c, v, i);
+            });
+          });
+          if (!rows.length) {
+            ws.mergeCells(5, 1, 5, n);
+            ws.getCell("A5").value = "No records match these filters for " + P.label + ".";
+            ws.getCell("A5").font = { italic: true, color: { argb: "FF7A6A90" } };
+          }
+          if (totals && rows.length) {
+            const tr = ws.getRow(5 + rows.length),
+              last = 4 + rows.length;
+            for (let i = 1; i <= n; i++) {
+              const c = tr.getCell(i);
+              c.fill = fill(L);
+              c.font = { bold: true, color: { argb: N } };
+              c.border = { top: { style: "medium", color: { argb: O } } };
+              if (i == 1) c.value = "Total";
+              if (totals.includes(i)) {
+                c.value = { formula: `SUM(${col(i)}5:${col(i)}${last})` };
+                c.numFmt = fmts[i - 1];
+                c.alignment = { horizontal: "right", indent: 1 };
+              }
+            }
+          }
+          widths.forEach((w, i) => (ws.getColumn(i + 1).width = w));
+          ws.views = [{ state: "frozen", ySplit: 4, showGridLines: false }];
+          if (rows.length) ws.autoFilter = { from: { row: 4, column: 1 }, to: { row: 4, column: n } };
+          ws.pageSetup = { orientation: "landscape", fitToPage: true, fitToWidth: 1, fitToHeight: 0 };
+          return ws;
+        };
+        /* Summary */
+        const s = wb.addWorksheet("Summary", { properties: { tabColor: { argb: N } } });
+        banner(s, "WOLEM Impact - " + RF.type, 3);
+        s.getColumn(1).width = 30;
+        s.getColumn(2).width = 72;
+        s.getColumn(3).width = 52;
+        s.getRow(4).height = 24;
+        ["Report details", "Value", ""].forEach((v, i) => {
+          const c = s.getRow(4).getCell(i + 1);
+          c.value = v;
+          c.font = { bold: true, color: { argb: "FFFFFFFF" } };
+          c.fill = fill(N);
+          c.alignment = { indent: 1 };
+        });
+        const rows0 = [
+          ["Reporting period", P.label],
+          ["Regions", R.scopeR],
+          ["Categories", R.scopeC],
+          ["Comparison", R.cmp || "Not applicable for an all-time report"],
+          ...R.K.map(([l, v, sb]) => [l, sb ? `${v}  (${sb})` : v]),
+        ];
+        rows0.forEach(([l, v], i) => {
+          const r = s.getRow(5 + i);
+          r.getCell(1).value = l;
+          r.getCell(2).value = v;
+          r.getCell(1).font = { bold: true, color: { argb: N } };
+          [1, 2, 3].forEach((k) => {
+            const c = r.getCell(k);
+            c.fill = fill(i % 2 ? Z : "FFFFFFFF");
+            c.border = { bottom: { style: "hair", color: { argb: "FFD9CCE8" } } };
+            c.alignment = { indent: 1, wrapText: true, vertical: "top", horizontal: "left" };
+          });
+        });
+        const i0 = 6 + rows0.length;
+        ["Insight", "Detail", "Next step"].forEach((v, i) => {
+          const c = s.getRow(i0).getCell(i + 1);
+          c.value = v;
+          c.font = { bold: true, color: { argb: "FFFFFFFF" } };
+          c.fill = fill(N);
+          c.alignment = { indent: 1 };
+        });
+        const tone = { good: "FF2F7D5B", warn: "FFD9961E", risk: "FFC83C32", info: "FF5B8DEF" };
+        R.ins.forEach((x, i) => {
+          const r = s.getRow(i0 + 1 + i);
+          r.values = [x.h, x.p, x.a];
+          r.getCell(1).font = { bold: true, color: { argb: tone[x.k] } };
+          [1, 2, 3].forEach((k) => {
+            const c = r.getCell(k);
+            c.alignment = { wrapText: true, vertical: "top", indent: 1 };
+            c.fill = fill(i % 2 ? Z : "FFFFFFFF");
+            c.border = { bottom: { style: "hair", color: { argb: "FFD9CCE8" } } };
+          });
+          r.getCell(1).border = {
+            left: { style: "thick", color: { argb: tone[x.k] } },
+            bottom: { style: "hair", color: { argb: "FFD9CCE8" } },
+          };
+          r.height = 46;
+        });
+        s.views = [{ showGridLines: false }];
+        /* Campaigns */
+        const camps = R.camps,
+          cws = sheet(
+            "Campaigns",
+            "Campaigns",
+            [
+              "ID",
+              "Campaign",
+              "Organiser",
+              "Region",
+              "Category",
+              "Started",
+              "Goal",
+              "Raised to date",
+              "Raised in period",
+              "% funded",
+              "Donors",
+              "Days left",
+              "Health",
+            ],
+            camps.map((c, i) => [
+              c.id,
+              c.t,
+              c.o,
+              c.r,
+              c.c,
+              xd(c.start),
+              c.g,
+              c.s,
+              R.per[c.id] || 0,
+              { formula: `H${5 + i}/G${5 + i}`, result: c.s / c.g },
+              c.d,
+              c.days,
+              health(c),
+            ]),
+            [null, null, null, null, null, DF, GH, GH, GH, "0%", "#,##0", "0", null],
+            [7, 46, 30, 16, 20, 13, 14, 15, 16, 11, 10, 10, 12],
+            (c, v, i) => {
+              if (i == 12) {
+                c.font = {
+                  bold: true,
+                  color: { argb: v == "At risk" ? "FFC83C32" : v == "Ahead" ? "FF2F7D5B" : "FF3B5FC0" },
+                };
+                c.alignment = { horizontal: "center" };
+              }
+            },
+            [7, 8, 9],
+          );
+        try {
+          if (camps.length)
+            cws.addConditionalFormatting({
+              ref: `J5:J${4 + camps.length}`,
+              rules: [
+                {
+                  type: "dataBar",
+                  gradient: false,
+                  cfvo: [{ type: "min" }, { type: "max" }],
+                  color: { argb: O },
+                },
+              ],
+            });
+        } catch (e) {}
+        /* Donations */
+        sheet(
+          "Donations",
+          "Donations ledger",
+          ["Date", "Donor", "Amount", "Method", "Campaign", "Region", "Status"],
+          R.tx.map((t) => [
+            xd(t.dt),
+            t.n,
+            t.a,
+            MN[MK.indexOf(t.m)],
+            cn(t.c),
+            (C.find((c) => c.id == t.c) || {}).r,
+            t.s,
+          ]),
+          [DF, null, GH, null, null, null, null],
+          [14, 24, 14, 14, 46, 16, 14],
+          (c, v, i) => {
+            if (i == 6) {
+              c.font = { bold: true, color: { argb: v == "Pending" ? "FFB07A10" : "FF2F7D5B" } };
+              c.alignment = { horizontal: "center" };
+            }
+          },
+          [3],
+        );
+        /* Regions */
+        const rg = {};
+        camps.forEach((c) => {
+          const o = (rg[c.r] = rg[c.r] || [0, 0, 0, 0]);
+          o[0]++;
+          o[1] += c.g;
+          o[2] += c.s;
+          o[3] += R.per[c.id] || 0;
+        });
+        sheet(
+          "Regions",
+          "Performance by region",
+          ["Region", "Campaigns", "Goal", "Raised to date", "Raised in period", "% funded"],
+          Object.entries(rg)
+            .sort((a, b) => b[1][3] - a[1][3])
+            .map(([r, o], i) => [
+              r,
+              o[0],
+              o[1],
+              o[2],
+              o[3],
+              { formula: `D${5 + i}/C${5 + i}`, result: o[2] / o[1] },
+            ]),
+          [null, "0", GH, GH, GH, "0%"],
+          [22, 12, 14, 15, 16, 12],
+          null,
+          [2, 3, 4, 5],
+        );
+        /* Users */
+        sheet(
+          "Users",
+          "Users who joined in this period",
+          ["Name", "Role", "Location", "Joined"],
+          R.users.map((u) => [u[0], u[1], u[2], xd(u[3])]),
+          [null, null, null, DF],
+          [34, 20, 22, 14],
+        );
+        save(fname(R, "xlsx"), await wb.xlsx.writeBuffer());
+      }
+
+      document.addEventListener("click", (e) => {
+        document.querySelectorAll("details.ms[open]").forEach((d) => {
+          if (!d.contains(e.target)) d.open = false;
+        });
+        const tg = e.target.closest("[data-tg]");
+        if (tg) {
+          if (tg.dataset.tg == "rf") {
+            RC = !RC;
+            $("#rg").classList.toggle("col", RC);
+            tg.title = (RC ? "Show" : "Hide") + " report settings";
+            tg.setAttribute("aria-expanded", !RC);
+          } else {
+            SBC = !SBC;
+            $(".ad").classList.toggle("sbc", SBC);
+            LS("wi_sbc", SBC);
+            tg.title = (SBC ? "Expand" : "Collapse") + " sidebar";
+            tg.setAttribute("aria-expanded", !SBC);
+          }
+          return;
+        }
+        const b = e.target.closest("[data-x],[data-ms]");
+        if (!b) return;
+        if (b.dataset.ms) {
+          const f = b.dataset.ms,
+            on = b.dataset.act == "all";
+          document.querySelectorAll(`.rfi[data-f="${f}"]`).forEach((x) => (x.checked = on));
+          RF[f] = on ? [...(f == "regions" ? ALLREG : CATS)] : [];
+          return repaint();
+        }
+        const x = b.dataset.x;
+        if (x == "pdf")
+          pdf().catch(() => toast("Could not build the PDF. Check your connection and try again."));
+        if (x == "xlsx")
+          xlsx().catch(() => toast("Could not build the Excel file. Check your connection and try again."));
+        if (x == "print") window.print();
+        if (x == "csv") {
+          const R = rdata(),
+            T = TBL[RF.type](R),
+            q = (v) => `"${String(v).replace(/"/g, '""')}"`,
+            txt = [
+              ["Report", RF.type],
+              ["Period", R.period.label],
+              ["Regions", R.scopeR],
+              ["Categories", R.scopeC],
+              [],
+              T.head,
+              ...T.rows,
+            ]
+              .map((r) => r.map(q).join(","))
+              .join("\n");
+          try {
+            navigator.clipboard.writeText(txt);
+          } catch (err) {}
+          toast("CSV copied with the period and filters in the first rows.");
+        }
+      });
+      document.addEventListener("change", (e) => {
+        const el = e.target.closest(".rfi");
+        if (!el) return;
+        const f = el.dataset.f;
+        if (el.dataset.m)
+          RF[f] = [...document.querySelectorAll(`.rfi[data-f="${f}"]:checked`)].map((i) => i.value);
+        else RF[f] = el.type == "checkbox" ? el.checked : el.value;
+        repaint();
+      });
+      /* cover images: try the next file extension, then fall back to the pattern */
+      document.addEventListener(
+        "error",
+        (e) => {
+          if (e.target.classList && e.target.classList.contains("cimg")) imgNext(e.target);
+        },
+        true,
+      );
+
+      /* ===== MOBILE: menu and sticky donate bar ===== */
+      function menuOpen(v) {
+        $("#menu").classList.toggle("open", v);
+        const b = $("#mt");
+        b.setAttribute("aria-expanded", v);
+        b.setAttribute("aria-label", v ? "Close menu" : "Open menu");
+      }
+      document.addEventListener("click", (e) => {
+        const open = $("#menu").classList.contains("open");
+        if (e.target.closest("#mt")) return menuOpen(!open);
+        if (open && (e.target.closest("#menu a, #menu .chip") || !e.target.closest("header")))
+          menuOpen(false);
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key == "Escape") menuOpen(false);
+      });
+      addEventListener("hashchange", () => menuOpen(false));
+      /* fixed bottom bar on campaign pages for phones: shows progress and keeps Donate in reach */
+      function dbar(c) {
+        const money = c.m.includes("m"),
+          d = document.createElement("div");
+        d.className = "dbar";
+        d.innerHTML = `<div class="dm"><b>${fm(c.s)}</b><span>raised of ${fm(c.g)}</span><div class="bar" role="progressbar" aria-valuenow="${pct(c)}" aria-valuemin="0" aria-valuemax="100"><i style="width:${pct(c)}%"></i></div></div><button class="btn lg" id="dbtn">${money ? "Donate" : "Support"}</button>`;
+        $("#app").appendChild(d);
+        $("#dbtn").onclick = () => (money ? donate(c) : $(".side").scrollIntoView({ behavior: "smooth" }));
+      }
+
+      function admin() {
+        const a = $("#app");
+        if (!ADM) {
+          a.innerHTML = `<div class="alog">
+<form class="gl rv" id="af">
+<img src="${$("footer img").src}" alt="WOLEM impact" style="height:30px;width:auto;justify-self:start">
+<div>
+<h2 style="font-size:1.6rem">Staff sign in</h2>
+<p style="margin:6px 0 0;color:#b9a6d1">Authorised WOLEM Impact management only.</p>
+</div>
+<label>Staff email<input id="ae" type="email" required autocomplete="username">
+</label>
+<label>Passcode<input id="ap" type="password" required autocomplete="current-password">
+</label>
+<p class="err" id="aer">
+</p>
+<button class="btn block">Enter dashboard</button>
+</form>
+</div>`;
+          $("#af").onsubmit = (e) => {
+            e.preventDefault();
+            if (
+              $("#ae").value.trim().toLowerCase() == "admin@wolemimpact.org" &&
+              $("#ap").value == "Wolem@2026"
+            ) {
+              ADM = true;
+              admin();
+            } else $("#aer").textContent = "Email or passcode is incorrect.";
+          };
+          return;
+        }
+        const T = ["Overview", "Insights", "Campaigns", "Donations", "Users", "Reports"],
+          ic = ["◔", "✧", "✦", "₵", "☺", "▤"];
+        a.innerHTML = `<div class="ad${AT == "Reports" ? " rep" : ""}${SBC ? " sbc" : ""}">
+<aside class="as">
+<a class="alogo" href="#home" title="Back to the public site" aria-label="WOLEM Impact public site"><img src="${$("footer img").src}" alt="WOLEM impact"></a>
+<button class="sbt" data-tg="sb" aria-expanded="${!SBC}" title="${SBC ? "Expand" : "Collapse"} sidebar"><span class="ic">‹</span><span class="lb">Collapse</span></button>
+<nav>${T.map(
+          (t, i) => `<button class="${t == AT ? "on" : ""}" data-t="${t}" title="${t}">
+<span class="ic">${ic[i]}</span><span class="lb">${t}</span>${t == "Campaigns" && PEND.length ? `<em>${PEND.length}</em>` : ""}</button>`,
+        ).join("")}</nav>
+<button class="ex" id="ax" title="Exit dashboard"><span class="ic">↩</span><span class="lb">Exit dashboard</span></button>
+</aside>
+<section class="am">
+<div class="at">
+<h2>${AT}</h2>
+<span class="muted">Tue 24 Nov 2026 · Sample data plus live demo activity</span>
+</div>${AV[AT]()}</section>
+</div>`;
+        const red = matchMedia("(prefers-reduced-motion:reduce)").matches;
+        document.querySelectorAll("[data-n]").forEach((e) => {
+          const n = +e.dataset.n,
+            p = e.dataset.p,
+            w = (v) => (e.textContent = p + Math.round(v).toLocaleString("en-US"));
+          if (red) return w(n);
+          let s = null;
+          const f = (t) => {
+            s = s || t;
+            const k = Math.min(1, (t - s) / 1000);
+            w(n * (1 - Math.pow(1 - k, 3)));
+            k < 1 && requestAnimationFrame(f);
+          };
+          requestAnimationFrame(f);
+        });
+        $(".ad").onclick = (e) => {
+          const b = e.target.closest("button");
+          if (!b) return;
+          const d = b.dataset;
+          if (d.t) {
+            AT = d.t;
+            return admin();
+          }
+          if (b.id == "ax") {
+            ADM = false;
+            location.hash = "home";
+            return;
+          }
+          if (d.ap != null) {
+            const p = PEND.splice(+d.ap, 1)[0];
+            C.unshift({
+              id: Math.max(...C.map((x) => x.id)) + 1,
+              start: iso(TODAY),
+              t: p.t,
+              o: p.o,
+              r: p.r,
+              c: p.c,
+              g: p.g,
+              s: 0,
+              d: 0,
+              days: 30,
+              m: "m" + (p.goods ? "g" : "") + (p.vol ? "v" : ""),
+              story: p.s,
+              goods: p.goods ? ["Items the organiser will list soon"] : [],
+              roles: p.vol ? ["Role details coming soon"] : [],
+            });
+            toast("Approved and published.");
+            return admin();
+          }
+          if (d.rj != null) {
+            PEND.splice(+d.rj, 1);
+            toast("Campaign rejected. The organiser will be notified.");
+            return admin();
+          }
+          if (d.cf != null) {
+            const t = TX[+d.cf],
+              c = C.find((x) => x.id == t.c);
+            t.s = "Confirmed";
+            t.w = "Just now";
+            if (c) {
+              c.s += t.a;
+              c.d++;
+            }
+            toast("Receipt confirmed and the campaign credited.");
+            return admin();
+          }
+          if (d.rp) {
+            RP = d.rp;
+            return admin();
+          }
+          if (b.id == "cp") {
+            const t = $("#csv");
+            try {
+              navigator.clipboard.writeText(t.value);
+            } catch (x) {
+              t.select();
+              document.execCommand("copy");
+            }
+            toast("CSV copied. Paste it into Excel or Google Sheets.");
+          }
+        };
+      }
+
+      /* ===== INIT ===== */
+      document.addEventListener("click", (e) => {
+        const a = e.target.closest("[data-s]");
+        if (a)
+          setTimeout(() => {
+            const s = document.getElementById(a.dataset.s);
+            s && s.scrollIntoView();
+          }, 50);
+      });
+      addEventListener("hashchange", () => {
+        route();
+        scrollTo(0, 0);
+      });
+      route();
+    </script>
+  </body>
+</html>
