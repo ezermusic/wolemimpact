@@ -1762,6 +1762,245 @@
           overflow: visible;
         }
       }
+      /* ===== PROFILE, SECURITY & COMPLIANCE UI ===== */
+      .cursel {
+        width: 100%;
+        min-height: 46px;
+      }
+      #menu .cursel {
+        margin-top: 6px;
+      }
+      .prof {
+        padding-top: 20px;
+        padding-bottom: 40px;
+        display: grid;
+        gap: 16px;
+      }
+      .phd {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 16px;
+        padding: 18px;
+      }
+      .phd h2 {
+        font-size: 1.4rem;
+      }
+      .av {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        color: #fff;
+        font:
+          800 1.4rem "Bricolage Grotesque",
+          sans-serif;
+        flex: none;
+      }
+      .cmpl {
+        flex: 1 1 180px;
+        max-width: 280px;
+        margin-left: auto;
+      }
+      .cmpl small {
+        display: block;
+        margin-bottom: 6px;
+        color: var(--ink2);
+      }
+      .tabs.scroll {
+        overflow-x: auto;
+        white-space: nowrap;
+        scrollbar-width: none;
+      }
+      .tabs.scroll button {
+        flex: none;
+        padding: 10px 18px;
+      }
+      .pbody {
+        display: grid;
+        gap: 16px;
+      }
+      .pg {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: minmax(0, 1fr);
+        align-items: start;
+      }
+      .pf {
+        padding: 18px;
+        display: grid;
+        gap: 14px;
+        align-content: start;
+        min-width: 0;
+      }
+      .pf h3 {
+        margin-top: 6px;
+      }
+      .ptb {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9rem;
+      }
+      .ptb th {
+        text-align: left;
+        color: var(--ink2);
+        font-weight: 500;
+        padding: 8px;
+        white-space: nowrap;
+      }
+      .ptb td {
+        padding: 10px 8px;
+        border-top: 1px solid var(--line);
+      }
+      .prof .bd,
+      dialog .bd {
+        background: #e3f4ec;
+        color: #1f6a4a;
+      }
+      .prof .bd.pe,
+      dialog .bd.pe {
+        background: #fff3d6;
+        color: #8a5b00;
+      }
+      .prof .bd.rk,
+      dialog .bd.rk {
+        background: #fde4e1;
+        color: #a5342a;
+      }
+      .prof .bd.in,
+      dialog .bd.in {
+        background: #e4ecfd;
+        color: #2f4fa3;
+      }
+      .kyb {
+        border-radius: 14px;
+        padding: 12px 14px;
+        display: grid;
+        gap: 2px;
+        background: var(--soft);
+        border-left: 4px solid #2f7d5b;
+      }
+      .kyb.pe {
+        border-color: #d9961e;
+      }
+      .kyb.rk {
+        border-color: #c83c32;
+      }
+      .kyb.in {
+        border-color: #2f4fa3;
+      }
+      .pwm {
+        height: 6px;
+        background: var(--soft);
+        border-radius: 9px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+      }
+      .pwm i {
+        display: block;
+        height: 100%;
+        width: 0;
+        transition:
+          width 0.25s,
+          background 0.25s;
+      }
+      .opt.dis {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+      .ug {
+        display: grid;
+        gap: 12px;
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .ug .bx {
+        align-content: start;
+      }
+      .kv b {
+        text-align: right;
+        word-break: break-word;
+      }
+      .fgrid {
+        display: grid;
+        gap: 12px;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        align-items: start;
+      }
+      .chks2 {
+        display: grid;
+        gap: 8px;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      }
+      .srch {
+        max-width: 360px;
+        margin-bottom: 12px;
+      }
+      .ck {
+        display: inline-grid;
+        place-items: center;
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        font-size: 0.72rem;
+        font-weight: 700;
+        margin-right: 3px;
+      }
+      .ck.ok {
+        background: rgba(95, 214, 164, 0.2);
+        color: #5fd6a4;
+      }
+      .ck.no {
+        background: rgba(255, 107, 94, 0.2);
+        color: #ff6b5e;
+      }
+      .tb td .muted,
+      .tb td .note {
+        font-size: 0.8rem;
+      }
+      .tb input,
+      .tb select {
+        min-width: 90px;
+      }
+      tr[hidden] {
+        display: none;
+      }
+      dialog .tabs button {
+        min-height: 44px;
+      }
+      @media (min-width: 900px) {
+        .pg {
+          grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+        }
+        .ug {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (min-width: 640px) {
+        dialog.wide {
+          width: min(780px, 94vw);
+        }
+      }
+      dialog .mb.ok {
+        color: #1f6a4a;
+        border-color: #1f6a4a;
+      }
+      dialog .mb.no {
+        color: #c83c32;
+        border-color: #c83c32;
+      }
+      dialog .mb.ok:hover {
+        background: #1f6a4a;
+        color: #fff;
+      }
+      dialog .mb.no:hover {
+        background: #c83c32;
+        color: #fff;
+      }
+      /* the landing page has no currency picker (it stays on the other public pages and in profiles) */
+      body.home .cursel {
+        display: none;
+      }
 
       /* ===== MOBILE-FIRST BASE: new phone components ===== */
       html,
@@ -2298,6 +2537,11 @@
         .rg.col .t2 {
           display: inline;
         }
+        .cursel {
+          width: auto;
+          min-height: 0;
+          padding: 7px 12px;
+        }
 
         .ad.sbc {
           grid-template-columns: 76px 1fr;
@@ -2357,6 +2601,7 @@
           <a href="#home" data-s="orgs">For organisations</a>
           <a href="#about">About</a>
           <a href="#contact">Contact</a>
+          <select id="cur" class="cursel" aria-label="Display currency"></select>
           <span id="acct"></span>
         </nav>
         <a class="btn cta" href="#start">Start<span class="xs"> a campaign</span></a>
@@ -2398,7 +2643,7 @@
       const $ = (s) => document.querySelector(s),
         esc = (s) =>
           String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
-      const fm = (n) => "GH₵" + Math.round(n).toLocaleString("en-US");
+      const fm = (n) => fmc(n, document.body.classList.contains("adm") ? "GHS" : CUR);
 
       /* ===== DATA ===== */
       const CAT = {
@@ -2715,7 +2960,7 @@
 <h2>Needs that are close to their goal</h2>
 <a class="btn alt" href="#browse">See all campaigns</a>
 </div>
-<div class="grid">${C.slice(0, 6).map(card).join("")}</div>
+<div class="grid">${LIVE().slice(0, 6).map(card).join("")}</div>
 </div>
 </section>
 <section id="how">
@@ -2781,7 +3026,7 @@
           r = $("#rg").value,
           m = $("#mt").value,
           k = (document.querySelector(".chip[aria-pressed=true]") || {}).dataset.k;
-        const L = C.filter(
+        const L = LIVE().filter(
           (c) =>
             (!q || (c.t + c.o + c.r).toLowerCase().includes(q)) &&
             (!r || c.r == r) &&
@@ -2842,7 +3087,7 @@
           .join("")}</div>
 <div id="pane">
 </div>
-<button class="btn alt block" id="sh">Share this campaign</button>
+<button class="btn alt block" id="sh">Share this campaign</button><button class="chip" data-pa="report" data-id="${c.id}">Report a problem</button>
 </aside>
 </div>
 </div>`;
@@ -2899,6 +3144,7 @@
         acct();
         document.body.classList.toggle("adm", h == "mgmt");
         document.body.classList.toggle("hasbar", /^c\d+$/.test(h));
+        document.body.classList.toggle("home", h == "home");
         if (h == "mgmt") return admin();
         if (/^c\d+$/.test(h)) {
           a.innerHTML = campaign(h.slice(1));
@@ -3012,6 +3258,7 @@
             g: +F.g,
             s: F.s,
             by: U ? U.name : "Guest",
+            owner: U ? U.email : "",
             goods: F.goods,
             vol: F.vol,
           });
@@ -3031,7 +3278,7 @@
         };
         scrollTo(0, 0);
       }
-      /* ===== ACCOUNTS ===== */
+      /* ===== ACCOUNTS & SECURITY ===== */
       const LS = (k, v) => {
         try {
           if (v === undefined) return JSON.parse(localStorage.getItem(k));
@@ -3040,72 +3287,634 @@
           return null;
         }
       };
-      let USERS = LS("wi_users") || [],
+      /* platform settings: fees, AML rules, FX (admins can change these in the dashboard) */
+      const SET0 = {
+        platformPct: 2.5,
+        waive: ["Emergency"],
+        fees: {
+          momo: { p: 1, f: 0 },
+          card: { p: 2.9, f: 0.5 },
+          paypal: { p: 3.4, f: 1 },
+          bank: { p: 0, f: 2 },
+          wire: { p: 0, f: 60 },
+        },
+        minPayout: 100,
+        holdDays: 3,
+        large: 10000,
+        structN: 3,
+        structSum: 10000,
+        structHrs: 24,
+        kycGift: 5000,
+        kycMonth: 20000,
+        match: 0.8,
+      };
+      const SET = { ...SET0, ...(LS("wi_set") || {}) };
+      const FX = { GHS: 1, USD: 12, EUR: 13, GBP: 15.2, NGN: 0.008, ...(LS("wi_fx") || {}) }; // value of 1 unit in Ghana cedis (sample rates)
+      let CUR = LS("wi_cur") || "GHS";
+      const CURNAME = {
+        GHS: "Ghana cedi",
+        USD: "US dollar",
+        EUR: "Euro",
+        GBP: "British pound",
+        NGN: "Nigerian naira",
+      };
+      const PRE = {
+        GHS: [20, 50, 100, 200],
+        USD: [5, 10, 25, 50],
+        EUR: [5, 10, 25, 50],
+        GBP: [5, 10, 20, 50],
+        NGN: [2000, 5000, 10000, 20000],
+      };
+      const toG = (a, c) => a * FX[c];
+      function fmc(g, c = CUR) {
+        if (c == "GHS") return "GH₵" + Math.round(g).toLocaleString("en-US");
+        const v = g / FX[c];
+        return new Intl.NumberFormat("en-US", {
+          style: "currency",
+          currency: c,
+          maximumFractionDigits: v >= 100 ? 0 : 2,
+        }).format(v);
+      }
+      const saveSet = () => {
+        LS("wi_set", SET);
+        LS("wi_fx", FX);
+      };
+
+      /* AML name screening against a small demo watchlist (use a licensed provider in production) */
+      const WATCH = [
+        ["Viktor Petrenko", "Sanctions list (demo)"],
+        ["Amara Okonkwo-Reed", "PEP register (demo)"],
+        ["Hassan Al-Demo", "Adverse media (demo)"],
+      ];
+      const toks = (s) =>
+        String(s)
+          .toLowerCase()
+          .replace(/[^a-z ]/g, " ")
+          .split(/\s+/)
+          .filter(Boolean)
+          .sort()
+          .join(" ");
+      const bg = (s) => {
+        const a = s.replace(/ /g, ""),
+          r = [];
+        for (let i = 0; i < a.length - 1; i++) r.push(a.slice(i, i + 2));
+        return r;
+      };
+      function sim(a, b) {
+        const x = bg(toks(a)),
+          y = bg(toks(b)),
+          t = [...y];
+        if (!x.length || !y.length) return 0;
+        let n = 0;
+        x.forEach((g) => {
+          const i = t.indexOf(g);
+          if (i > -1) {
+            n++;
+            t.splice(i, 1);
+          }
+        });
+        return (2 * n) / (x.length + y.length);
+      }
+      function screen(name) {
+        let best = { s: 0 };
+        WATCH.forEach(([n, l]) => {
+          const s = sim(name, n);
+          if (s > best.s) best = { s, n, l };
+        });
+        const hit = best.s >= SET.match;
+        return {
+          score: +best.s.toFixed(2),
+          hit,
+          list: hit ? best.l : "",
+          match: hit ? best.n : "",
+          at: Date.now(),
+        };
+      }
+
+      /* ---- users ---- */
+      const COUNTRIES = [
+        "Ghana",
+        "Nigeria",
+        "Kenya",
+        "South Africa",
+        "United Kingdom",
+        "United States",
+        "Canada",
+        "Germany",
+        "France",
+        "Netherlands",
+        "UAE",
+        "Other",
+      ];
+      const ROLES = ["Donor", "Organiser or NGO", "Corporate partner"];
+      const mkUser = (o) => ({
+        id: "U-" + Math.random().toString(36).slice(2, 8).toUpperCase(),
+        name: "",
+        email: "",
+        role: ROLES[0],
+        phone: "",
+        country: "Ghana",
+        city: "",
+        address: "",
+        dob: "",
+        org: "",
+        bio: "",
+        cur: "GHS",
+        color: Math.floor(Math.random() * 360),
+        joined: iso(TODAY),
+        status: "Active",
+        risk: "Low",
+        twofa: false,
+        notif: { email: true, sms: false, news: true },
+        anon: false,
+        kyc: { status: "none" },
+        screen: null,
+        log: [],
+        notes: [],
+        ...o,
+      });
+      const normU = (u) => {
+        const d = mkUser({}),
+          r = { ...d, ...u };
+        if (!u.joined) r.joined = u.t ? iso(new Date(u.t)) : d.joined;
+        r.kyc = { ...d.kyc, ...u.kyc };
+        r.notif = { ...d.notif, ...u.notif };
+        return r;
+      };
+      let USERS = (LS("wi_users") || []).map(normU),
         U = LS("wi_sess") || null;
-      const sha = async (s) =>
-        [...new Uint8Array(await crypto.subtle.digest("SHA-256", new TextEncoder().encode(s)))]
-          .map((b) => b.toString(16).padStart(2, "0"))
+      const SEEDU = [
+        [
+          "Kwame Asante",
+          "kwame.asante@example.com",
+          "Donor",
+          "Accra",
+          "Ghana",
+          "+233 24 100 2001",
+          40,
+          "verified",
+        ],
+        [
+          "Hope Learners Foundation",
+          "hope@learners.example",
+          "Organiser or NGO",
+          "Kumasi",
+          "Ghana",
+          "+233 24 100 2002",
+          70,
+          "verified",
+        ],
+        [
+          "Zenith Bank CSR",
+          "csr@zenith.example",
+          "Corporate partner",
+          "Accra",
+          "Ghana",
+          "+233 30 100 2003",
+          90,
+          "verified",
+        ],
+        [
+          "Ama Owusu",
+          "ama.owusu@example.com",
+          "Donor",
+          "London",
+          "United Kingdom",
+          "+44 7700 900123",
+          12,
+          "pending",
+        ],
+        [
+          "Volta Disaster Response",
+          "volta@response.example",
+          "Organiser or NGO",
+          "Ho",
+          "Ghana",
+          "+233 24 100 2005",
+          55,
+          "verified",
+        ],
+        ["Esi Mensah", "esi.mensah@example.com", "Donor", "Kumasi", "Ghana", "+233 24 100 2006", 30, "none"],
+        [
+          "TechGirls Tamale",
+          "techgirls@example.org",
+          "Organiser or NGO",
+          "Tamale",
+          "Ghana",
+          "+233 24 100 2007",
+          25,
+          "rejected",
+        ],
+        [
+          "Amara Okonkwo-Reed",
+          "amara.reed@example.com",
+          "Donor",
+          "Lagos",
+          "Nigeria",
+          "+234 80 1000 2008",
+          6,
+          "pending",
+        ],
+      ].map(([name, email, role, city, country, phone, age, k], i) => {
+        const dob = "1988-0" + (1 + i) + "-1" + i;
+        return mkUser({
+          id: "U-S" + (101 + i),
+          name,
+          email,
+          role,
+          city,
+          country,
+          phone,
+          address: city + ", " + country,
+          dob,
+          org: role == "Donor" ? "" : name,
+          joined: iso(addD(TODAY, -age)),
+          color: i * 47,
+          twofa: i % 2 == 0,
+          status: i == 5 ? "Suspended" : "Active",
+          risk: i == 7 ? "High" : i == 5 ? "Medium" : "Low",
+          log: [{ t: Date.now() - 864e5 * (i + 1), ev: "Signed in", dev: "Chrome on Windows" }],
+          notes:
+            i == 5
+              ? [
+                  {
+                    t: Date.now() - 864e5 * 4,
+                    who: "admin",
+                    msg: "Suspended after two chargebacks in one week.",
+                  },
+                ]
+              : [],
+          kyc: {
+            status: k,
+            tier: k == "verified" ? 2 : 0,
+            idType: "Ghana Card",
+            idNum: "GHA-70000" + i + "123-" + i,
+            legal: name,
+            dob,
+            address: city + ", " + country,
+            doc: "id-front.jpg",
+            selfie: "selfie.jpg",
+            submitted: iso(addD(TODAY, -(age > 8 ? age - 5 : 2))),
+            reason: k == "rejected" ? "The ID photo was too blurry to read." : "",
+          },
+        });
+      });
+      SEEDU.forEach((u) => (u.screen = screen(u.name)));
+      const accounts = () => [...SEEDU, ...USERS];
+      const me = () => U && USERS.find((u) => u.email == U.email);
+      const saveU = () => LS("wi_users", USERS);
+      const kycQ = () => accounts().filter((u) => u.kyc.status == "pending");
+
+      /* ---- audit trail ---- */
+      let AUD = LS("wi_aud") || [
+        {
+          t: Date.now() - 36e5 * 30,
+          who: "system",
+          act: "Nightly sanctions list refresh",
+          det: "3 entries loaded (demo)",
+        },
+      ];
+      function audit(who, act, det = "") {
+        AUD.unshift({ t: Date.now(), who, act, det });
+        AUD = AUD.slice(0, 150);
+        LS("wi_aud", AUD);
+      }
+
+      /* ---- passwords, lockouts, device info ---- */
+      const b2h = (b) => [...new Uint8Array(b)].map((x) => x.toString(16).padStart(2, "0")).join("");
+      const rnd16 = () => b2h(crypto.getRandomValues(new Uint8Array(16)));
+      async function pbk(pw, salt) {
+        const k = await crypto.subtle.importKey("raw", new TextEncoder().encode(pw), "PBKDF2", false, [
+          "deriveBits",
+        ]);
+        return b2h(
+          await crypto.subtle.deriveBits(
+            { name: "PBKDF2", salt: new TextEncoder().encode(salt), iterations: 120000, hash: "SHA-256" },
+            k,
+            256,
+          ),
+        );
+      }
+      const sha = async (s) => b2h(await crypto.subtle.digest("SHA-256", new TextEncoder().encode(s))); // old accounts only
+      const COMMON = [
+        "password",
+        "12345678",
+        "123456789",
+        "qwerty123",
+        "iloveyou",
+        "admin123",
+        "welcome1",
+        "password1",
+      ];
+      const pwScore = (p) =>
+        [
+          p.length >= 8,
+          /[a-z]/.test(p) && /[A-Z]/.test(p),
+          /\d/.test(p),
+          p.length >= 12 || /[^A-Za-z0-9]/.test(p),
+        ].filter(Boolean).length;
+      const pwCheck = (p) =>
+        p.length < 8
+          ? "Use at least 8 characters."
+          : COMMON.includes(p.toLowerCase())
+            ? "That password is too common. Choose another."
+            : !/[a-z]/i.test(p) || !/\d/.test(p)
+              ? "Mix letters and numbers."
+              : "";
+      const FAIL = () => LS("wi_fail") || {};
+      const locked = (k) => {
+        const f = FAIL()[k];
+        return f && f.until > Date.now() ? Math.ceil((f.until - Date.now()) / 6e4) : 0;
+      };
+      function failed(k) {
+        const m = FAIL(),
+          f = m[k] || { n: 0 };
+        if (++f.n >= 5) {
+          f.until = Date.now() + 3e5;
+          f.n = 0;
+        }
+        m[k] = f;
+        LS("wi_fail", m);
+      }
+      function cleared(k) {
+        const m = FAIL();
+        delete m[k];
+        LS("wi_fail", m);
+      }
+      const dev = () => {
+        const u = navigator.userAgent;
+        return (
+          (/Edg/.test(u)
+            ? "Edge"
+            : /Chrome/.test(u)
+              ? "Chrome"
+              : /Firefox/.test(u)
+                ? "Firefox"
+                : /Safari/.test(u)
+                  ? "Safari"
+                  : "Browser") +
+          " on " +
+          (/Android/.test(u)
+            ? "Android"
+            : /iPhone|iPad/.test(u)
+              ? "iOS"
+              : /Mac/.test(u)
+                ? "macOS"
+                : /Windows/.test(u)
+                  ? "Windows"
+                  : "Linux")
+        );
+      };
+      const when = (t) =>
+        new Date(t).toLocaleString("en-GB", {
+          day: "2-digit",
+          month: "short",
+          hour: "2-digit",
+          minute: "2-digit",
+        });
+      /* signs people out after a period of inactivity (30 minutes for users, 15 for staff) */
+      let idleT;
+      function bump() {
+        clearTimeout(idleT);
+        if (!U && !ADM) return;
+        idleT = setTimeout(
+          () => {
+            const was = ADM ? "staff" : "user";
+            if (ADM) ADM = false;
+            if (U) {
+              U = null;
+              LS("wi_sess", null);
+            }
+            acct();
+            toast("You were signed out after a period of inactivity.");
+            audit(was, "Auto sign-out (idle)");
+            route();
+          },
+          ADM ? 9e5 : 18e5,
+        );
+      }
+      ["click", "keydown", "touchstart"].forEach((ev) => addEventListener(ev, bump, { passive: true }));
+
+      /* a dialog helper used everywhere */
+      function openDlg(html, wide) {
+        const d = $("#dlg");
+        d.className = wide ? "wide" : "";
+        d.innerHTML = html;
+        if (!d.open) d.showModal();
+        return d;
+      }
+      /* one-time code step (demo: the code is shown on screen; production sends it by SMS or email) */
+      function otp(title, done) {
+        const code = String(100000 + (crypto.getRandomValues(new Uint32Array(1))[0] % 900000)),
+          exp = Date.now() + 3e5;
+        let tries = 0;
+        const d = openDlg(
+          `<form class="form" id="otf"><h2 style="font-size:1.4rem">${title}</h2><p class="muted" style="margin:0">Enter the 6-digit code we sent you. <b>Demo code: ${code}</b></p><label>Verification code<input id="oc" inputmode="numeric" maxlength="6" autocomplete="one-time-code" required></label><p class="err" id="oe"></p><button class="btn block lg">Verify</button><button type="button" class="chip" id="ox">Cancel</button></form>`,
+        );
+        $("#ox").onclick = () => d.close();
+        $("#otf").onsubmit = (e) => {
+          e.preventDefault();
+          if (Date.now() > exp) return ($("#oe").textContent = "That code expired. Please start again.");
+          if ($("#oc").value.trim() == code) {
+            d.close();
+            done();
+          } else if (++tries >= 3) {
+            d.close();
+            toast("Too many wrong codes. Please start again.");
+          } else
+            $("#oe").textContent = `Incorrect code. ${3 - tries} attempt${3 - tries > 1 ? "s" : ""} left.`;
+        };
+      }
+      /* asks for a typed reason, then runs cb(text) */
+      function ask(title, label, cb, ok = "Confirm", req = true) {
+        const d = openDlg(
+          `<form class="form" id="askf"><h2 style="font-size:1.4rem">${title}</h2><label>${label}<textarea id="askt" rows="3" ${req ? "required" : ""}></textarea></label><div class="row"><button class="btn" style="flex:1">${ok}</button><button type="button" class="btn alt" id="askx">Cancel</button></div></form>`,
+        );
+        $("#askx").onclick = () => d.close();
+        $("#askf").onsubmit = (e) => {
+          e.preventDefault();
+          const v = $("#askt").value.trim();
+          d.close();
+          cb(v);
+        };
+      }
+
+      function curInit() {
+        const s = $("#cur");
+        if (!s) return;
+        s.innerHTML = Object.keys(FX)
+          .map((k) => `<option value="${k}" ${k == CUR ? "selected" : ""}>${k}</option>`)
           .join("");
+        s.onchange = (e) => {
+          CUR = e.target.value;
+          LS("wi_cur", CUR);
+          const u = me();
+          if (u) {
+            u.cur = CUR;
+            saveU();
+          }
+          route();
+        };
+      }
       function acct() {
+        curInit();
         const e = $("#acct");
         if (!e) return;
         e.innerHTML = U
-          ? `<span class="pill">👤 ${esc(U.name.split(" ")[0])}</span>
-<button class="chip" id="so">Sign out</button>`
+          ? `<a class="chip" href="#profile">👤 ${esc(U.name.split(" ")[0])}</a><button class="chip" id="so">Sign out</button>`
           : `<button class="chip" id="si">Sign in</button>`;
         $("#si") && ($("#si").onclick = () => authDlg("in"));
         $("#so") &&
           ($("#so").onclick = () => {
+            audit(U.email, "Signed out");
             U = null;
             LS("wi_sess", null);
             toast("You’re signed out.");
-            route();
+            if (location.hash == "#profile") location.hash = "home";
+            else route();
           });
       }
-      function authDlg(m) {
-        const d = $("#dlg"),
-          up = m == "up";
-        d.innerHTML = `<form class="form" id="auf">
-<div class="tabs" role="tablist">
-<button type="button" role="tab" data-m="in" aria-selected="${!up}">Sign in</button>
-<button type="button" role="tab" data-m="up" aria-selected="${up}">Create account</button>
-</div>
-<h2 style="font-size:1.5rem">${up ? "Join WOLEM Impact" : "Welcome back"}</h2>${up ? '<label>Full name<input id="un" required autocomplete="name"></label>' : ""}<label>Email<input id="ue" type="email" required autocomplete="email">
-</label>
-<label>Password<input id="up" type="password" required minlength="8" autocomplete="${up ? "new-password" : "current-password"}" placeholder="At least 8 characters">
-</label>${up ? '<label>I am a<select id="ur"><option>Donor</option><option>Organiser or NGO</option><option>Corporate partner</option></select></label>' : ""}<p class="err" id="ae2">
-</p>
-<button class="btn block lg">${up ? "Create account" : "Sign in"}</button>
-<button type="button" class="chip" id="ux">Cancel</button>
-<p class="muted" style="font-size:.8rem;margin:0">Demo: accounts are stored only in this browser.</p>
-</form>`;
-        if (!d.open) d.showModal();
+      function login(u, d) {
+        u.log.unshift({ t: Date.now(), ev: "Signed in", dev: dev() });
+        u.log = u.log.slice(0, 20);
+        saveU();
+        audit(u.email, "Signed in");
+        U = { name: u.name, email: u.email, role: u.role };
+        LS("wi_sess", U);
+        if (u.cur && FX[u.cur]) {
+          CUR = u.cur;
+          LS("wi_cur", CUR);
+        }
+        d.close();
+        bump();
+        toast("Welcome, " + U.name.split(" ")[0] + "!");
+        route();
+      }
+      function authDlg(m = "in") {
+        const up = m == "up";
+        const d =
+          openDlg(`<form class="form" id="auf"><div class="tabs" role="tablist"><button type="button" role="tab" data-m="in" aria-selected="${!up}">Sign in</button><button type="button" role="tab" data-m="up" aria-selected="${up}">Create account</button></div><h2 style="font-size:1.5rem">${up ? "Join WOLEM Impact" : "Welcome back"}</h2>
+${up ? `<label>Full name<input id="un" required autocomplete="name"></label><label>Phone (optional)<input id="uph" type="tel" autocomplete="tel" placeholder="+233 24 000 0000"></label><label>Country<select id="uco">${COUNTRIES.map((c) => `<option>${c}</option>`).join("")}</select></label>` : ""}
+<label>Email<input id="ue" type="email" required autocomplete="email"></label>
+<label>Password<input id="up" type="password" required minlength="8" data-pw autocomplete="${up ? "new-password" : "current-password"}" placeholder="${up ? "8+ characters, letters and numbers" : "Your password"}"></label>
+${up ? `<div class="pwm"><i></i></div><small class="muted" id="pws">Use 8+ characters, mixed case, a number and a symbol.</small><label>I am a<select id="ur">${ROLES.map((r) => `<option>${r}</option>`).join("")}</select></label><label class="opt"><input type="checkbox" id="uag" required>I agree to the Terms of Use and Privacy Policy</label>` : `<a href="#" id="fp" class="muted" style="font-size:.9rem">Forgot your password?</a>`}
+<p class="err" id="ae2"></p><button class="btn block lg">${up ? "Create account" : "Sign in"}</button><button type="button" class="chip" id="ux">Cancel</button><p class="muted" style="font-size:.8rem;margin:0">Demo: accounts live only in this browser. Passwords are salted and hashed (PBKDF2).</p></form>`);
         $("#ux").onclick = () => d.close();
         d.querySelectorAll(".tabs button").forEach((b) => (b.onclick = () => authDlg(b.dataset.m)));
+        $("#fp") &&
+          ($("#fp").onclick = (e) => {
+            e.preventDefault();
+            resetDlg();
+          });
         $("#auf").onsubmit = async (e) => {
           e.preventDefault();
           const em = $("#ue").value.trim().toLowerCase(),
-            h = await sha($("#up").value),
-            er = $("#ae2");
-          let u;
+            pw = $("#up").value,
+            er = $("#ae2"),
+            mins = locked(em);
+          if (mins)
+            return (er.textContent = `Too many attempts. Try again in ${mins} minute${mins > 1 ? "s" : ""}.`);
           if (up) {
-            if (USERS.some((x) => x.email == em))
+            const bad = pwCheck(pw);
+            if (bad) return (er.textContent = bad);
+            if (accounts().some((x) => x.email == em))
               return (er.textContent = "An account with this email already exists. Sign in instead.");
-            u = { name: $("#un").value.trim(), email: em, role: $("#ur").value, h, t: Date.now() };
+            const salt = rnd16(),
+              u = mkUser({
+                name: $("#un").value.trim(),
+                email: em,
+                role: $("#ur").value,
+                phone: $("#uph").value.trim(),
+                country: $("#uco").value,
+                salt,
+                ph: await pbk(pw, salt),
+                consent: iso(TODAY),
+              });
+            u.screen = screen(u.name);
+            if (u.screen.hit)
+              amlAlert(
+                "Sanctions / PEP match",
+                u.name,
+                "Sign-up screening: " + u.screen.list,
+                0,
+                u.screen.score,
+                "u:" + u.id,
+              );
             USERS.push(u);
-            LS("wi_users", USERS);
+            saveU();
+            audit(u.email, "Account created");
+            login(u, d);
           } else {
-            u = USERS.find((x) => x.email == em && x.h == h);
-            if (!u) return (er.textContent = "Email or password is incorrect.");
+            const u = USERS.find((x) => x.email == em);
+            let ok = false;
+            if (u) ok = u.ph ? (await pbk(pw, u.salt)) == u.ph : !!u.h && (await sha(pw)) == u.h;
+            if (!ok) {
+              failed(em);
+              audit(em, "Failed sign-in");
+              return (er.textContent = "Email or password is incorrect.");
+            }
+            if (u.status == "Suspended")
+              return (er.textContent = "This account is suspended. Please contact support.");
+            if (!u.ph) {
+              u.salt = rnd16();
+              u.ph = await pbk(pw, u.salt);
+              delete u.h;
+              saveU();
+            }
+            cleared(em);
+            if (u.twofa) otp("Two-step verification", () => login(u, d));
+            else login(u, d);
           }
-          U = { name: u.name, email: u.email, role: u.role };
-          LS("wi_sess", U);
-          d.close();
-          toast("Welcome, " + U.name.split(" ")[0] + "!");
-          route();
         };
       }
-      /* ===== PAYMENTS ===== */
+      function resetDlg() {
+        const d = openDlg(
+          `<form class="form" id="rsf"><h2 style="font-size:1.4rem">Reset your password</h2><label>Email<input id="re" type="email" required></label><button class="btn block lg">Send code</button><button type="button" class="chip" id="rx">Cancel</button></form>`,
+        );
+        $("#rx").onclick = () => d.close();
+        $("#rsf").onsubmit = (e) => {
+          e.preventDefault();
+          const u = USERS.find((x) => x.email == $("#re").value.trim().toLowerCase());
+          if (!u) {
+            d.close();
+            return toast("If an account exists for that email, we’ve sent a code.");
+          }
+          otp("Confirm it’s you", () => {
+            const d2 = openDlg(
+              `<form class="form" id="npf"><h2 style="font-size:1.4rem">Choose a new password</h2><label>New password<input id="np" type="password" data-pw required minlength="8" autocomplete="new-password"></label><div class="pwm"><i></i></div><small class="muted" id="pws"></small><p class="err" id="ne"></p><button class="btn block lg">Save password</button></form>`,
+            );
+            $("#npf").onsubmit = async (ev) => {
+              ev.preventDefault();
+              const bad = pwCheck($("#np").value);
+              if (bad) return ($("#ne").textContent = bad);
+              u.salt = rnd16();
+              u.ph = await pbk($("#np").value, u.salt);
+              delete u.h;
+              u.log.unshift({ t: Date.now(), ev: "Password reset", dev: dev() });
+              saveU();
+              audit(u.email, "Password reset");
+              cleared(u.email);
+              d2.close();
+              toast("Password updated. You can sign in now.");
+              authDlg("in");
+            };
+          });
+        };
+      }
+      document.addEventListener("input", (e) => {
+        if (!e.target.matches("[data-pw]")) return;
+        const s = pwScore(e.target.value),
+          m = e.target.closest("form").querySelector(".pwm i"),
+          t = e.target.closest("form").querySelector("#pws");
+        if (m) {
+          m.style.width = s * 25 + "%";
+          m.style.background = ["#c83c32", "#c83c32", "#d9961e", "#5b8def", "#2f7d5b"][s];
+        }
+        if (t && e.target.value)
+          t.textContent = ["Very weak", "Weak", "Fair", "Good", "Strong"][s] + " password";
+      });
+
+      /* ===== PAYMENTS & MULTICURRENCY ===== */
       const MN = ["MoMo", "Card", "PayPal", "Bank", "Wire"],
         MK = ["momo", "card", "paypal", "bank", "wire"];
       /* sample ledger: 24 dated gifts per campaign that add up exactly to its total, plus a few pending transfers */
@@ -3126,160 +3935,825 @@
           const off = Math.floor(c.age * Math.pow(rnd(c.id * 7 + i * 3 + 1), 1.6));
           TX.push({
             n: N[(i + c.id) % 10],
+            em: "",
             a,
+            cur: "GHS",
+            ca: a,
             m: MIXP[(i + c.id) % 10],
             c: c.id,
             s: "Confirmed",
             dt: iso(addD(TODAY, -off)),
-            w: "",
           });
         });
       });
       [0, 1, 1, 2, 3].forEach((off, i) =>
         TX.push({
           n: N[i],
+          em: "",
           a: AM[i] * 5,
+          cur: "GHS",
+          ca: AM[i] * 5,
           m: i % 2 ? "wire" : "bank",
           c: C[i % 9].id,
           s: "Pending",
           dt: iso(addD(TODAY, -off)),
-          w: "",
         }),
       );
       TX.sort((a, b) => b.dt.localeCompare(a.dt));
-      TX.forEach((t) => (t.w = fd(t.dt)));
+      let TXN = 1000;
+      TX.slice()
+        .reverse()
+        .forEach((t) => ((t.id = "T" + ++TXN), (t.w = fd(t.dt))));
+      C.forEach((c) => {
+        c.status = c.status || "Live";
+      });
+      const OWN = {
+        1: "kpandai@example.org",
+        2: "outreach@korlebu.example",
+        3: "hope@learners.example",
+        4: "volta@response.example",
+        7: "techgirls@example.org",
+        5: "grace@chapel.example",
+      };
+      C.forEach((c) => {
+        c.owner = c.owner || OWN[c.id] || "";
+      });
+      const LIVE = () => C.filter((c) => c.status != "Paused" && c.status != "Removed");
+
+      /* fees: platform fee (with category waivers) plus the payment method's processing cost */
+      function feeFor(t) {
+        const c = C.find((x) => x.id == t.c) || {},
+          f = SET.fees[t.m] || { p: 0, f: 0 };
+        const pl = SET.waive.includes(c.c) ? 0 : (t.a * SET.platformPct) / 100,
+          pr = (t.a * f.p) / 100 + f.f;
+        return { pl, pr, tot: pl + pr };
+      }
+      /* money organisers can still withdraw: confirmed gifts minus fees minus payouts already requested */
+      function availBal(c, skip) {
+        const tx = TX.filter((t) => t.c == c.id && t.s == "Confirmed");
+        const used = PAY.filter(
+          (p) => p.cid == c.id && p.id != skip && ["Pending", "Approved", "Paid", "Held"].includes(p.status),
+        );
+        return Math.max(0, c.s - sum(tx, (t) => feeFor(t).tot) - sum(used, (p) => p.amt));
+      }
+
+      /* ---- compliance data: AML alerts, disputes, payouts ---- */
+      let AN = 10,
+        DN = 310,
+        PN = 1010;
+      const ALERTS = [
+        {
+          id: "A-1",
+          t: iso(addD(TODAY, -20)),
+          type: "Large transaction",
+          who: "Zenith Bank CSR",
+          det: "Single gift of GH₵12,000 from a verified corporate donor",
+          amt: 12000,
+          score: 0,
+          ref: "u:U-S103",
+          status: "Cleared",
+          notes: [],
+        },
+        {
+          id: "A-2",
+          t: iso(addD(TODAY, -2)),
+          type: "Sanctions / PEP match",
+          who: "Amara Okonkwo-Reed",
+          det: "KYC screening matched the PEP register (demo)",
+          amt: 0,
+          score: 0.95,
+          ref: "u:U-S108",
+          status: "Open",
+          notes: [],
+        },
+        {
+          id: "A-3",
+          t: iso(addD(TODAY, -5)),
+          type: "Possible structuring",
+          who: "Anonymous",
+          det: "4 gifts under GH₵10,000 within 24 hours totalling GH₵10,600",
+          amt: 10600,
+          score: 0,
+          ref: "c:4",
+          status: "Under review",
+          notes: [],
+        },
+      ];
+      const DISP = [
+        {
+          id: "D-301",
+          type: "Duplicate charge",
+          cid: 2,
+          txid: "",
+          by: "Ama Owusu",
+          email: "ama.owusu@example.com",
+          amt: 500,
+          t: iso(addD(TODAY, -1)),
+          status: "Open",
+          desc: "I was charged twice for the same gift.",
+          thread: [],
+        },
+        {
+          id: "D-302",
+          type: "Fraud report",
+          cid: 8,
+          txid: "",
+          by: "Kofi B.",
+          email: "kofi.b@example.com",
+          amt: 0,
+          t: iso(addD(TODAY, -3)),
+          status: "Under review",
+          desc: "The organiser’s photos look copied from another website.",
+          thread: [{ t: Date.now() - 864e5, who: "admin", msg: "Asked the organiser for original photos." }],
+        },
+        {
+          id: "D-303",
+          type: "Campaign not delivered",
+          cid: 5,
+          txid: "",
+          by: "Esther D.",
+          email: "esther.d@example.com",
+          amt: 200,
+          t: iso(addD(TODAY, -6)),
+          status: "Escalated",
+          desc: "Funds were raised months ago and there are no updates.",
+          thread: [],
+        },
+        {
+          id: "D-304",
+          type: "Refund request",
+          cid: 3,
+          txid: "",
+          by: "Yaw B.",
+          email: "yaw.b@example.com",
+          amt: 100,
+          t: iso(addD(TODAY, -18)),
+          status: "Resolved",
+          desc: "Gave to the wrong campaign.",
+          outcome: "Refunded GH₵100",
+          thread: [],
+        },
+      ];
+      const PAY = [
+        {
+          id: "P-1001",
+          cid: 3,
+          org: "Hope Learners Foundation",
+          email: "hope@learners.example",
+          amt: 4000,
+          method: "momo",
+          dest: "MTN 024 *** 2002",
+          status: "Pending",
+          dt: iso(addD(TODAY, -2)),
+        },
+        {
+          id: "P-1002",
+          cid: 4,
+          org: "Volta Disaster Response",
+          email: "volta@response.example",
+          amt: 20000,
+          method: "bank",
+          dest: "GCB 0010 *** 4421",
+          status: "Pending",
+          dt: iso(addD(TODAY, -1)),
+        },
+        {
+          id: "P-1003",
+          cid: 7,
+          org: "TechGirls Tamale",
+          email: "techgirls@example.org",
+          amt: 6000,
+          method: "momo",
+          dest: "Telecel 050 *** 7788",
+          status: "Pending",
+          dt: iso(addD(TODAY, -3)),
+        },
+        {
+          id: "P-1004",
+          cid: 1,
+          org: "Kpandai Water Committee",
+          email: "kpandai@example.org",
+          amt: 15000,
+          method: "bank",
+          dest: "Ecobank 1441 *** 9003",
+          status: "Pending",
+          dt: iso(addD(TODAY, -4)),
+        },
+        {
+          id: "P-1005",
+          cid: 2,
+          org: "Korle Bu Teaching Hospital Outreach",
+          email: "outreach@korlebu.example",
+          amt: 30000,
+          method: "bank",
+          dest: "Stanbic 0100 *** 1120",
+          status: "Approved",
+          dt: iso(addD(TODAY, -6)),
+        },
+        {
+          id: "P-1006",
+          cid: 4,
+          org: "Volta Disaster Response",
+          email: "volta@response.example",
+          amt: 8000,
+          method: "momo",
+          dest: "MTN 024 *** 2005",
+          status: "Paid",
+          dt: iso(addD(TODAY, -20)),
+        },
+        {
+          id: "P-1007",
+          cid: 5,
+          org: "Grace Chapel Cape Coast",
+          email: "grace@chapel.example",
+          amt: 5000,
+          method: "momo",
+          dest: "MTN 055 *** 3141",
+          status: "Held",
+          dt: iso(addD(TODAY, -7)),
+          note: "Held: open non-delivery dispute",
+        },
+      ];
+      function amlAlert(type, who, det, amt, score, ref) {
+        ALERTS.unshift({
+          id: "A-" + ++AN,
+          t: iso(TODAY),
+          type,
+          who,
+          det,
+          amt,
+          score: score || 0,
+          ref: ref || "",
+          status: "Open",
+          notes: [],
+        });
+        audit("system", "AML alert: " + type, who);
+      }
+      /* transaction monitoring: large gifts and structuring (many smaller gifts that add up) */
+      function amlCheck(t) {
+        if (t.a >= SET.large)
+          amlAlert(
+            "Large transaction",
+            t.n,
+            `Single gift of ${fmc(t.a, "GHS")} (${t.id})`,
+            t.a,
+            0,
+            "c:" + t.c,
+          );
+        const key = t.em || t.n,
+          days = Math.max(0, Math.ceil(SET.structHrs / 24) - 1),
+          since = iso(addD(TODAY, -days));
+        const g = TX.filter(
+          (x) =>
+            (x.em || x.n) == key && key != "Guest" && x.dt >= since && x.a < SET.large && x.s != "Refunded",
+        );
+        if (
+          g.length >= SET.structN &&
+          sum(g, (x) => x.a) >= SET.structSum &&
+          !ALERTS.some((a) => a.type == "Possible structuring" && a.who == t.n && a.status == "Open")
+        )
+          amlAlert(
+            "Possible structuring",
+            t.n,
+            `${g.length} gifts under ${fmc(SET.large, "GHS")} within ${SET.structHrs} hours totalling ${fmc(
+              sum(g, (x) => x.a),
+              "GHS",
+            )}`,
+            sum(g, (x) => x.a),
+            0,
+            "c:" + t.c,
+          );
+      }
+
+      /* ---- donating, in any supported currency ---- */
       function donate(c) {
-        const d = $("#dlg");
-        let amt = 100,
-          pm = "momo";
+        if (["Paused", "Frozen", "Removed"].includes(c.status))
+          return toast("This campaign is not accepting gifts right now.");
+        const u = me();
+        let cu = CUR,
+          amt = PRE[cu][2],
+          pm = cu == "GHS" ? "momo" : "card";
         const ref = "WI-" + c.id + "-" + Math.random().toString(36).slice(2, 7).toUpperCase();
         const PM = [
-          ["momo", "📱", "Mobile Money", "MTN, Telecel, AirtelTigo"],
+          ["momo", "📱", "Mobile Money", "MTN, Telecel, AirtelTigo (cedis only)"],
           ["card", "💳", "Card", "Visa or Mastercard"],
           ["paypal", "🌐", "PayPal", "For donors abroad"],
-          ["bank", "🏦", "Ghana bank transfer", "GCB, Ecobank, Stanbic and more"],
+          ["bank", "🏦", "Ghana bank transfer", "GCB, Ecobank, Stanbic (cedis only)"],
           ["wire", "✈️", "International wire", "SWIFT from any bank"],
         ];
-        const kv = (k, v) => `<div class="kv">
-<span>${k}</span>
-<b>${v}</b>
-</div>`,
+        const kv = (k, v) => `<div class="kv"><span>${k}</span><b>${v}</b></div>`,
           sm = (t) => `<p class="muted" style="margin:0;font-size:.85rem">${t}</p>`;
         const PP = {
-          momo: () => `<label>Network<select>
-<option>MTN MoMo</option>
-<option>Telecel Cash</option>
-<option>AirtelTigo Money</option>
-</select>
-</label>
-<label>Mobile number<input required placeholder="024 000 0000" inputmode="tel">
-</label>`,
-          card: () => `<label>Card number<input required placeholder="0000 0000 0000 0000" inputmode="numeric">
-</label>
-<div class="row">
-<input placeholder="MM/YY" aria-label="Expiry" style="flex:1" required>
-<input placeholder="CVC" aria-label="CVC" style="flex:1" required>
-</div>`,
-          paypal: () => `<label>PayPal email<input type="email" required placeholder="you@example.com">
-</label>${sm("You’ll approve the payment in PayPal. USD, EUR and GBP gifts are converted to cedis.")}`,
+          momo: () =>
+            `<label>Network<select><option>MTN MoMo</option><option>Telecel Cash</option><option>AirtelTigo Money</option></select></label><label>Mobile number<input required placeholder="024 000 0000" inputmode="tel"></label>`,
+          card: () =>
+            `<label>Card number<input required placeholder="0000 0000 0000 0000" inputmode="numeric"></label><div class="row"><input placeholder="MM/YY" aria-label="Expiry" style="flex:1" required><input placeholder="CVC" aria-label="CVC" style="flex:1" required></div>${sm("Card payments use 3-D Secure. Demo only: never enter a real card.")}`,
+          paypal: () =>
+            `<label>PayPal email<input type="email" required placeholder="you@example.com"></label>${sm("You’ll approve the payment in PayPal.")}`,
           bank: () =>
-            `<div class="bx">${kv("Bank", "GCB Bank PLC")}${kv("Account name", "WOLEM Impact Ltd")}${kv("Account number", "0000 0000 0000")}${kv("Branch", "Accra Main")}${kv("Reference", ref)}</div>${sm("Add the reference so we can match your gift. We confirm within 1 business day.")}`,
+            `<div class="bx">${kv("Bank", "GCB Bank PLC")}${kv("Account name", "WOLEM Impact Ltd")}${kv("Account number", "0000 0000 0000")}${kv("Reference", ref)}</div>${sm("Add the reference so we can match your gift. We confirm within 1 business day.")}`,
           wire: () =>
             `<div class="bx">${kv("Beneficiary", "WOLEM Impact Ltd")}${kv("Bank", "Ecobank Ghana PLC")}${kv("Account / IBAN", "GH00 0000 0000 0000")}${kv("SWIFT / BIC", "XXXXGHAC")}${kv("Reference", ref)}</div>${sm("Your bank may charge transfer fees. We confirm within 3 business days.")}`,
         };
-        d.innerHTML = `<form class="form" id="df">
-<h2 style="font-size:1.5rem">Donate to ${esc(c.o)}</h2>
-<div class="amts">${[20, 50, 100, 200].map((a) => `<button type="button" aria-pressed="${a == 100}" data-a="${a}">${fm(a)}</button>`).join("")}</div>
-<label>Other amount (GH₵)<input id="oa" type="number" min="10" placeholder="Min. 10">
-</label>
-<div class="pms">${PM.map(
-          ([k, i, n, s]) => `<label class="opt">
-<input type="radio" name="p" value="${k}" ${k == pm ? "checked" : ""}>
-<span>${i}</span>
-<span>
-<b>${n}</b>
-<br>
-<small class="muted">${s}</small>
-</span>
-</label>`,
-        ).join("")}</div>
-<div class="form" id="pp">
-</div>
-<label>Your name<input id="nm" value="${U ? esc(U.name) : ""}" placeholder="Optional">
-</label>
-<label class="opt">
-<input type="checkbox" id="an">Give anonymously</label>
-<p class="err" id="er">
-</p>
-<div class="row">
-<button class="btn lg" style="flex:1" id="go">
-</button>
-<button class="btn alt" type="button" id="x">Cancel</button>
-</div>
-</form>`;
-        d.showModal();
+        const d = openDlg(`<form class="form" id="df"><h2 style="font-size:1.5rem">Donate to ${esc(c.o)}</h2>
+<label>Pay in<select id="cu">${Object.keys(FX)
+          .map((k) => `<option value="${k}" ${k == cu ? "selected" : ""}>${k} · ${CURNAME[k] || k}</option>`)
+          .join("")}</select></label>
+<div class="amts" id="am"></div><label>Other amount<input id="oa" type="number" min="1" step="any" placeholder="Enter an amount"></label><p class="muted" id="eq" style="margin:-6px 0 0;font-size:.85rem"></p>
+<div class="pms" id="pms"></div><div class="form" id="pp"></div>
+<label>Your name<input id="nm" value="${u ? esc(u.name) : ""}" placeholder="Optional"></label><label class="opt"><input type="checkbox" id="an" ${u && u.anon ? "checked" : ""}>Give anonymously</label><p class="err" id="er"></p>
+<div class="row"><button class="btn lg" style="flex:1" id="go"></button><button class="btn alt" type="button" id="x">Cancel</button></div></form>`);
         const off = () => pm == "bank" || pm == "wire",
-          lab = () => ($("#go").textContent = off() ? "I’ve sent " + fm(amt) : "Pay " + fm(amt)),
-          pnl = () => {
-            $("#pp").innerHTML = PP[pm]();
-            lab();
-          };
-        pnl();
-        d.querySelectorAll(".amts button").forEach(
-          (b) =>
-            (b.onclick = () => {
-              amt = +b.dataset.a;
-              $("#oa").value = "";
-              d.querySelectorAll(".amts button").forEach((x) => x.setAttribute("aria-pressed", x == b));
-              lab();
-            }),
-        );
-        $("#oa").oninput = (e) => {
-          amt = +e.target.value || 0;
-          d.querySelectorAll(".amts button").forEach((x) => x.setAttribute("aria-pressed", false));
+          ok = (k) => cu == "GHS" || (k != "momo" && k != "bank");
+        const lab = () => {
+          $("#go").textContent = off()
+            ? "I’ve sent " + fmc(toG(amt, cu), cu)
+            : "Pay " + fmc(toG(amt, cu), cu);
+          $("#eq").textContent =
+            cu == "GHS"
+              ? ""
+              : `≈ ${fmc(toG(amt, cu), "GHS")} credited to the campaign (indicative rate, 1 ${cu} = GH₵${FX[cu]}).`;
+        };
+        const amts = () => {
+          $("#am").innerHTML = PRE[cu]
+            .map(
+              (a, i) =>
+                `<button type="button" aria-pressed="${a == amt}" data-a="${a}">${fmc(toG(a, cu), cu)}</button>`,
+            )
+            .join("");
+          d.querySelectorAll("#am button").forEach(
+            (b) =>
+              (b.onclick = () => {
+                amt = +b.dataset.a;
+                $("#oa").value = "";
+                amts();
+                lab();
+              }),
+          );
+        };
+        const meths = () => {
+          if (!ok(pm)) pm = "card";
+          $("#pms").innerHTML = PM.map(
+            ([k, i, n, s]) =>
+              `<label class="opt ${ok(k) ? "" : "dis"}"><input type="radio" name="p" value="${k}" ${k == pm ? "checked" : ""} ${ok(k) ? "" : "disabled"}><span>${i}</span><span><b>${n}</b><br><small class="muted">${s}</small></span></label>`,
+          ).join("");
+          d.querySelectorAll("[name=p]").forEach(
+            (r) =>
+              (r.onchange = () => {
+                pm = r.value;
+                pnl();
+              }),
+          );
+        };
+        const pnl = () => {
+          $("#pp").innerHTML = PP[pm]();
           lab();
         };
-        d.querySelectorAll("[name=p]").forEach(
-          (r) =>
-            (r.onchange = () => {
-              pm = r.value;
-              pnl();
-            }),
-        );
+        amts();
+        meths();
+        pnl();
+        $("#cu").onchange = (e) => {
+          cu = e.target.value;
+          amt = PRE[cu] ? PRE[cu][2] : 10;
+          $("#oa").value = "";
+          amts();
+          meths();
+          pnl();
+        };
+        $("#oa").oninput = (e) => {
+          amt = +e.target.value || 0;
+          d.querySelectorAll("#am button").forEach((x) => x.setAttribute("aria-pressed", false));
+          lab();
+        };
         $("#x").onclick = () => d.close();
         $("#df").onsubmit = (e) => {
           e.preventDefault();
-          if (!(amt >= 10)) {
-            $("#er").textContent = "Enter at least GH₵10.";
-            return;
-          }
-          TX.unshift({
-            n: $("#an").checked ? "Anonymous" : $("#nm").value.trim() || "Guest",
-            a: amt,
+          const g = Math.round(toG(amt, cu)),
+            er = $("#er");
+          if (!(g >= 10)) return (er.textContent = `Enter at least ${fmc(10, cu)}.`);
+          const month = sum(
+            TX.filter((t) => u && t.em == u.email && t.s != "Refunded" && t.dt >= iso(addD(TODAY, -30))),
+            (t) => t.a,
+          );
+          if ((g > SET.kycGift || month + g > SET.kycMonth) && !(u && u.kyc.status == "verified"))
+            return (
+              (er.innerHTML = `Gifts above ${fmc(SET.kycGift, cu)} (or ${fmc(SET.kycMonth, cu)} a month) need a verified identity. ${u ? '<a href="#profile" id="gv">Verify now</a>' : "Please sign in and verify first."}`),
+              $("#gv") &&
+                ($("#gv").onclick = () => {
+                  PT = "Verification";
+                  d.close();
+                }),
+              void 0
+            );
+          const raw = $("#nm").value.trim(),
+            anon = $("#an").checked,
+            sc = screen(raw),
+            held = sc.hit;
+          const t = {
+            id: "T" + ++TXN,
+            n: anon ? "Anonymous" : raw || "Guest",
+            em: u ? u.email : "",
+            a: g,
+            cur: cu,
+            ca: amt,
             m: pm,
             c: c.id,
-            s: off() ? "Pending" : "Confirmed",
-            w: fd(iso(TODAY)),
+            s: held ? "Held" : off() ? "Pending" : "Confirmed",
             dt: iso(TODAY),
-          });
+            w: fd(iso(TODAY)),
+          };
+          TX.unshift(t);
+          if (held)
+            amlAlert(
+              "Sanctions / PEP match",
+              raw,
+              `Donor name matched ${sc.list} on a ${fmc(g, "GHS")} gift (${t.id}); gift held`,
+              g,
+              sc.score,
+              "c:" + c.id,
+            );
+          amlCheck(t);
           $("#go").disabled = true;
           $("#go").textContent = off() ? "Recording…" : "Waiting for approval…";
           setTimeout(() => {
-            const o = off();
-            if (!o) {
-              c.s += amt;
+            if (t.s == "Confirmed") {
+              c.s += g;
               c.d++;
             }
             d.close();
             toast(
-              o
-                ? "Thanks! We’ll confirm your transfer and credit the campaign. Ref " + ref
-                : "Thank you! " + fm(amt) + " received. A receipt is on its way.",
+              held
+                ? "Thanks. Your gift is being reviewed for compliance checks."
+                : off()
+                  ? "Thanks! We’ll confirm your transfer and credit the campaign. Ref " + ref
+                  : "Thank you! " + fmc(g, cu == "GHS" ? "GHS" : cu) + " received. A receipt is on its way.",
             );
             route();
           }, 1100);
         };
       }
+
+      /* ===== PROFILE, KYC & SECURITY PAGES ===== */
+      let PT = "Profile";
+      const PTABS = ["Profile", "Verification", "Security", "Activity", "Privacy"],
+        KYL = { none: "Not started", pending: "Under review", verified: "Verified", rejected: "Rejected" },
+        KCL = { none: "in", pending: "pe", verified: "", rejected: "rk" },
+        IDRX = {
+          "Ghana Card": [/^GHA-\d{9}-\d$/, "GHA-000000000-0"],
+          Passport: [/^[A-Z0-9]{6,9}$/, "G1234567"],
+          "Voter ID": [/^\d{10}$/, "10 digits"],
+          "Driver’s licence": [/^[A-Z0-9-]{6,15}$/, "DL-123456"],
+        };
+      const mask = (s) => (s ? s.slice(0, 4) + " •••• " + s.slice(-2) : "–");
+      const ini = (n) =>
+        n
+          .split(" ")
+          .filter(Boolean)
+          .map((x) => x[0])
+          .slice(0, 2)
+          .join("")
+          .toUpperCase();
+      const done = (u) =>
+        Math.round(
+          ([u.name, u.phone, u.country, u.city, u.address, u.dob, u.kyc.status == "verified", u.twofa].filter(
+            Boolean,
+          ).length /
+            8) *
+            100,
+        );
+      const fld = (l, n, v = "", x = "") => `<label>${l}<input name="${n}" value="${esc(v)}" ${x}></label>`;
+      const sel = (l, n, o, v) =>
+        `<label>${l}<select name="${n}">${o.map((x) => `<option ${x == v ? "selected" : ""}>${x}</option>`).join("")}</select></label>`;
+      const kv2 = (k, v) => `<div class="kv"><span>${k}</span><b>${v}</b></div>`;
+      const age = (d) => (Date.now() - new Date(d + "T00:00:00")) / 31557600000;
+
+      V.profile = () => {
+        const u = me();
+        if (!u)
+          return `<div class="w" style="padding:60px 20px"><h2>Sign in to see your profile</h2><p class="muted">Manage your details, verification, security and activity.</p><button class="btn lg" data-pa="signin">Sign in</button></div>`;
+        return `<div class="w prof"><div class="card phd"><span class="av" style="background:hsl(${u.color} 45% 32%)">${esc(ini(u.name))}</span><div><h2>${esc(u.name)}</h2><p class="muted" style="margin:2px 0 8px">${esc(u.role)} · Member since ${fd(u.joined)}</p><div class="row"><span class="bd ${KCL[u.kyc.status]}">ID ${KYL[u.kyc.status]}</span><span class="bd ${u.twofa ? "" : "pe"}">2-step ${u.twofa ? "on" : "off"}</span></div></div><div class="cmpl"><small>Profile ${done(u)}% complete</small><div class="bar"><i style="width:${done(u)}%"></i></div></div></div>
+<div class="tabs scroll" role="tablist">${PTABS.map((t) => `<button role="tab" data-pt="${t}" aria-selected="${t == PT}">${t}</button>`).join("")}</div><div class="pbody">${PV[PT](u)}</div></div>`;
+      };
+      const refresh = () => {
+        if (location.hash == "#profile") $("#app").innerHTML = V.profile();
+      };
+      const PV = {
+        Profile: (
+          u,
+        ) => `<div class="pg"><form class="card pf form" data-form="profile"><h3>Personal details</h3>
+${fld("Full name", "name", u.name, "required autocomplete=name")}
+<label>Email<input value="${esc(u.email)}" disabled><small class="muted">Your email is your sign-in. Contact support to change it.</small></label>
+${fld("Phone", "phone", u.phone, 'type="tel" autocomplete="tel"')}${sel("Country", "country", COUNTRIES, u.country)}${fld("City or region", "city", u.city)}${fld("Address", "address", u.address)}
+<label>Date of birth<input type="date" name="dob" value="${u.dob}" max="${iso(TODAY)}"></label>
+${u.role != "Donor" ? fld("Organisation", "org", u.org) : ""}
+<label>About you<textarea name="bio" rows="3" maxlength="300">${esc(u.bio)}</textarea></label>
+<h3>Preferences</h3>${sel("Preferred currency", "cur", Object.keys(FX), u.cur)}
+<label class="opt"><input type="checkbox" name="n_email" ${u.notif.email ? "checked" : ""}>Email me receipts and campaign updates</label>
+<label class="opt"><input type="checkbox" name="n_sms" ${u.notif.sms ? "checked" : ""}>Text me about payments and security</label>
+<label class="opt"><input type="checkbox" name="n_news" ${u.notif.news ? "checked" : ""}>Send me the WOLEM Impact newsletter</label>
+<label class="opt"><input type="checkbox" name="anon" ${u.anon ? "checked" : ""}>Give anonymously by default</label>
+<p class="err" id="pe"></p><button class="btn lg">Save changes</button></form>
+<aside class="card pf"><h3>Account details</h3>${kv2("Account ID", u.id)}${kv2("Role", esc(u.role))}${kv2("Status", u.status)}${kv2("Member since", fd(u.joined))}${kv2("Last sign-in", u.log[0] ? when(u.log[0].t) : "–")}${kv2("Verification", KYL[u.kyc.status])}${kv2("Gift limit", u.kyc.status == "verified" ? "Within AML rules" : fmc(SET.kycGift) + " per gift")}${kv2("Currency", u.cur)}${kv2("Two-step sign-in", u.twofa ? "On" : "Off")}</aside></div>`,
+        Verification: (u) => {
+          const k = u.kyc,
+            msg = {
+              none: "Verify your identity to give larger gifts, receive payouts and run campaigns. It takes about 3 minutes.",
+              pending: "We’re reviewing your documents. This usually takes 1 to 2 working days.",
+              verified: "Your identity is verified. Larger gifts and payouts are enabled.",
+              rejected: "We couldn’t verify you: " + esc(k.reason || "please resubmit clearer documents."),
+            }[k.status];
+          const detail = `<div class="bx">${kv2("ID type", esc(k.idType || "–"))}${kv2("ID number", mask(k.idNum))}${kv2("Legal name", esc(k.legal || "–"))}${kv2("Submitted", k.submitted ? fd(k.submitted) : "–")}${kv2("Documents", esc((k.doc || "–") + (k.selfie ? ", " + k.selfie : "")))}</div>`;
+          const form = `<form class="form" data-form="kyc">${sel("ID type", "idType", Object.keys(IDRX), k.idType)}${fld("ID number", "idNum", "", 'required placeholder="e.g. GHA-000000000-0" autocomplete="off"')}${fld("Full legal name (as on your ID)", "legal", u.name, "required")}<label>Date of birth<input type="date" name="dob" value="${u.dob}" max="${iso(TODAY)}" required></label>${fld("Residential address", "address", u.address, "required")}
+<label>Photo of your ID<input type="file" name="doc" accept="image/*,application/pdf" required></label><label>Selfie holding your ID<input type="file" name="selfie" accept="image/*" required></label>
+<label class="opt"><input type="checkbox" name="ok" required>I confirm these details are mine and consent to identity and sanctions screening.</label><p class="err" id="ke"></p><button class="btn lg">Submit for verification</button><p class="muted note">Demo: files are not uploaded, only their names are kept. In production they go to encrypted storage.</p></form>`;
+          return `<div class="pg"><div class="card pf form"><h3>Identity verification (KYC)</h3><div class="kyb ${KCL[k.status]}"><b>${KYL[k.status]}</b><span>${msg}</span></div>${k.status == "pending" || k.status == "verified" ? detail : form}</div>
+<aside class="card pf"><h3>Why we ask</h3><p class="muted">Ghana’s anti-money-laundering rules require us to know who gives and receives funds.</p>${kv2("Not verified", "Gifts up to " + fmc(SET.kycGift))}${kv2("Monthly total (not verified)", fmc(SET.kycMonth))}${kv2("Verified", "Higher gifts and payouts")}<p class="muted note">Your ID details are shown masked and used only for verification.</p></aside></div>`;
+        },
+        Security: (
+          u,
+        ) => `<div class="pg"><form class="card pf form" data-form="pw"><h3>Change password</h3><label>Current password<input type="password" name="cur" required autocomplete="current-password"></label><label>New password<input type="password" name="nw" required minlength="8" data-pw autocomplete="new-password"></label><div class="pwm"><i></i></div><small class="muted" id="pws"></small><p class="err" id="we"></p><button class="btn">Update password</button>
+<h3>Two-step sign-in</h3><p class="muted" style="margin:0">${u.twofa ? "On. We ask for a code each time you sign in." : "Off. Turn it on to protect your account with a one-time code."}</p><button type="button" class="btn alt" data-pa="2fa">${u.twofa ? "Turn off" : "Turn on"} two-step sign-in</button></form>
+<aside class="card pf"><h3>Recent sign-ins</h3>${
+          u.log
+            .slice(0, 6)
+            .map((l) => `<div class="kv"><span>${esc(l.ev)} · ${esc(l.dev)}</span><b>${when(l.t)}</b></div>`)
+            .join("") || '<p class="muted">No activity yet.</p>'
+        }<button class="btn alt" data-pa="outall" style="margin-top:10px">Sign out everywhere</button><p class="muted note">Security tips: use a unique password, never share codes, and sign out on shared devices. We sign you out after 30 minutes of inactivity.</p></aside></div>`,
+        Activity: (u) => {
+          const g = TX.filter((t) => t.em == u.email),
+            mc = C.filter((c) => c.owner == u.email),
+            mp = PEND.filter((p) => p.owner == u.email),
+            py = PAY.filter((p) => p.email == u.email),
+            ds = DISP.filter((x) => x.email == u.email);
+          const T = (h, r, e) =>
+            r.length
+              ? `<div class="tw"><table class="ptb"><tr>${h.map((x) => `<th>${x}</th>`).join("")}</tr>${r.join("")}</table></div>`
+              : `<p class="muted">${e}</p>`;
+          return `<div class="card pf"><h3>My giving</h3>${T(
+            ["Date", "Campaign", "Paid", "Status", ""],
+            g.map(
+              (t) =>
+                `<tr><td>${fd(t.dt)}</td><td>${esc(cn(t.c))}</td><td>${fmc(toG(t.ca, t.cur), t.cur)}</td><td><span class="bd ${t.s == "Confirmed" ? "" : "pe"}">${t.s}</span></td><td><button class="chip" data-pa="dispute" data-id="${t.id}">Report a problem</button></td></tr>`,
+            ),
+            "Gifts you make while signed in appear here.",
+          )}</div>
+<div class="card pf"><h3>My campaigns</h3>${T(["Campaign", "Status", "Raised", "Available to withdraw", ""], [...mp.map((p) => `<tr><td>${esc(p.t)}</td><td><span class="bd pe">Under review</span></td><td>–</td><td>–</td><td></td></tr>`), ...mc.map((c) => `<tr><td><a href="#c${c.id}">${esc(c.t)}</a></td><td><span class="bd ${c.status == "Live" ? "" : "rk"}">${c.status}</span></td><td>${fm(c.s)}</td><td>${fm(availBal(c))}</td><td><button class="chip" data-pa="payout" data-id="${c.id}">Request payout</button></td></tr>`)], "Campaigns you start appear here once submitted.")}</div>
+<div class="card pf"><h3>My payouts</h3>${T(
+            ["Requested", "Campaign", "Amount", "Status"],
+            py.map(
+              (p) =>
+                `<tr><td>${fd(p.dt)}</td><td>${esc(cn(p.cid))}</td><td>${fm(p.amt)}</td><td><span class="bd ${p.status == "Paid" || p.status == "Approved" ? "" : p.status == "Pending" ? "pe" : "rk"}">${p.status}</span></td></tr>`,
+            ),
+            "No payouts yet.",
+          )}</div>
+<div class="card pf"><h3>My reports</h3>${T(
+            ["Reported", "Type", "Campaign", "Status"],
+            ds.map(
+              (x) =>
+                `<tr><td>${fd(x.t)}</td><td>${x.type}</td><td>${esc(cn(x.cid))}</td><td><span class="bd ${x.status == "Resolved" ? "" : "pe"}">${x.status}</span></td></tr>`,
+            ),
+            "No reports.",
+          )}</div>`;
+        },
+        Privacy: (u) =>
+          `<div class="pg"><div class="card pf form"><h3>Your data</h3><p class="muted" style="margin:0">Consent recorded on ${u.consent ? fd(u.consent) : fd(u.joined)}. You can download or delete your data at any time, in line with the Ghana Data Protection Act.</p><button class="btn alt" data-pa="dl">Download my data</button><h3>Delete account</h3><p class="muted" style="margin:0">This removes your profile and sign-in. Gift and payout records are kept in anonymised form for legal and audit reasons.</p><button class="btn alt" data-pa="del" style="border-color:#c83c32;color:#c83c32">Delete my account</button></div></div>`,
+      };
+      document.addEventListener("click", (e) => {
+        const t = e.target.closest("[data-pt]");
+        if (t) {
+          PT = t.dataset.pt;
+          return refresh();
+        }
+        const b = e.target.closest("[data-pa]");
+        if (!b) return;
+        const u = me(),
+          a = b.dataset.pa;
+        if (a == "signin") return authDlg("in");
+        if (a == "report") return disputeDlg("", +b.dataset.id);
+        if (!u) return;
+        if (a == "dispute") return disputeDlg(b.dataset.id);
+        if (a == "payout") return payoutDlg(+b.dataset.id);
+        if (a == "2fa")
+          return otp(u.twofa ? "Turn off two-step sign-in" : "Turn on two-step sign-in", () => {
+            u.twofa = !u.twofa;
+            u.log.unshift({
+              t: Date.now(),
+              ev: u.twofa ? "2-step turned on" : "2-step turned off",
+              dev: dev(),
+            });
+            saveU();
+            audit(u.email, u.twofa ? "2FA enabled" : "2FA disabled");
+            toast("Two-step sign-in is " + (u.twofa ? "on." : "off."));
+            refresh();
+          });
+        if (a == "outall") {
+          u.log.unshift({ t: Date.now(), ev: "Signed out everywhere", dev: dev() });
+          saveU();
+          audit(u.email, "Signed out everywhere");
+          U = null;
+          LS("wi_sess", null);
+          toast("You’ve been signed out of all devices.");
+          location.hash = "home";
+          return acct();
+        }
+        if (a == "dl") {
+          const o = {
+            profile: { ...u, ph: undefined, salt: undefined, h: undefined },
+            gifts: TX.filter((x) => x.em == u.email),
+            payouts: PAY.filter((x) => x.email == u.email),
+            reports: DISP.filter((x) => x.email == u.email),
+          };
+          audit(u.email, "Data export");
+          return save("wolem-impact-my-data.json", JSON.stringify(o, null, 2));
+        }
+        if (a == "del") {
+          if (
+            PAY.some((p) => p.email == u.email && ["Pending", "Approved", "Held"].includes(p.status)) ||
+            DISP.some((x) => x.email == u.email && x.status != "Resolved")
+          )
+            return toast("Finish your open payouts and reports before deleting your account.");
+          ask(
+            "Delete your account?",
+            "Type DELETE to confirm",
+            (v) => {
+              if (v != "DELETE") return toast("Account not deleted.");
+              TX.forEach((x) => {
+                if (x.em == u.email) x.em = "";
+              });
+              USERS = USERS.filter((x) => x.email != u.email);
+              saveU();
+              audit(u.email, "Account deleted");
+              U = null;
+              LS("wi_sess", null);
+              acct();
+              toast("Your account was deleted.");
+              location.hash = "home";
+            },
+            "Delete account",
+          );
+        }
+      });
+      document.addEventListener("submit", async (e) => {
+        const f = e.target.closest("form[data-form]");
+        if (!f) return;
+        e.preventDefault();
+        const u = me(),
+          v = Object.fromEntries(new FormData(f));
+        if (!u) return;
+        if (f.dataset.form == "profile") {
+          if (v.dob && age(v.dob) < 18)
+            return ($("#pe").textContent = "You must be 18 or over to hold an account.");
+          Object.assign(u, {
+            name: v.name.trim(),
+            phone: v.phone.trim(),
+            country: v.country,
+            city: v.city.trim(),
+            address: v.address.trim(),
+            dob: v.dob,
+            org: (v.org || "").trim(),
+            bio: v.bio.trim(),
+            cur: v.cur,
+            anon: !!v.anon,
+            notif: { email: !!v.n_email, sms: !!v.n_sms, news: !!v.n_news },
+          });
+          U.name = u.name;
+          LS("wi_sess", U);
+          CUR = u.cur;
+          LS("wi_cur", CUR);
+          saveU();
+          audit(u.email, "Profile updated");
+          toast("Profile saved.");
+          acct();
+          refresh();
+        }
+        if (f.dataset.form == "pw") {
+          const ok = u.ph ? (await pbk(v.cur, u.salt)) == u.ph : false,
+            bad = pwCheck(v.nw);
+          if (!ok) return ($("#we").textContent = "Your current password is incorrect.");
+          if (bad) return ($("#we").textContent = bad);
+          u.salt = rnd16();
+          u.ph = await pbk(v.nw, u.salt);
+          u.log.unshift({ t: Date.now(), ev: "Password changed", dev: dev() });
+          saveU();
+          audit(u.email, "Password changed");
+          toast("Password updated.");
+          f.reset();
+          refresh();
+        }
+        if (f.dataset.form == "kyc") {
+          const [rx, ex] = IDRX[v.idType],
+            id = v.idNum.trim().toUpperCase();
+          if (!rx.test(id))
+            return ($("#ke").textContent = `That doesn’t look like a valid ${v.idType} number (e.g. ${ex}).`);
+          if (age(v.dob) < 18) return ($("#ke").textContent = "You must be 18 or over.");
+          const sc = screen(v.legal),
+            mism = sim(v.legal, u.name) < 0.7;
+          u.dob = v.dob;
+          u.address = v.address;
+          u.kyc = {
+            status: "pending",
+            tier: 0,
+            idType: v.idType,
+            idNum: id,
+            legal: v.legal.trim(),
+            dob: v.dob,
+            address: v.address.trim(),
+            doc: f.doc.files[0] ? f.doc.files[0].name : "",
+            selfie: f.selfie.files[0] ? f.selfie.files[0].name : "",
+            submitted: iso(TODAY),
+            reason: "",
+            flag: mism ? "Legal name differs from profile name" : "",
+          };
+          u.screen = sc;
+          if (sc.hit) {
+            u.risk = "High";
+            amlAlert("Sanctions / PEP match", v.legal, "KYC screening: " + sc.list, 0, sc.score, "u:" + u.id);
+          }
+          saveU();
+          audit(u.email, "KYC submitted");
+          toast("Submitted. We’ll review your documents shortly.");
+          refresh();
+        }
+        if (f.dataset.form == "dispute") {
+          const d = f._ctx;
+          DISP.unshift({
+            id: "D-" + ++DN,
+            type: v.type,
+            cid: d.cid,
+            txid: d.txid,
+            by: u.name,
+            email: u.email,
+            amt: d.amt,
+            t: iso(TODAY),
+            status: "Open",
+            desc: v.desc.trim(),
+            thread: [],
+          });
+          audit(u.email, "Report filed", v.type);
+          $("#dlg").close();
+          toast("Report sent. Our team will review it within 2 working days.");
+          refresh();
+        }
+        if (f.dataset.form == "payout") {
+          const c = f._ctx,
+            amt = Math.round(+v.amt),
+            av = Math.floor(availBal(c));
+          if (!(amt >= SET.minPayout) || amt > av)
+            return ($("#pye").textContent = `Enter between ${fmc(SET.minPayout)} and ${fmc(av)}.`);
+          const sc = screen(v.acct);
+          const p = {
+            id: "P-" + ++PN,
+            cid: c.id,
+            org: u.org || u.name,
+            email: u.email,
+            amt,
+            method: v.method,
+            dest: v.dest.trim(),
+            status: sc.hit ? "Held" : "Pending",
+            dt: iso(TODAY),
+            note: sc.hit ? "Held: account name matched a watchlist" : "",
+          };
+          PAY.unshift(p);
+          if (sc.hit)
+            amlAlert(
+              "Sanctions / PEP match",
+              v.acct,
+              "Payout beneficiary matched " + sc.list,
+              amt,
+              sc.score,
+              "c:" + c.id,
+            );
+          audit(u.email, "Payout requested", p.id);
+          $("#dlg").close();
+          toast("Payout requested. We review payouts within " + SET.holdDays + " working days.");
+          refresh();
+        }
+      });
+      function disputeDlg(txid, cid) {
+        const u = me();
+        if (!u) return authDlg("in");
+        const t = TX.find((x) => x.id == txid),
+          c = C.find((x) => x.id == (t ? t.c : cid));
+        const d = openDlg(
+          `<form class="form" id="dsf" data-form="dispute"><h2 style="font-size:1.4rem">Report a problem</h2><p class="muted" style="margin:0">${c ? esc(c.t) : ""}${t ? " · " + fmc(t.a) + " gift " + t.id : ""}</p><label>What happened?<select name="type">${["Refund request", "Duplicate charge", "Fraud report", "Campaign not delivered", "Other"].map((o) => `<option>${o}</option>`).join("")}</select></label><label>Details<textarea name="desc" rows="4" required minlength="10" placeholder="Tell us what went wrong"></textarea></label><button class="btn block lg">Submit report</button><button type="button" class="chip" id="dx">Cancel</button></form>`,
+        );
+        $("#dsf")._ctx = { cid: c ? c.id : 0, txid: t ? t.id : "", amt: t ? t.a : 0 };
+        $("#dx").onclick = () => d.close();
+      }
+      function payoutDlg(cid) {
+        const u = me(),
+          c = C.find((x) => x.id == cid),
+          av = Math.floor(availBal(c));
+        if (u.kyc.status != "verified") return toast("Verify your identity before requesting a payout.");
+        if (av < SET.minPayout)
+          return toast(`The minimum payout is ${fmc(SET.minPayout)}. Available now: ${fmc(av)}.`);
+        const d = openDlg(
+          `<form class="form" id="pyf" data-form="payout"><h2 style="font-size:1.4rem">Request a payout</h2><p class="muted" style="margin:0">${esc(c.t)}. Available: <b>${fmc(av)}</b> after fees.</p><label>Amount (GH₵)<input name="amt" type="number" min="${SET.minPayout}" max="${av}" value="${av}" required></label><label>Send to<select name="method"><option value="momo">Mobile Money</option><option value="bank">Ghana bank account</option><option value="wire">International wire</option></select></label><label>Account or wallet number<input name="dest" required></label><label>Account holder name<input name="acct" value="${esc(u.name)}" required></label><p class="err" id="pye"></p><button class="btn block lg">Request payout</button><button type="button" class="chip" id="dx">Cancel</button></form>`,
+        );
+        $("#pyf")._ctx = c;
+        $("#dx").onclick = () => d.close();
+      }
+
       /* ===== ABOUT, CONTACT & SOCIAL ===== */
       const SO = [
         [
@@ -3543,107 +5017,6 @@
 </div>`,
           ).join("")}</div>`;
         },
-        Campaigns() {
-          return `<div class="pn rv">
-<h3>Verification queue (${PEND.length})</h3>${
-            PEND.length
-              ? `<div class="tw">
-<table class="tb">
-<tr>
-<th>Campaign</th>
-<th>Organiser</th>
-<th>Region</th>
-<th>Goal</th>
-<th>
-</th>
-</tr>${PEND.map(
-                  (p, i) => `<tr>
-<td>
-<b>${esc(p.t)}</b>
-<br>
-<span class="muted">${esc(p.c)}, submitted by ${esc(p.by)}</span>
-</td>
-<td>${esc(p.o)}</td>
-<td>${esc(p.r)}</td>
-<td>${fm(p.g)}</td>
-<td class="ac">
-<button class="mb ok" data-ap="${i}">Approve</button>
-<button class="mb no" data-rj="${i}">Reject</button>
-</td>
-</tr>`,
-                ).join("")}</table>
-</div>`
-              : '<p class="muted">All caught up. No campaigns are waiting for review.</p>'
-          }</div>
-<div class="pn rv" style="--i:1">
-<h3>Live campaigns (${C.length})</h3>
-<div class="tw">
-<table class="tb">
-<tr>
-<th>Campaign</th>
-<th>Region</th>
-<th>Progress</th>
-<th>Raised</th>
-</tr>${C.map(
-            (c) => `<tr>
-<td>${esc(c.t)}</td>
-<td>${c.r}</td>
-<td>
-<div class="mini">
-<i style="width:${pct(c)}%">
-</i>
-</div>
-</td>
-<td>${fm(c.s)}</td>
-</tr>`,
-          ).join("")}</table>
-</div>
-</div>`;
-        },
-        Donations() {
-          return `<div class="pn rv">
-<h3>All donations</h3>
-<div class="tw">
-<table class="tb">
-<tr>
-<th>Donor</th>
-<th>Amount</th>
-<th>Method</th>
-<th>Campaign</th>
-<th>Status</th>
-<th>
-</th>
-</tr>${TX.map(
-            (t, i) => `<tr>
-<td>${esc(t.n)}</td>
-<td>${fm(t.a)}</td>
-<td>${MN[MK.indexOf(t.m)]}</td>
-<td>${esc(cn(t.c))}</td>
-<td>
-<span class="bd ${t.s == "Pending" ? "pe" : ""}">${t.s}</span>
-</td>
-<td class="ac">${t.s == "Pending" ? `<button class="mb ok" data-cf="${i}">Confirm receipt</button>` : t.w}</td>
-</tr>`,
-          ).join("")}</table>
-</div>
-</div>`;
-        },
-        Users() {
-          return `<div class="pn rv">
-<h3>Registered users (${allU().length})</h3>
-<div class="tw">
-<table class="tb">
-<tr>
-<th>Name</th>
-<th>Role</th>
-<th>Location</th>
-<th>Joined</th>
-</tr>${allU()
-            .map((u) => `<tr>${u.map((x) => `<td>${esc(x)}</td>`).join("")}</tr>`)
-            .join("")}</table>
-</div>
-</div>`;
-        },
         Insights() {
           return insightsHTML();
         },
@@ -3655,7 +5028,16 @@
       /* ===== INSIGHTS & REPORTS ===== */
       const ALLREG = REG,
         CATS = Object.keys(CAT),
-        RTYPES = ["Executive summary", "Campaign performance", "Donations ledger", "User register"],
+        RTYPES = [
+          "Executive summary",
+          "Campaign performance",
+          "Donations ledger",
+          "Payouts",
+          "Disputes",
+          "Compliance & AML",
+          "User register",
+        ],
+        OPS = ["Payouts", "Disputes", "Compliance & AML"], // report types that are not about giving, so no region chart
         RF = {
           type: RTYPES[0],
           period: "last30",
@@ -3931,18 +5313,7 @@
 <div class="pn rv"><h3>Campaign health and funding pace</h3><div class="tw"><table class="tb"><tr><th>Campaign</th><th>Region</th><th>Funded</th><th>Days left</th><th>Needed per day</th><th>Health</th></tr>${cs.map((c) => `<tr><td>${esc(c.t)}</td><td>${c.r}</td><td><div class="mini"><i style="width:${pct(c)}%"></i></div> ${pct(c)}%</td><td>${c.days}</td><td>${fm((c.g - c.s) / c.days)}</td><td><span class="bd ${hcls(health(c))}">${health(c)}</span></td></tr>`).join("")}</table></div></div>`;
       }
 
-      const usersAll = () => [
-        ...[
-          ["Kwame Asante", "Donor", "Accra", 3],
-          ["Hope Learners Foundation", "Organiser", "Kumasi", 16],
-          ["Zenith Bank CSR", "Corporate", "Accra", 27],
-          ["Ama Owusu", "Donor", "London, UK", 34],
-          ["Volta Disaster Response", "Organiser", "Ho", 41],
-          ["Esi Mensah", "Donor", "Kumasi", 75],
-          ["TechGirls Tamale", "Organiser", "Tamale", 120],
-        ].map(([n, r, l, o]) => [n, r, l, iso(addD(TODAY, -o))]),
-        ...USERS.map((u) => [u.name, u.role, "Ghana", iso(new Date(u.t))]),
-      ];
+      const usersAll = () => accounts().map((u) => [u.name, u.role, u.country, u.joined]);
 
       /* builds everything a report needs for the chosen period, regions and categories */
       function rdata(f = RF) {
@@ -3976,12 +5347,17 @@
             ? `${raised >= pr ? "+" : ""}${Math.round((raised / pr - 1) * 100)}% vs previous period`
             : "No gifts in previous period";
         }
-        return {
+        const cset = new Set(ids),
+          inP = (d) => d >= P.from && d <= P.to;
+        const out = {
           period: P,
           per,
           camps,
           tx,
           ins: INS(camps, tx, all),
+          pay: PAY.filter((p) => cset.has(p.cid) && inP(p.dt)),
+          disp: DISP.filter((d) => cset.has(d.cid) && inP(d.t)),
+          alerts: ALERTS.filter((a) => inP(a.t) && (!a.ref.startsWith("c:") || cset.has(+a.ref.slice(2)))),
           users: usersAll().filter((u) => u[3] >= P.from && u[3] <= P.to),
           scopeR: scopeText(f.regions, ALLREG.length, "regions"),
           scopeC: scopeText(f.cats, CATS.length, "categories"),
@@ -3999,6 +5375,70 @@
             ["Funding gap (to date)", fm(sum(camps, (c) => c.g - c.s))],
           ],
         };
+        return opsData(out, f);
+      }
+      /* payouts, disputes and AML alerts: summary table for the executive report, and tiles for the dedicated reports */
+      function opsData(R, f) {
+        const n = (a, st) => a.filter((x) => st.includes(x.status)),
+          v = (a, g = (x) => x.amt) => fm(sum(a, g));
+        const pay = R.pay,
+          disp = R.disp,
+          al = R.alerts,
+          held = R.tx.filter((t) => t.s == "Held");
+        R.ops = [
+          [
+            "Payouts requested",
+            pay.length,
+            v(pay),
+            `${n(pay, ["Pending"]).length} pending, ${n(pay, ["Held"]).length} on hold`,
+          ],
+          [
+            "Payouts paid",
+            n(pay, ["Paid"]).length,
+            v(n(pay, ["Paid"])),
+            `${n(pay, ["Approved"]).length} approved, awaiting release`,
+          ],
+          [
+            "Disputes opened",
+            disp.length,
+            v(disp),
+            `${n(disp, ["Open"]).length} open, ${n(disp, ["Escalated"]).length} escalated`,
+          ],
+          [
+            "AML alerts",
+            al.length,
+            v(al),
+            `${n(al, ["Open", "Under review"]).length} open, ${n(al, ["Escalated"]).length} STRs filed`,
+          ],
+          [
+            "Gifts on hold",
+            held.length,
+            v(held, (t) => t.a),
+            held.length ? "Needs compliance review" : "None",
+          ],
+        ];
+        if (f.type == "Payouts")
+          R.K = [
+            ["Requested", v(pay)],
+            ["Paid out", v(n(pay, ["Paid"]))],
+            ["Pending approval", v(n(pay, ["Pending", "Approved"]))],
+            ["On hold or rejected", v(n(pay, ["Held", "Rejected"]))],
+          ];
+        if (f.type == "Disputes")
+          R.K = [
+            ["Cases opened", disp.length],
+            ["Open or under review", n(disp, ["Open", "Under review"]).length],
+            ["Escalated", n(disp, ["Escalated"]).length],
+            ["Refunded", v(disp.filter((d) => /^Refunded/.test(d.outcome || "")))],
+          ];
+        if (f.type == "Compliance & AML")
+          R.K = [
+            ["Alerts raised", al.length],
+            ["Open or under review", n(al, ["Open", "Under review"]).length],
+            ["STRs filed", n(al, ["Escalated"]).length],
+            ["Cleared", n(al, ["Cleared"]).length],
+          ];
+        return R;
       }
 
       const pc = (c) => Math.round((c.s / c.g) * 100) + "%";
@@ -4010,6 +5450,11 @@
             .sort((a, b) => (R.per[b.id] || 0) - (R.per[a.id] || 0))
             .slice(0, 6)
             .map((c) => [c.t, c.r, fm(R.per[c.id] || 0), fm(c.s), fm(c.g), pc(c)]),
+          extra: {
+            title: "Operations and compliance",
+            head: ["Area", "Count", "Value", "Needs attention"],
+            rows: R.ops,
+          },
         }),
         "Campaign performance": (R) => ({
           title: "Campaign performance",
@@ -4042,6 +5487,55 @@
           title: "Donations ledger",
           head: ["Date", "Donor", "Amount", "Method", "Campaign", "Status"],
           rows: R.tx.map((t) => [fd(t.dt), t.n, fm(t.a), MN[MK.indexOf(t.m)], cn(t.c), t.s]),
+        }),
+        Payouts: (R) => ({
+          title: "Payout requests",
+          head: ["Date", "Payout", "Organiser", "Campaign", "Method", "Amount", "Status", "Checks"],
+          rows: R.pay.map((p) => {
+            const ck = pchecks(p);
+            return [
+              fd(p.dt),
+              p.id,
+              p.org,
+              cn(p.cid),
+              PMETH[p.method],
+              fm(p.amt),
+              p.status,
+              ck.every((x) => x[1])
+                ? "All passed"
+                : ck
+                    .filter((x) => !x[1])
+                    .map((x) => x[0])
+                    .join(", "),
+            ];
+          }),
+        }),
+        Disputes: (R) => ({
+          title: "Disputes and reports",
+          head: ["Opened", "Case", "Type", "Campaign", "Reported by", "Amount", "Status", "Outcome"],
+          rows: R.disp.map((d) => [
+            fd(d.t),
+            d.id,
+            d.type,
+            cn(d.cid),
+            d.by,
+            d.amt ? fm(d.amt) : "–",
+            d.status,
+            d.outcome || "–",
+          ]),
+        }),
+        "Compliance & AML": (R) => ({
+          title: "AML alerts and screening",
+          head: ["Date", "Alert", "Type", "Subject", "Amount", "Match", "Status"],
+          rows: R.alerts.map((a) => [
+            fd(a.t),
+            a.id,
+            a.type,
+            a.who,
+            a.amt ? fm(a.amt) : "–",
+            a.score ? Math.round(a.score * 100) + "%" : "–",
+            a.status,
+          ]),
         }),
         "User register": (R) => ({
           title: "Users who joined in this period",
@@ -4103,8 +5597,9 @@ ${msel("regions", "Regions", ALLREG, "regions")}${msel("cats", "Categories", CAT
 <div class="pk">${R.K.map(([l, v, s]) => `<div><small>${l}</small><b>${esc(v)}</b>${s ? `<em class="${s[0] == "-" || s[0] == "N" ? "dn" : "up"}">${esc(s)}</em>` : ""}</div>`).join("")}</div>
 ${R.cmp ? `<p class="cmp">${esc(R.cmp)}</p>` : ""}
 ${RF.ins ? `<h4>Key insights</h4><ul class="pi">${R.ins.map((i) => `<li class="${i.k}"><b>${esc(i.h)}</b><span>${esc(i.p)}</span><em>Next step: ${esc(i.a)}</em></li>`).join("")}</ul>` : ""}
-${RF.charts && E.length ? `<h4>Raised by region in this period</h4><div class="prb">${E.map(([r, v]) => `<div><span>${r}</span><i><u style="width:${(v / mx) * 100}%"></u></i><b>${fm(v)}</b></div>`).join("")}</div>` : ""}
+${RF.charts && E.length && !OPS.includes(RF.type) ? `<h4>Raised by region in this period</h4><div class="prb">${E.map(([r, v]) => `<div><span>${r}</span><i><u style="width:${(v / mx) * 100}%"></u></i><b>${fm(v)}</b></div>`).join("")}</div>` : ""}
 <h4>${T.title}</h4>${T.rows.length ? `<div class="tw"><table class="pt2"><thead><tr>${T.head.map((h) => `<th>${h}</th>`).join("")}</tr></thead><tbody>${T.rows.map((r) => `<tr>${r.map((c) => `<td>${esc(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>` : `<p class="empty">No records match these filters for ${esc(P.label)}. Try a wider period or fewer filters.</p>`}
+${T.extra && T.extra.rows.length ? `<h4>${T.extra.title}</h4><div class="tw"><table class="pt2"><thead><tr>${T.extra.head.map((h) => `<th>${h}</th>`).join("")}</tr></thead><tbody>${T.extra.rows.map((r) => `<tr>${r.map((c) => `<td>${esc(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>` : ""}
 <footer class="pf"><span>Prepared by ${esc(RF.by)} · Generated ${nowText()}</span><span>${RF.conf ? "Confidential · " : ""}www.wolemimpact.org</span></footer></article>`;
       }
       /* refresh the preview, period note, date inputs and dropdown summaries after any change */
@@ -4157,7 +5652,9 @@ ${RF.charts && E.length ? `<h4>Raised by region in this period</h4><div class="p
           new Blob([data], {
             type: name.endsWith("pdf")
               ? "application/pdf"
-              : "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+              : name.endsWith("json")
+                ? "application/json"
+                : "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
           }),
         );
         a.download = name;
@@ -4283,7 +5780,7 @@ ${RF.charts && E.length ? `<h4>Raised by region in this period</h4><div class="p
         }
         const E = regionTotals(R),
           mx = E[0] ? E[0][1] || 1 : 1;
-        if (RF.charts && E.length) {
+        if (RF.charts && E.length && !OPS.includes(RF.type)) {
           hd("Raised by region in this period");
           need(E.length * 18 + 10);
           E.forEach(([r, v]) => {
@@ -4301,20 +5798,29 @@ ${RF.charts && E.length ? `<h4>Raised by region in this period</h4><div class="p
           y += 10;
         }
         hd(T.title);
+        const tOpt = {
+          styles: { fontSize: 8, cellPadding: 5, textColor: N },
+          headStyles: { fillColor: N, textColor: 255, fontStyle: "bold" },
+          alternateRowStyles: { fillColor: [247, 243, 251] },
+          margin: { left: M, right: M, bottom: 50 },
+        };
         if (T.rows.length)
-          d.autoTable({
-            startY: y,
-            head: [T.head.map(ps)],
-            body: T.rows.map((r) => r.map(ps)),
-            styles: { fontSize: 8, cellPadding: 5, textColor: N },
-            headStyles: { fillColor: N, textColor: 255, fontStyle: "bold" },
-            alternateRowStyles: { fillColor: [247, 243, 251] },
-            margin: { left: M, right: M, bottom: 50 },
-          });
+          d.autoTable({ startY: y, head: [T.head.map(ps)], body: T.rows.map((r) => r.map(ps)), ...tOpt });
         else {
           d.setFontSize(9);
           d.setTextColor(110, 95, 130);
           d.text(ps("No records match these filters for " + P.label + "."), M, y);
+        }
+        if (T.extra && T.extra.rows.length) {
+          y = (T.rows.length ? d.lastAutoTable.finalY : y) + 28;
+          need(60);
+          hd(T.extra.title);
+          d.autoTable({
+            startY: y,
+            head: [T.extra.head.map(ps)],
+            body: T.extra.rows.map((r) => r.map(ps)),
+            ...tOpt,
+          });
         }
         const n = d.getNumberOfPages();
         for (let i = 1; i <= n; i++) {
@@ -4451,6 +5957,9 @@ ${RF.charts && E.length ? `<h4>Raised by region in this period</h4><div class="p
           ["Categories", R.scopeC],
           ["Comparison", R.cmp || "Not applicable for an all-time report"],
           ...R.K.map(([l, v, sb]) => [l, sb ? `${v}  (${sb})` : v]),
+          ["Payouts requested", `${R.pay.length} (${fm(sum(R.pay, (p) => p.amt))})`],
+          ["Disputes opened", R.disp.length],
+          ["AML alerts raised", R.alerts.length],
         ];
         rows0.forEach(([l, v], i) => {
           const r = s.getRow(5 + i);
@@ -4613,6 +6122,90 @@ ${RF.charts && E.length ? `<h4>Raised by region in this period</h4><div class="p
           [null, null, null, DF],
           [34, 20, 22, 14],
         );
+        /* Payouts, disputes and AML alerts */
+        const stc = (c, v, i, at) => {
+          if (i == at) {
+            c.font = {
+              bold: true,
+              color: {
+                argb: ["Paid", "Resolved", "Cleared", "Approved"].includes(v)
+                  ? "FF2F7D5B"
+                  : ["Held", "Rejected", "Escalated"].includes(v)
+                    ? "FFC83C32"
+                    : "FFB07A10",
+              },
+            };
+            c.alignment = { horizontal: "center" };
+          }
+        };
+        sheet(
+          "Payouts",
+          "Payout requests",
+          ["Date", "Payout", "Organiser", "Campaign", "Method", "Amount", "Status", "Checks", "Note"],
+          R.pay.map((p) => {
+            const ck = pchecks(p);
+            return [
+              xd(p.dt),
+              p.id,
+              p.org,
+              cn(p.cid),
+              PMETH[p.method],
+              p.amt,
+              p.status,
+              ck.every((x) => x[1])
+                ? "All passed"
+                : ck
+                    .filter((x) => !x[1])
+                    .map((x) => x[0])
+                    .join(", "),
+              p.note || "",
+            ];
+          }),
+          [DF, null, null, null, null, GH, null, null, null],
+          [14, 12, 32, 44, 16, 14, 14, 42, 38],
+          (c, v, i) => stc(c, v, i, 6),
+          [6],
+        );
+        sheet(
+          "Disputes",
+          "Disputes and reports",
+          ["Opened", "Case", "Type", "Campaign", "Reported by", "Amount", "Status", "Outcome", "Details"],
+          R.disp.map((d) => [
+            xd(d.t),
+            d.id,
+            d.type,
+            cn(d.cid),
+            d.by,
+            d.amt,
+            d.status,
+            d.outcome || "",
+            d.desc,
+          ]),
+          [DF, null, null, null, null, GH, null, null, null],
+          [14, 10, 24, 44, 24, 14, 14, 26, 60],
+          (c, v, i) => stc(c, v, i, 6),
+          [6],
+        );
+        sheet(
+          "AML alerts",
+          "AML alerts and screening",
+          ["Date", "Alert", "Type", "Subject", "Detail", "Amount", "Match score", "Status", "Last note"],
+          R.alerts.map((a) => [
+            xd(a.t),
+            a.id,
+            a.type,
+            a.who,
+            a.det,
+            a.amt,
+            a.score,
+            a.status,
+            a.notes.length ? a.notes[a.notes.length - 1] : "",
+          ]),
+          [DF, null, null, null, null, GH, "0%", null, null],
+          [14, 8, 24, 26, 60, 14, 12, 14, 44],
+          (c, v, i) => stc(c, v, i, 7),
+          [6],
+        );
         save(fname(R, "xlsx"), await wb.xlsx.writeBuffer());
       }
 
@@ -4716,6 +6309,651 @@ ${RF.charts && E.length ? `<h4>Raised by region in this period</h4><div class="p
         $("#app").appendChild(d);
         $("#dbtn").onclick = () => (money ? donate(c) : $(".side").scrollIntoView({ behavior: "smooth" }));
       }
+      /* ===== ADMIN TOOLS: moderation, payouts, disputes, compliance, fees, users ===== */
+      const KP = (a) =>
+        `<div class="kp">${a.map(([l, v], n) => `<div class="pn k rv" style="--i:${n}"><span class="muted">${l}</span><b style="font-size:1.35rem">${v}</b></div>`).join("")}</div>`;
+      const TBH = (h, r, empty = "Nothing here yet.") =>
+        r.length
+          ? `<div class="tw"><table class="tb"><tr>${h.map((x) => `<th>${x}</th>`).join("")}</tr>${r.join("")}</table></div>`
+          : `<p class="muted">${empty}</p>`;
+      const BCL = {
+        Verified: "",
+        verified: "",
+        Active: "",
+        Paid: "",
+        Resolved: "",
+        Confirmed: "",
+        Approved: "",
+        Cleared: "",
+        Live: "",
+        Pending: "pe",
+        pending: "pe",
+        Open: "pe",
+        Paused: "pe",
+        "Under review": "in",
+        none: "in",
+        Held: "rk",
+        Rejected: "rk",
+        rejected: "rk",
+        Suspended: "rk",
+        Escalated: "rk",
+        Frozen: "rk",
+        Removed: "rk",
+        Refunded: "in",
+        High: "rk",
+        Medium: "pe",
+        Low: "",
+      };
+      const BDG = (s, label) => `<span class="bd ${BCL[s] ?? "in"}">${label || s}</span>`;
+      const ABT = (a, id, label, cls = "ok") =>
+        `<button class="mb ${cls}" data-a="${a}" data-id="${esc(id)}">${label}</button>`;
+      const SEC = (t, body, i = 0) => `<div class="pn rv" style="--i:${i}"><h3>${t}</h3>${body}</div>`;
+      const PMETH = { momo: "Mobile Money", bank: "Bank transfer", wire: "Intl wire" };
+      const badge = (t) => {
+        const n = {
+          Campaigns: PEND.length,
+          Payouts: PAY.filter((p) => p.status == "Pending").length,
+          Disputes: DISP.filter((d) => d.status == "Open").length,
+          Compliance: kycQ().length + ALERTS.filter((a) => a.status == "Open").length,
+        }[t];
+        return n ? `<em>${n}</em>` : "";
+      };
+      const ifld = (l, n, v, x = "") =>
+        `<label>${l}<input name="${n}" type="number" step="any" value="${v}" ${x}></label>`;
+      const grossFees = () => {
+        const c = TX.filter((t) => t.s == "Confirmed");
+        return { pl: sum(c, (t) => feeFor(t).pl), pr: sum(c, (t) => feeFor(t).pr), vol: sum(c, (t) => t.a) };
+      };
+
+      function pchecks(p) {
+        const c = C.find((x) => x.id == p.cid) || {},
+          o = accounts().find((u) => u.email == p.email);
+        return [
+          ["Campaign live", !!c.id && c.status == "Live"],
+          ["Organiser ID verified", !!o && o.kyc.status == "verified"],
+          [
+            "No open AML alert",
+            !ALERTS.some(
+              (a) => ["Open", "Under review"].includes(a.status) && (a.ref == "c:" + p.cid || a.who == p.org),
+            ),
+          ],
+          ["No open dispute", !DISP.some((d) => d.cid == p.cid && d.status != "Resolved")],
+          ["Within available balance", !!c.id && p.amt <= availBal(c, p.id)],
+        ];
+      }
+      Object.assign(AV, {
+        Campaigns() {
+          const q = PEND.map(
+            (p, i) =>
+              `<tr><td><b>${esc(p.t)}</b><br><span class="muted">${esc(p.c)} · ${esc(p.r)} · by ${esc(p.by)}</span>${p.chg ? `<br><span class="bd pe">Changes requested</span>` : ""}</td><td>${esc(p.o)}</td><td>${fm(p.g)}</td><td class="ac">${ABT("cm-ok", i, "Approve")}${ABT("cm-chg", i, "Request changes", "no")}${ABT("cm-no", i, "Reject", "no")}</td></tr>`,
+          );
+          const live = C.filter((c) => c.status != "Removed").map((c) => {
+            const dp = DISP.filter((d) => d.cid == c.id && d.status != "Resolved").length;
+            return `<tr data-s="${esc((c.t + c.o + c.r).toLowerCase())}"><td>${esc(c.t)}<br><span class="muted">${esc(c.o)} · ${c.r}</span></td><td>${BDG(c.status)}</td><td>${fm(c.s)} of ${fm(c.g)}</td><td>${dp ? `<span class="bd rk">${dp} open</span>` : "–"}</td><td class="ac">${c.status == "Paused" ? ABT("cs-live", c.id, "Resume") : ABT("cs-pause", c.id, "Pause", "no")}${c.status == "Frozen" ? ABT("cs-live", c.id, "Unfreeze") : ABT("cs-freeze", c.id, "Freeze", "no")}${ABT("cs-rm", c.id, "Remove", "no")}</td></tr>`;
+          });
+          return (
+            SEC(
+              `Verification queue (${PEND.length})`,
+              TBH(
+                ["Campaign", "Organiser", "Goal", ""],
+                q,
+                "All caught up. No campaigns are waiting for review.",
+              ),
+            ) +
+            SEC(
+              `Live campaigns (${live.length})`,
+              `<input class="srch" data-filter placeholder="Search campaigns" aria-label="Search campaigns"><p class="muted note">Pause hides a campaign. Freeze keeps it visible but stops gifts and payouts. Remove takes it down.</p>${TBH(["Campaign", "Status", "Raised", "Reports", "Moderation"], live)}`,
+              1,
+            )
+          );
+        },
+        Payouts() {
+          const S = (st) =>
+            sum(
+              PAY.filter((p) => p.status == st),
+              (p) => p.amt,
+            );
+          const rows = PAY.map((p) => {
+            const ck = pchecks(p),
+              pass = ck.every((x) => x[1]);
+            const act =
+              p.status == "Pending"
+                ? (pass ? ABT("py-ok", p.id, "Approve") : "") +
+                  ABT("py-hold", p.id, "Hold", "no") +
+                  ABT("py-no", p.id, "Reject", "no")
+                : p.status == "Approved"
+                  ? ABT("py-paid", p.id, "Release funds") + ABT("py-hold", p.id, "Hold", "no")
+                  : p.status == "Held"
+                    ? ABT("py-res", p.id, "Resume") + ABT("py-no", p.id, "Reject", "no")
+                    : "";
+            return `<tr><td>${p.id}<br><span class="muted">${fd(p.dt)}</span></td><td>${esc(p.org)}<br><span class="muted">${esc(cn(p.cid))}</span></td><td><b>${fm(p.amt)}</b></td><td>${PMETH[p.method]}<br><span class="muted">${esc(p.dest)}</span></td><td>${ck.map(([n, ok]) => `<span class="ck ${ok ? "ok" : "no"}" title="${n}">${ok ? "✓" : "✕"}</span>`).join("")}${
+              pass
+                ? ""
+                : `<br><span class="muted">${ck
+                    .filter((x) => !x[1])
+                    .map((x) => x[0])
+                    .join(", ")}</span>`
+            }</td><td>${BDG(p.status)}${p.note ? `<br><span class="muted">${esc(p.note)}</span>` : ""}</td><td class="ac">${act}</td></tr>`;
+          });
+          return (
+            KP([
+              ["Pending requests", fm(S("Pending"))],
+              ["Approved, to release", fm(S("Approved"))],
+              ["Paid out", fm(S("Paid"))],
+              ["On hold", fm(S("Held"))],
+            ]) +
+            SEC(
+              "Payout requests",
+              `<p class="muted note">Checks: campaign live, organiser ID verified, no open AML alert, no open dispute, and enough balance after fees. Payouts need all checks to pass before approval.</p>${TBH(["Request", "Organiser", "Amount", "Send to", "Checks", "Status", ""], rows)}`,
+              4,
+            )
+          );
+        },
+        Disputes() {
+          const n = (s) => DISP.filter((d) => d.status == s).length;
+          return (
+            KP([
+              ["Open", n("Open")],
+              ["Under review", n("Under review")],
+              ["Escalated", n("Escalated")],
+              ["Resolved", n("Resolved")],
+            ]) +
+            SEC(
+              "Disputes and reports",
+              `<input class="srch" data-filter placeholder="Search disputes" aria-label="Search disputes">${TBH(
+                ["Case", "Type", "Campaign", "Reported by", "Amount", "Status", ""],
+                DISP.map(
+                  (d) =>
+                    `<tr data-s="${esc((d.id + d.type + d.by + cn(d.cid)).toLowerCase())}"><td>${d.id}<br><span class="muted">${fd(d.t)}</span></td><td>${d.type}</td><td>${esc(cn(d.cid))}</td><td>${esc(d.by)}</td><td>${d.amt ? fm(d.amt) : "–"}</td><td>${BDG(d.status)}</td><td class="ac">${ABT("d-open", d.id, "Review")}</td></tr>`,
+                ),
+              )}`,
+              4,
+            )
+          );
+        },
+        Compliance() {
+          const open = ALERTS.filter((a) => ["Open", "Under review"].includes(a.status)).length,
+            held = TX.filter((t) => t.s == "Held"),
+            all = accounts();
+          const kyc = kycQ().map(
+            (u) =>
+              `<tr><td><b>${esc(u.name)}</b><br><span class="muted">${esc(u.email)}</span></td><td>${esc(u.kyc.idType || "")}<br><span class="muted">${mask(u.kyc.idNum)}</span></td><td>${u.kyc.submitted ? fd(u.kyc.submitted) : "–"}</td><td>${u.screen && u.screen.hit ? `<span class="bd rk">Match ${Math.round(u.screen.score * 100)}%</span><br><span class="muted">${esc(u.screen.list)}</span>` : '<span class="bd">Clear</span>'}${u.kyc.flag ? `<br><span class="muted">${esc(u.kyc.flag)}</span>` : ""}</td><td class="ac">${ABT("u-view", u.id, "View", "no")}${ABT("kyc-ok", u.id, "Approve")}${ABT("kyc-no", u.id, "Reject", "no")}</td></tr>`,
+          );
+          const al = ALERTS.map(
+            (a) =>
+              `<tr><td>${a.id}<br><span class="muted">${fd(a.t)}</span></td><td>${a.type}</td><td>${esc(a.who)}</td><td>${esc(a.det)}${a.score ? `<br><span class="muted">Match score ${Math.round(a.score * 100)}%</span>` : ""}${a.notes.length ? `<br><span class="muted">${esc(a.notes.at(-1))}</span>` : ""}</td><td>${BDG(a.status)}</td><td class="ac">${["Open", "Under review"].includes(a.status) ? (a.status == "Open" ? ABT("al-rev", a.id, "Review", "no") : "") + ABT("al-clear", a.id, "Clear") + ABT("al-esc", a.id, "File STR", "no") : ""}</td></tr>`,
+          );
+          const hl = held.map(
+            (t) =>
+              `<tr><td>${t.id}<br><span class="muted">${fd(t.dt)}</span></td><td>${esc(t.n)}</td><td>${fm(t.a)}</td><td>${esc(cn(t.c))}</td><td class="ac">${ABT("tx-ok", t.id, "Release")}${ABT("tx-no", t.id, "Reject and refund", "no")}</td></tr>`,
+          );
+          const R = SET,
+            rules = `<form class="fgrid" data-aform="rules">${ifld("Large gift alert (GH₵)", "large", R.large)}${ifld("Structuring: gifts", "structN", R.structN)}${ifld("Structuring: total (GH₵)", "structSum", R.structSum)}${ifld("Structuring window (hours)", "structHrs", R.structHrs)}${ifld("Unverified gift limit (GH₵)", "kycGift", R.kycGift)}${ifld("Unverified monthly limit (GH₵)", "kycMonth", R.kycMonth)}${ifld("Name match threshold (0 to 1)", "match", R.match, 'min="0.5" max="1"')}<div style="align-self:end"><button class="btn">Save rules</button></div></form>`;
+          const au = AUD.slice(0, 15).map(
+            (x) =>
+              `<tr><td>${when(x.t)}</td><td>${esc(x.who)}</td><td>${esc(x.act)}</td><td class="muted">${esc(x.det)}</td></tr>`,
+          );
+          return (
+            KP([
+              ["ID checks waiting", kycQ().length],
+              ["Open AML alerts", open],
+              ["Gifts on hold", held.length],
+              [
+                "Verified users",
+                Math.round((all.filter((u) => u.kyc.status == "verified").length / all.length) * 100) + "%",
+              ],
+            ]) +
+            SEC(
+              "KYC queue",
+              TBH(["Person", "ID", "Submitted", "Screening", ""], kyc, "No identity checks are waiting."),
+            ) +
+            SEC(
+              "AML alerts",
+              TBH(["Alert", "Type", "Subject", "Detail", "Status", ""], al, "No alerts."),
+              5,
+            ) +
+            SEC(
+              "Gifts on hold",
+              TBH(["Gift", "Donor", "Amount", "Campaign", ""], hl, "No gifts are on hold."),
+              6,
+            ) +
+            SEC(
+              "Monitoring rules",
+              rules +
+                '<p class="muted note">Name screening here uses a small demo watchlist. Connect a licensed sanctions and PEP provider before going live.</p>',
+              7,
+            ) +
+            SEC("Audit trail", TBH(["When", "Who", "Action", "Detail"], au), 8)
+          );
+        },
+        "Fees & FX"() {
+          const g = grossFees(),
+            cats = Object.keys(CAT);
+          const fees = `<form class="form" data-aform="fees"><div class="fgrid">${ifld("Platform fee (%)", "pct", SET.platformPct, 'min="0" max="20"')}${ifld("Minimum payout (GH₵)", "minp", SET.minPayout)}${ifld("Payout review (working days)", "hold", SET.holdDays)}</div><span class="fl">Categories with no platform fee</span><div class="chks2">${cats.map((c) => `<label class="opt"><input type="checkbox" name="w_${esc(c)}" ${SET.waive.includes(c) ? "checked" : ""}>${c}</label>`).join("")}</div><span class="fl">Payment processing costs</span>${TBH(
+            ["Method", "Percent (%)", "Fixed (GH₵)"],
+            MK.map(
+              (k, i) =>
+                `<tr><td>${MN[i]}</td><td><input name="p_${k}" type="number" step="any" value="${SET.fees[k].p}"></td><td><input name="f_${k}" type="number" step="any" value="${SET.fees[k].f}"></td></tr>`,
+            ),
+          )}<div><button class="btn">Save fees</button></div></form>`;
+          const calcBox = `<div class="fgrid"><label>Gift amount (GH₵)<input type="number" data-calc id="ca" value="1000"></label><label>Method<select data-calc id="cm">${MK.map((k, i) => `<option value="${k}">${MN[i]}</option>`).join("")}</select></label><label>Category<select data-calc id="cc">${cats.map((c) => `<option>${c}</option>`).join("")}</select></label></div><div class="bx" id="cr" style="margin-top:12px"></div>`;
+          const fx = `<form class="form" data-aform="fx"><div class="fgrid">${Object.keys(FX)
+            .filter((k) => k != "GHS")
+            .map((k) => ifld(`1 ${k} = GH₵`, "fx_" + k, FX[k], 'min="0.0001"'))
+            .join(
+              "",
+            )}</div><p class="muted note">Sample rates. Connect a live FX source and set a margin before going live. Donors see amounts in their chosen currency; campaigns are credited in cedis.</p><div><button class="btn">Update rates</button></div></form>`;
+          setTimeout(calc, 0);
+          return (
+            KP([
+              ["Gift volume (confirmed)", fm(g.vol)],
+              ["Platform fees", fm(g.pl)],
+              ["Processing costs", fm(g.pr)],
+              ["Effective fee rate", (((g.pl + g.pr) / (g.vol || 1)) * 100).toFixed(1) + "%"],
+            ]) +
+            SEC("Fee schedule", fees, 4) +
+            SEC("Fee calculator", calcBox, 5) +
+            SEC("Exchange rates", fx, 6)
+          );
+        },
+        Donations() {
+          const rows = TX.slice(0, 150).map((t) => {
+            const f = feeFor(t);
+            return `<tr data-s="${esc((t.n + t.id + cn(t.c)).toLowerCase())}" data-st="${t.s}"><td>${t.id}<br><span class="muted">${fd(t.dt)}</span></td><td>${esc(t.n)}</td><td>${fmc(toG(t.ca, t.cur), t.cur)}${t.cur != "GHS" ? `<br><span class="muted">≈ ${fm(t.a)}</span>` : ""}</td><td>${MN[MK.indexOf(t.m)]}</td><td>${esc(cn(t.c))}</td><td>${t.s == "Confirmed" ? fm(f.tot) : "–"}</td><td>${BDG(t.s)}</td><td class="ac">${["Pending", "Held"].includes(t.s) ? ABT("tx-ok", t.id, t.s == "Held" ? "Release" : "Confirm receipt") : ""}</td></tr>`;
+          });
+          return SEC(
+            "All donations",
+            `<div class="fgrid"><input class="srch" data-filter placeholder="Search donor, campaign or ID" aria-label="Search donations"><select data-fsel aria-label="Status"><option value="">All statuses</option>${["Confirmed", "Pending", "Held", "Refunded"].map((s) => `<option>${s}</option>`).join("")}</select></div><p class="muted note">Showing the latest 150. Amounts show what the donor paid and the cedi value credited.</p>${TBH(["Gift", "Donor", "Paid", "Method", "Campaign", "Fee", "Status", ""], rows)}`,
+          );
+        },
+        Users() {
+          const rows = accounts().map(
+            (u) =>
+              `<tr data-s="${esc((u.name + u.email + u.country + u.role).toLowerCase())}"><td><b>${esc(u.name)}</b><br><span class="muted">${esc(u.email)}</span></td><td>${esc(u.role)}</td><td>${esc(u.country)}</td><td>${BDG(u.kyc.status, KYL[u.kyc.status])}</td><td>${u.twofa ? "On" : "Off"}</td><td>${BDG(u.status)}</td><td>${BDG(u.risk)}</td><td>${fd(u.joined)}</td><td class="ac">${ABT("u-view", u.id, "View profile", "no")}</td></tr>`,
+          );
+          return SEC(
+            `Registered users (${rows.length})`,
+            `<input class="srch" data-filter placeholder="Search name, email or country" aria-label="Search users">${TBH(["User", "Role", "Country", "ID check", "2-step", "Status", "Risk", "Joined", ""], rows)}`,
+          );
+        },
+      });
+
+      /* ---- dialogs: dispute case and full user profile ---- */
+      function disDlg(id) {
+        const x = DISP.find((d) => d.id == id),
+          c = C.find((k) => k.id == x.cid) || {},
+          closed = x.status == "Resolved";
+        openDlg(
+          `<div class="form"><h2 style="font-size:1.4rem">${x.id} · ${x.type}</h2><div class="bx">${kv2("Campaign", esc(c.t || "(removed)"))}${kv2("Reported by", esc(x.by) + " · " + esc(x.email))}${kv2("Opened", fd(x.t))}${kv2("Amount", x.amt ? fm(x.amt) : "–")}${kv2("Linked gift", x.txid || "–")}${kv2("Status", x.status)}${x.outcome ? kv2("Outcome", esc(x.outcome)) : ""}</div><p style="margin:0"><b>What the reporter said</b><br>${esc(x.desc)}</p><div><b>Case notes</b>${x.thread.map((m) => `<div class="kv"><span>${esc(m.msg)}</span><b>${when(m.t)}</b></div>`).join("") || '<p class="muted" style="margin:4px 0 0">No notes yet.</p>'}</div>
+${closed ? "" : `<label>Add a note<input id="dn" placeholder="Visible to staff only"></label><div class="row">${ABT("d-note", x.id, "Save note", "no")}${x.status == "Open" ? ABT("d-review", x.id, "Start review", "no") : ""}${x.amt ? ABT("d-refund", x.id, "Refund donor") : ""}${ABT("d-dismiss", x.id, "Dismiss", "no")}${ABT("d-esc", x.id, "Escalate", "no")}${c.id ? ABT("d-freeze", x.id, "Freeze campaign", "no") : ""}</div>`}<button type="button" class="chip" id="dcl">Close</button></div>`,
+          true,
+        );
+        $("#dcl").onclick = () => $("#dlg").close();
+      }
+      function userDlg(id) {
+        const u = accounts().find((x) => x.id == id),
+          k = u.kyc,
+          gifts = TX.filter((t) => t.em == u.email),
+          pays = PAY.filter((p) => p.email == u.email),
+          camps = C.filter((c) => c.owner == u.email);
+        openDlg(
+          `<div class="form"><div class="phd" style="padding:0;border:0;background:none"><span class="av" style="background:hsl(${u.color} 45% 32%)">${esc(ini(u.name))}</span><div><h2 style="font-size:1.4rem;margin:0">${esc(u.name)}</h2><p class="muted" style="margin:2px 0 0">${esc(u.role)} · ${u.id}</p></div></div>
+<div class="ug"><div class="bx"><b>Profile</b>${kv2("Email", esc(u.email))}${kv2("Phone", esc(u.phone || "–"))}${kv2("Country", esc(u.country))}${kv2("City", esc(u.city || "–"))}${kv2("Address", esc(u.address || "–"))}${kv2("Date of birth", u.dob ? fd(u.dob) : "–")}${kv2("Organisation", esc(u.org || "–"))}${kv2("Currency", u.cur)}${kv2("Joined", fd(u.joined))}${u.bio ? `<p class="muted" style="margin:6px 0 0">${esc(u.bio)}</p>` : ""}</div>
+<div class="bx"><b>Verification and risk</b>${kv2("ID check", KYL[k.status])}${kv2("ID type", esc(k.idType || "–"))}${kv2("ID number", mask(k.idNum))}${kv2("Legal name", esc(k.legal || "–"))}${kv2("Documents", esc(k.doc || "–"))}${kv2("Submitted", k.submitted ? fd(k.submitted) : "–")}${k.reason ? kv2("Rejection reason", esc(k.reason)) : ""}${kv2("Sanctions screen", u.screen ? (u.screen.hit ? `Match ${Math.round(u.screen.score * 100)}% (${esc(u.screen.list)})` : "Clear") : "Not run")}${kv2("Risk rating", `<select id="rk" data-id="${u.id}">${["Low", "Medium", "High"].map((r) => `<option ${r == u.risk ? "selected" : ""}>${r}</option>`).join("")}</select>`)}</div>
+<div class="bx"><b>Security</b>${kv2("Account status", u.status)}${kv2("Two-step sign-in", u.twofa ? "On" : "Off")}${kv2("Last sign-in", u.log[0] ? when(u.log[0].t) + " · " + esc(u.log[0].dev) : "–")}${kv2("Sign-ins recorded", u.log.length)}</div>
+<div class="bx"><b>Activity</b>${kv2("Gifts", gifts.length + " · " + fm(sum(gifts, (t) => t.a)))}${kv2("Campaigns", camps.length)}${kv2("Payouts", pays.length + " · " + fm(sum(pays, (p) => p.amt)))}${kv2("Reports filed", DISP.filter((d) => d.email == u.email).length)}</div></div>
+<div><b>Internal notes</b>${u.notes.map((m) => `<div class="kv"><span>${esc(m.msg)}</span><b>${when(m.t)}</b></div>`).join("") || '<p class="muted" style="margin:4px 0 0">No notes.</p>'}</div><label>Add a note<input id="un2" placeholder="Visible to staff only"></label>
+<div class="row">${ABT("u-note", u.id, "Save note", "no")}${k.status == "pending" ? ABT("kyc-ok", u.id, "Approve ID") + ABT("kyc-no", u.id, "Reject ID", "no") : ""}${u.twofa ? ABT("u-2fa", u.id, "Reset 2-step", "no") : ""}${ABT("u-fpw", u.id, "Force password reset", "no")}${ABT("u-sus", u.id, u.status == "Suspended" ? "Reactivate" : "Suspend", u.status == "Suspended" ? "ok" : "no")}</div><button type="button" class="chip" id="ucl">Close</button></div>`,
+          true,
+        );
+        $("#ucl").onclick = () => $("#dlg").close();
+      }
+
+      /* ---- admin actions ---- */
+      const A = { who: "admin" };
+      const reAdmin = () => {
+        const d = $("#dlg");
+        if (d.open) d.close();
+        admin();
+      };
+      document.addEventListener("click", (e) => {
+        const b = e.target.closest("[data-a]");
+        if (!b || !ADM) return;
+        const a = b.dataset.a,
+          id = b.dataset.id,
+          find = (arr) => arr.find((x) => x.id == id),
+          C1 = () => C.find((c) => c.id == +id);
+        const U1 = () => accounts().find((u) => u.id == id),
+          done2 = (msg, act, det) => {
+            audit(A.who, act, det || id);
+            saveU();
+            toast(msg);
+            reAdmin();
+          };
+        if (a == "cm-ok") {
+          const p = PEND[+id],
+            n = Math.max(...C.map((c) => c.id)) + 1;
+          C.unshift({
+            id: n,
+            t: p.t,
+            o: p.o,
+            r: p.r,
+            c: p.c,
+            g: p.g,
+            s: 0,
+            d: 0,
+            days: 30,
+            m: "m" + (p.goods ? "g" : "") + (p.vol ? "v" : ""),
+            story: p.s,
+            goods: p.goods ? ["Items the organiser will list soon"] : [],
+            roles: p.vol ? ["Role details coming soon"] : [],
+            start: iso(TODAY),
+            age: 0,
+            img: "campaign-" + n,
+            status: "Live",
+            owner: p.owner || "",
+          });
+          PEND.splice(+id, 1);
+          done2("Approved and published.", "Campaign approved", p.t);
+        }
+        if (a == "cm-chg")
+          ask(
+            "Request changes",
+            "What should the organiser fix?",
+            (v) => {
+              PEND[+id].chg = v;
+              done2("Changes requested.", "Changes requested", PEND[+id].t + ": " + v);
+            },
+            "Send request",
+          );
+        if (a == "cm-no")
+          ask(
+            "Reject campaign",
+            "Reason (shared with the organiser)",
+            (v) => {
+              const p = PEND.splice(+id, 1)[0];
+              done2("Campaign rejected.", "Campaign rejected", p.t + ": " + v);
+            },
+            "Reject",
+          );
+        if (a == "cs-live") {
+          C1().status = "Live";
+          done2("Campaign is live again.", "Campaign restored", C1().t);
+        }
+        if (["cs-pause", "cs-freeze", "cs-rm"].includes(a))
+          ask(
+            { "cs-pause": "Pause campaign", "cs-freeze": "Freeze campaign", "cs-rm": "Remove campaign" }[a],
+            "Reason (kept in the audit trail)",
+            (v) => {
+              C1().status = { "cs-pause": "Paused", "cs-freeze": "Frozen", "cs-rm": "Removed" }[a];
+              done2(
+                "Campaign " + C1().status.toLowerCase() + ".",
+                "Campaign " + C1().status.toLowerCase(),
+                C1().t + ": " + v,
+              );
+            },
+            "Confirm",
+          );
+        if (a == "py-ok") {
+          const p = find(PAY);
+          if (pchecks(p).every((x) => x[1])) {
+            p.status = "Approved";
+            done2("Payout approved.", "Payout approved", p.id);
+          } else toast("Some checks are failing.");
+        }
+        if (a == "py-paid") {
+          const p = find(PAY);
+          p.status = "Paid";
+          p.dt2 = iso(TODAY);
+          done2("Funds released (demo).", "Payout released", p.id + " " + fm(p.amt));
+        }
+        if (a == "py-res") {
+          const p = find(PAY);
+          p.status = "Pending";
+          p.note = "";
+          done2("Payout back in the queue.", "Payout resumed", p.id);
+        }
+        if (a == "py-hold")
+          ask(
+            "Hold payout",
+            "Reason",
+            (v) => {
+              const p = find(PAY);
+              p.status = "Held";
+              p.note = "Held: " + v;
+              done2("Payout held.", "Payout held", p.id + ": " + v);
+            },
+            "Hold",
+          );
+        if (a == "py-no")
+          ask(
+            "Reject payout",
+            "Reason (shared with the organiser)",
+            (v) => {
+              const p = find(PAY);
+              p.status = "Rejected";
+              p.note = "Rejected: " + v;
+              done2("Payout rejected.", "Payout rejected", p.id + ": " + v);
+            },
+            "Reject",
+          );
+        if (a == "d-open") disDlg(id);
+        if (a == "d-note") {
+          const v = $("#dn").value.trim();
+          if (!v) return;
+          find(DISP).thread.push({ t: Date.now(), who: "admin", msg: v });
+          audit(A.who, "Dispute note", id);
+          disDlg(id);
+        }
+        if (a == "d-review") {
+          find(DISP).status = "Under review";
+          done2("Case is under review.", "Dispute under review");
+        }
+        if (a == "d-esc") {
+          const x = find(DISP);
+          x.status = "Escalated";
+          if (/Fraud/.test(x.type))
+            amlAlert("Suspected fraud", cn(x.cid), "Escalated from dispute " + x.id, x.amt, 0, "c:" + x.cid);
+          done2("Case escalated.", "Dispute escalated");
+        }
+        if (a == "d-freeze") {
+          const x = find(DISP),
+            c = C.find((k) => k.id == x.cid);
+          c.status = "Frozen";
+          done2("Campaign frozen.", "Campaign frozen", c.t);
+        }
+        if (a == "d-dismiss")
+          ask(
+            "Dismiss case",
+            "Note to the reporter",
+            (v) => {
+              const x = find(DISP);
+              x.status = "Resolved";
+              x.outcome = "Dismissed: " + v;
+              done2("Case dismissed.", "Dispute dismissed", id);
+            },
+            "Dismiss",
+          );
+        if (a == "d-refund")
+          ask(
+            "Refund the donor",
+            "Note to the donor",
+            (v) => {
+              const x = find(DISP),
+                t = TX.find((k) => k.id == x.txid),
+                c = C.find((k) => k.id == x.cid);
+              if (t && t.s == "Confirmed") {
+                t.s = "Refunded";
+              }
+              if (c) {
+                c.s = Math.max(0, c.s - x.amt);
+                c.d = Math.max(0, c.d - 1);
+              }
+              x.status = "Resolved";
+              x.outcome = "Refunded " + fm(x.amt);
+              done2("Refund recorded.", "Refund issued", id + " " + fm(x.amt));
+            },
+            "Refund",
+          );
+        if (a == "kyc-ok") {
+          const u = U1();
+          u.kyc.status = "verified";
+          u.kyc.tier = 2;
+          u.kyc.reviewed = iso(TODAY);
+          u.kyc.reason = "";
+          done2("ID verified.", "KYC approved", u.email);
+        }
+        if (a == "kyc-no")
+          ask(
+            "Reject ID check",
+            "Reason (shown to the user)",
+            (v) => {
+              const u = U1();
+              u.kyc.status = "rejected";
+              u.kyc.reason = v;
+              done2("ID check rejected.", "KYC rejected", u.email + ": " + v);
+            },
+            "Reject",
+          );
+        if (["al-rev", "al-clear", "al-esc"].includes(a)) {
+          const x = find(ALERTS);
+          if (a == "al-rev") {
+            x.status = "Under review";
+            done2("Alert under review.", "Alert reviewed");
+          } else
+            ask(
+              a == "al-clear" ? "Clear alert" : "File suspicious transaction report",
+              "Note for the record",
+              (v) => {
+                x.status = a == "al-clear" ? "Cleared" : "Escalated";
+                x.notes.push(
+                  a == "al-clear" ? v : "STR filed with the Financial Intelligence Centre (demo). " + v,
+                );
+                done2(
+                  a == "al-clear" ? "Alert cleared." : "STR recorded.",
+                  a == "al-clear" ? "Alert cleared" : "STR filed",
+                );
+              },
+              "Confirm",
+            );
+        }
+        if (a == "tx-ok") {
+          const t = find(TX),
+            c = C.find((k) => k.id == t.c);
+          t.s = "Confirmed";
+          if (c) {
+            c.s += t.a;
+            c.d++;
+          }
+          done2("Gift confirmed and credited.", "Gift confirmed", id);
+        }
+        if (a == "tx-no") {
+          const t = find(TX);
+          t.s = "Refunded";
+          done2("Gift rejected and refunded.", "Gift rejected", id);
+        }
+        if (a == "u-view") userDlg(id);
+        if (a == "u-note") {
+          const v = $("#un2").value.trim(),
+            u = U1();
+          if (!v) return;
+          u.notes.push({ t: Date.now(), who: "admin", msg: v });
+          saveU();
+          audit(A.who, "User note", u.email);
+          userDlg(id);
+        }
+        if (a == "u-sus") {
+          const u = U1();
+          u.status = u.status == "Suspended" ? "Active" : "Suspended";
+          done2("Account " + u.status.toLowerCase() + ".", "Account " + u.status.toLowerCase(), u.email);
+        }
+        if (a == "u-2fa") {
+          const u = U1();
+          u.twofa = false;
+          done2("Two-step sign-in reset.", "2FA reset", u.email);
+        }
+        if (a == "u-fpw") {
+          const u = U1();
+          u.log.unshift({ t: Date.now(), ev: "Password reset required by staff", dev: "Admin" });
+          done2(
+            "The user must reset their password at next sign-in (demo).",
+            "Forced password reset",
+            u.email,
+          );
+        }
+      });
+      document.addEventListener("change", (e) => {
+        if (e.target.id == "rk" && ADM) {
+          const u = accounts().find((x) => x.id == e.target.dataset.id);
+          u.risk = e.target.value;
+          saveU();
+          audit(A.who, "Risk rating set", u.email + " → " + u.risk);
+          toast("Risk rating saved.");
+        }
+      });
+      document.addEventListener("submit", (e) => {
+        const f = e.target.closest("form[data-aform]");
+        if (!f || !ADM) return;
+        e.preventDefault();
+        const v = Object.fromEntries(new FormData(f)),
+          k = f.dataset.aform;
+        if (k == "rules") {
+          ["large", "structN", "structSum", "structHrs", "kycGift", "kycMonth", "match"].forEach(
+            (n) => (SET[n] = +v[n]),
+          );
+          audit(A.who, "AML rules updated");
+        }
+        if (k == "fees") {
+          SET.platformPct = +v.pct;
+          SET.minPayout = +v.minp;
+          SET.holdDays = +v.hold;
+          SET.waive = Object.keys(CAT).filter((c) => v["w_" + c]);
+          MK.forEach((m) => (SET.fees[m] = { p: +v["p_" + m], f: +v["f_" + m] }));
+          audit(A.who, "Fee schedule updated", SET.platformPct + "% platform fee");
+        }
+        if (k == "fx") {
+          Object.keys(FX)
+            .filter((c) => c != "GHS")
+            .forEach((c) => (FX[c] = +v["fx_" + c] || FX[c]));
+          audit(A.who, "Exchange rates updated");
+        }
+        saveSet();
+        toast("Saved.");
+        admin();
+      });
+      /* live search, status filter and fee calculator */
+      function tfilter(el) {
+        const pn = el.closest(".pn"),
+          q = ((pn.querySelector("[data-filter]") || {}).value || "").toLowerCase(),
+          st = (pn.querySelector("[data-fsel]") || {}).value || "";
+        pn.querySelectorAll("tr[data-s]").forEach(
+          (r) => (r.hidden = (q && !r.dataset.s.includes(q)) || (st && r.dataset.st != st)),
+        );
+      }
+      document.addEventListener("input", (e) => {
+        if (e.target.matches("[data-filter]")) tfilter(e.target);
+        if (e.target.matches("[data-calc]")) calc();
+      });
+      document.addEventListener("change", (e) => {
+        if (e.target.matches("[data-fsel]")) tfilter(e.target);
+        if (e.target.matches("[data-calc]")) calc();
+      });
+      function calc() {
+        const r = $("#cr");
+        if (!r) return;
+        const t = {
+            a: +$("#ca").value || 0,
+            m: $("#cm").value,
+            c: (C.find((c) => c.c == $("#cc").value) || {}).id,
+          },
+          f = feeFor(t);
+        r.innerHTML =
+          kv2("Platform fee", fm(f.pl)) +
+          kv2("Processing cost", fm(f.pr)) +
+          kv2("Total fees", fm(f.tot)) +
+          kv2("Reaches the campaign", fm(t.a - f.tot)) +
+          kv2("Effective rate", (t.a ? (f.tot / t.a) * 100 : 0).toFixed(2) + "%");
+      }
 
       function admin() {
         const a = $("#app");
@@ -4738,32 +6976,52 @@ ${RF.charts && E.length ? `<h4>Raised by region in this period</h4><div class="p
 </div>`;
           $("#af").onsubmit = (e) => {
             e.preventDefault();
-            if (
-              $("#ae").value.trim().toLowerCase() == "admin@wolemimpact.org" &&
-              $("#ap").value == "Wolem@2026"
-            ) {
-              ADM = true;
-              admin();
-            } else $("#aer").textContent = "Email or passcode is incorrect.";
+            const em = $("#ae").value.trim().toLowerCase();
+            if (locked("admin"))
+              return ($("#aer").textContent = "Too many attempts. Try again in a few minutes.");
+            if (em == "admin@wolemimpact.org" && $("#ap").value == "Wolem@2026") {
+              cleared("admin");
+              otp("Staff two-step verification", () => {
+                ADM = true;
+                audit("admin", "Staff signed in");
+                bump();
+                admin();
+              });
+            } else {
+              failed("admin");
+              audit(em || "unknown", "Failed staff sign-in");
+              $("#aer").textContent = "Email or passcode is incorrect.";
+            }
           };
           return;
         }
-        const T = ["Overview", "Insights", "Campaigns", "Donations", "Users", "Reports"],
-          ic = ["◔", "✧", "✦", "₵", "☺", "▤"];
+        const T = [
+            "Overview",
+            "Insights",
+            "Campaigns",
+            "Payouts",
+            "Disputes",
+            "Compliance",
+            "Fees & FX",
+            "Donations",
+            "Users",
+            "Reports",
+          ],
+          ic = ["▦", "✧", "✦", "⇄", "⚖", "⛨", "%", "₵", "☺", "▤"];
         a.innerHTML = `<div class="ad${AT == "Reports" ? " rep" : ""}${SBC ? " sbc" : ""}">
 <aside class="as">
 <a class="alogo" href="#home" title="Back to the public site" aria-label="WOLEM Impact public site"><img src="${$("footer img").src}" alt="WOLEM impact"></a>
 <button class="sbt" data-tg="sb" aria-expanded="${!SBC}" title="${SBC ? "Expand" : "Collapse"} sidebar"><span class="ic">‹</span><span class="lb">Collapse</span></button>
 <nav>${T.map(
           (t, i) => `<button class="${t == AT ? "on" : ""}" data-t="${t}" title="${t}">
-<span class="ic">${ic[i]}</span><span class="lb">${t}</span>${t == "Campaigns" && PEND.length ? `<em>${PEND.length}</em>` : ""}</button>`,
+<span class="ic">${ic[i]}</span><span class="lb">${t}</span>${badge(t)}</button>`,
         ).join("")}</nav>
 <button class="ex" id="ax" title="Exit dashboard"><span class="ic">↩</span><span class="lb">Exit dashboard</span></button>
 </aside>
 <section class="am">
 <div class="at">
 <h2>${AT}</h2>
-<span class="muted">Tue 24 Nov 2026 · Sample data plus live demo activity</span>
+<span class="muted">${fd(iso(TODAY))} · Sample data plus live demo activity</span>
 </div>${AV[AT]()}</section>
 </div>`;
         const red = matchMedia("(prefers-reduced-motion:reduce)").matches;
